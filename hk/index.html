@@ -84,20 +84,27 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.87em;background:var(
 footer{max-width:720px;margin:0 auto;padding:4px 14px 30px;font-size:12px;color:var(--muted);line-height:1.7}
 footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
 
-.cprow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
-.cprow:last-child{border-bottom:0}
-.cprow .k{flex:0 0 auto;font-size:12.5px;color:var(--muted);font-weight:600;min-width:58px}
-.cprow .v{flex:1 1 auto;font-size:13.5px;word-break:break-all;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC",monospace}
-.cprow .v.plain{font-family:inherit;color:var(--muted)}
-.cpbtn{flex:0 0 auto;font-size:12px;padding:4px 10px;border-radius:8px;border:1px solid var(--line);background:var(--chip,var(--card2,#eef0f3));color:var(--text);cursor:pointer;font-weight:600}
-.cpbtn:active{transform:scale(.96)}
-.cpbtn.ok{background:#0e8a5f;border-color:#0e8a5f;color:#fff}
-#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:rgba(20,22,26,.92);color:#fff;font-size:13px;padding:9px 16px;border-radius:999px;opacity:0;transition:.22s;pointer-events:none;z-index:99}
-#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-
-#ckbar{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:12.5px;color:var(--muted)}
-.ckcnt{font-weight:600}
-.ckreset{font-size:12px;padding:3px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+.wx{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.wx-h{background:var(--card2,#f7f8fa);padding:8px 12px;font-size:13px;font-weight:700}
+.wx-r{display:flex;gap:10px;padding:8px 12px;border-top:1px solid var(--line);font-size:13px}
+.wx-r b{flex:0 0 84px;color:var(--muted)}
+.wx-r span{flex:1 1 auto}
+.wx-note{padding:7px 12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+details.fold>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary .fh{margin-left:auto;font-size:11.5px;font-weight:600;color:var(--muted);background:var(--chip,var(--card2,#eef0f3));border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+details.fold[open]>summary{margin-bottom:10px}
+details.fold[open]>summary .fh::after{content:"（已展开）"}
+.mapwrap{margin:6px 0 10px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.mapwrap svg{display:block;background:#f2f4f7}
+.maplink{display:flex;gap:8px;padding:8px;border-top:1px solid var(--line);flex-wrap:wrap}
+.nvg{display:inline-flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.navbtn{font-size:11.5px;padding:3px 9px;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid var(--line)}
+.navbtn.am{background:#e8f3ff;color:#1f6feb;border-color:#cfe3ff}
+.navbtn.gm{background:#eef7f0;color:#0e8a5f;border-color:#cde9d6}
+@media(prefers-color-scheme:dark){.navbtn.am{background:#12233b;color:#7db4ff;border-color:#1e3559}.navbtn.gm{background:#12271d;color:#5fd39d;border-color:#1d3d2c}}
+.addr{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;margin:3px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+.addr .v{background:var(--chip,var(--card2,#eef0f3));border:1px solid var(--line);border-radius:6px;padding:2px 6px}
 </style>
 </head>
 <body>
@@ -108,8 +115,9 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
     <a href="#d1">周六 9/12</a>
     <a href="#d2">周日 9/13</a>
     <a href="#traffic">交通怎么坐</a>
-    <a href="#ticket">红馆取票</a>
     <a href="#hsbc">汇丰开户</a>
+    <a href="#ticket">红馆取票</a>
+    <a href="#medicine">买药清单</a>
     <a href="#checklist">准备清单</a>
   </nav>
 </header>
@@ -127,6 +135,12 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
       </div>
       <div class="callout info" style="margin-top:12px">
         信息核验：2026年9月9日。天气待出发前复核香港天文台；高铁车次与航班以实际订单为准。
+      </div>
+      <div class="wx">
+        <div class="wx-h">🌦️ 天气（香港天文台 9/11 16:30 预报）</div>
+        <div class="wx-r"><b>9/12 周六</b><span>25–31°C · 大致多云，有几阵骤雨，日间短暂有阳光；<b>稍后骤雨增多及有雷暴</b> · 降雨概率 中高</span></div>
+        <div class="wx-r"><b>9/13 周日</b><span>25–29°C · 大致多云，有几阵骤雨，<b>部分地区雨势较大及有狂风雷暴</b>；稍后骤雨渐减 · 降雨概率 高</span></div>
+        <div class="wx-note">两天都请带伞；海有涌浪，天星小轮可能较晃。出发前可再看一次天文台最新预报。</div>
       </div>
     </div>
   </section>
@@ -169,8 +183,27 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
       </div>
     </div>
 
-    <div class="card" style="margin-top:10px">
-      <div class="h3">🚶 旺角散步路线 · 约35分钟（不折返）</div>
+    <details class="card fold" style="margin-top:10px" open>
+      <summary>🚶 旺角散步路线 · 约35分钟（不折返）<span class="fh">展开地图</span></summary>
+      <div class="mapwrap">
+        <svg viewBox="0 0 340 240" width="100%" height="auto" role="img" aria-label="旺角散步路线示意图">
+          <rect x="0" y="0" width="340" height="240" rx="12" fill="#f2f4f7"/>
+          <g font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+          <path d="M42 205 L60 150 L120 138 L150 96 L235 88 L300 46" fill="none" stroke="#c8102e" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="1 0"/>
+          <circle cx="42" cy="205" r="6" fill="#1f6feb"/><text x="52" y="210" font-size="11" fill="#334">🏨 酒店</text>
+          <circle cx="60" cy="150" r="5.5" fill="#e5b567"/><text x="70" y="154" font-size="11" fill="#334">金華冰廳</text>
+          <circle cx="120" cy="138" r="5.5" fill="#e5b567"/><text x="130" y="142" font-size="11" fill="#334">奇趣饼家</text>
+          <circle cx="150" cy="96" r="5.5" fill="#4fd1b0"/><text x="160" y="100" font-size="11" fill="#334">金鱼街</text>
+          <circle cx="235" cy="88" r="6" fill="#0e8a5f"/><text x="245" y="84" font-size="11" fill="#334">榮園麵家</text>
+          <circle cx="300" cy="46" r="6" fill="#7048c8"/><text x="250" y="38" font-size="11" fill="#334">旺角东站→红磡</text>
+          <text x="46" y="150" font-size="9" fill="#889">弼街</text>
+          <text x="126" y="128" font-size="9" fill="#889">花园街</text>
+          <text x="156" y="118" font-size="9" fill="#889">通菜街</text>
+          <text x="240" y="108" font-size="9" fill="#889">西洋菜南街</text>
+          </g>
+        </svg>
+        <div class="maplink"><span class="nvg"><a class="navbtn am" href="https://uri.amap.com/search?keyword=%E6%97%BA%E8%A7%92%20%E8%8A%B1%E5%9B%AD%E8%A1%97%20%E9%87%91%E9%B1%BC%E8%A1%97%20%E9%80%9A%E8%8F%9C%E8%A1%97&city=香港" target="_blank" rel="noopener">高德导航</a><a class="navbtn gm" href="https://www.google.com/maps/search/?api=1&query=%E6%97%BA%E8%A7%92%20%E8%8A%B1%E5%9B%AD%E8%A1%97%20%E9%87%91%E9%B1%BC%E8%A1%97%20%E9%80%9A%E8%8F%9C%E8%A1%97" target="_blank" rel="noopener">Google 地图</a></span></div>
+      </div>
       <div class="guide">
         <ol>
           <li>酒店出门 → <b>窝打老道</b>向旺角方向（西南）步行约 10–12 分钟</li>
@@ -182,7 +215,8 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
         </ol>
       </div>
       <div class="callout">📍 沿途小吃：<b>金華冰廳</b>（弼街47号，06:30–23:30，点单说「菠萝油」不是「菠萝包」）／<b>奇趣饼家</b>（花园街135号，现烤老婆饼、蛋卷）／<b>肥姐小食店</b>（登打士街55号，15:00开，<em>只收现金</em>）／<b>椰汁大王</b>（肥姐前行约150米）</div>
-    </div>
+      <div class="callout info">🥣 <b>晚饭怎么去：</b>散步终点即 <b>榮園麵家</b>（通菜街69号），步行到达，不用坐车。<br>🍜 <b>饭后去红馆：</b>从榮園麵家步行约 <b>5 分钟</b>到 <b>旺角东站</b> → 东铁线 <b>1 站</b>到 <b>红磡站</b> → 跟「香港体育馆」指示步行约 5–10 分钟。全程约 20 分钟，18:30 出发足够。</div>
+    </details>
   </section>
 
   <section id="ticket">
@@ -239,14 +273,14 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
 
     <div class="card" style="margin-top:10px">
       <div class="tl">
-        <div class="tl-item"><div class="tl-time">07:45</div><div class="tl-dot" style="--c:var(--amber)"></div><div class="tl-body"><div class="tl-title">早餐：麦当劳（MOKO 新世纪广场店）<span class="tag g">已定</span></div><div class="tl-desc">太子道西193号 MOKO MTR 楼层 M19 铺（与旺角东站同层），06:00 开，酒店步行约 <b>10 分钟</b>。<br>早餐供应至 11:00；热香饼常年有，扭扭粉是港式特色。付款可刷手机</div></div></div>
+        <div class="tl-item"><div class="tl-time">07:45</div><div class="tl-dot" style="--c:var(--amber)"></div><div class="tl-body"><div class="tl-title">早餐：麦当劳（MOKO 新世纪广场店）<span class="tag g">已定</span></div><div class="tl-desc">太子道西193号 MOKO MTR 楼层 M19 铺（与旺角东站同层），06:00 开，酒店步行约 <b>10 分钟</b>。<br>早餐供应至 11:00；热香饼常年有，扭扭粉是港式特色。付款可刷手机<br><span class="addr"><span class="v" data-copy="香港旺角 太子道西193号 MOKO 新世纪广场">香港旺角 太子道西193号 MOKO 新世纪广场</span><button class="cpbtn" type="button" data-copy="香港旺角 太子道西193号 MOKO 新世纪广场">复制</button><span class="nvg"><a class="navbtn am" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%B8%AF%E6%97%BA%E8%A7%92%20%E5%A4%AA%E5%AD%90%E9%81%93%E8%A5%BF193%E5%8F%B7%20MOKO%20%E6%96%B0%E4%B8%96%E7%BA%AA%E5%B9%BF%E5%9C%BA&city=香港" target="_blank" rel="noopener">高德导航</a><a class="navbtn gm" href="https://www.google.com/maps/search/?api=1&query=%E9%A6%99%E6%B8%AF%E6%97%BA%E8%A7%92%20%E5%A4%AA%E5%AD%90%E9%81%93%E8%A5%BF193%E5%8F%B7%20MOKO%20%E6%96%B0%E4%B8%96%E7%BA%AA%E5%B9%BF%E5%9C%BA" target="_blank" rel="noopener">Google 地图</a></span></span></div></div></div>
         <div class="tl-item"><div class="tl-time">08:20</div><div class="tl-dot" style="--c:var(--purple)"></div><div class="tl-body"><div class="tl-title">退房，行李寄存酒店前台</div><div class="tl-desc">下午回来取</div></div></div>
         <div class="tl-item"><div class="tl-time">08:45</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">港铁 → 上环</div><div class="tl-desc">旺角东乘<b>东铁线 3 站</b>到金钟，换<b>港岛线 2 站</b>到上环，全程约 <b>30 分钟</b></div></div></div>
         <div class="tl-item"><div class="tl-time">09:15</div><div class="tl-dot" style="--c:var(--teal)"></div><div class="tl-body"><div class="tl-title">上环闲晃（弹性缓冲）</div><div class="tl-desc">摩罗上街古董摊、文武庙一带随意逛；出门晚了就略过，直接去柠檬王门口等开门</div></div></div>
-        <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">柠檬王（甘草柠檬）<span class="tag g">已定</span></div><div class="tl-desc">上环永吉街18号地铺（上环站 E1 出口步行2分钟），<b>全港仅此一家</b>。<br><em>10:00 开门即到，货最全</em>，不怕卖光。甘草柠檬 HK$60/包；<b>支付宝、微信、八达通、现金都收</b>。预计排队 10–15 分钟</div></div></div>
+        <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">柠檬王（甘草柠檬）<span class="tag g">已定</span></div><div class="tl-desc">上环永吉街18号地铺（上环站 E1 出口步行2分钟），<b>全港仅此一家</b>。<br><span class="addr"><span class="v" data-copy="香港上环 永吉街18号 柠檬王">香港上环 永吉街18号 柠檬王</span><button class="cpbtn" type="button" data-copy="香港上环 永吉街18号 柠檬王">复制</button><span class="nvg"><a class="navbtn am" href="https://uri.amap.com/search?keyword=%E9%A6%99%E6%B8%AF%E4%B8%8A%E7%8E%AF%20%E6%B0%B8%E5%90%89%E8%A1%9718%E5%8F%B7%20%E6%9F%A0%E6%AA%AC%E7%8E%8B&city=香港" target="_blank" rel="noopener">高德导航</a><a class="navbtn gm" href="https://www.google.com/maps/search/?api=1&query=%E9%A6%99%E6%B8%AF%E4%B8%8A%E7%8E%AF%20%E6%B0%B8%E5%90%89%E8%A1%9718%E5%8F%B7%20%E6%9F%A0%E6%AA%AC%E7%8E%8B" target="_blank" rel="noopener">Google 地图</a></span></span><br><em>10:00 开门即到，货最全</em>，不怕卖光。甘草柠檬 HK$60/包；<b>支付宝、微信、八达通、现金都收</b>。预计排队 10–15 分钟</div></div></div>
         <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-dot" style="--c:var(--teal)"></div><div class="tl-body"><div class="tl-title">叮叮车：上环 → 金钟</div><div class="tl-desc">德辅道中乘 <b>东行（往筲箕湾方向）</b>电车，约 <b>15 分钟</b>到金钟太古广场站。车资几块钱，八达通／支付宝乘车码／现金均可，<b>上层前排视野最好</b>。赶时间可改港铁（上环→金钟 2 站）</div></div></div>
         <div class="tl-item"><div class="tl-time">10:50</div><div class="tl-dot" style="--c:var(--teal)"></div><div class="tl-body"><div class="tl-title">皇后大道东自西向东散步</div><div class="tl-desc">太古广场步行 <b>3 分钟</b>到西口（星街一端），一路向东逛进湾仔：<br>星街小区 → 设计家具店 → 旧湾仔邮政局 → 蓝屋（石水渠街）。<b>全程顺行不折返，约 1 小时</b></div></div></div>
-        <div class="tl-item"><div class="tl-time">11:50</div><div class="tl-dot" style="--c:var(--blue)"></div><div class="tl-body"><div class="tl-title">步行 → 湾仔码头，天星小轮 → 尖沙咀</div><div class="tl-desc">沿 <b>菲林明道北行约 12 分钟</b>到湾仔码头；小轮航程约 <b>10 分钟</b>，周日约 12–20 分钟一班。<br><b>下船就是尖沙咀钟楼和海港城</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">11:50</div><div class="tl-dot" style="--c:var(--blue)"></div><div class="tl-body"><div class="tl-title">步行 → 湾仔码头，天星小轮 → 尖沙咀</div><div class="tl-desc">沿 <b>菲林明道北行约 12 分钟</b>到湾仔码头；小轮航程约 <b>10 分钟</b>，周日约 12–20 分钟一班（<em>没有“必须几点前到”</em>，到码头买票/拍卡上最近一班即可；周末人多，留 10 分钟排队）。<br><b>下船就是尖沙咀钟楼和海港城</b></div></div></div>
         <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-dot" style="--c:var(--amber)"></div><div class="tl-body"><div class="tl-title">午饭：金马伦道烧鹅 <span class="tag g">已定</span></div><div class="tl-desc">天星码头步行约 <b>10 分钟</b>。烧腊店翻台快，<b>45 分钟内吃完</b></div></div></div>
         <div class="tl-item"><div class="tl-time">13:15</div><div class="tl-dot" style="--c:var(--purple)"></div><div class="tl-body"><div class="tl-title">海港城（40 分钟时间盒，可现场砍）</div><div class="tl-desc">天星码头出来就是。<b>前面任何环节超时，这段直接放弃、提前回旺角</b>；买药已改到 MOKO，这里只逛</div></div></div>
         <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">荃湾线 → 旺角，MOKO 万宁买药</div><div class="tl-desc">尖沙咀站乘<b>荃湾线 3 站</b>到旺角，步行约 10 分钟到 MOKO（旺角东站旁）。<br><em>按清单拿了就走，不逛</em></div></div></div>
@@ -259,17 +293,15 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
       </div>
     </div>
 
-    <div class="card" style="margin-top:10px">
-      <div class="h3">🦆 午饭：金马伦道两家烧鹅，哪家人少进哪家</div>
+    <details class="card fold" style="margin-top:10px"><summary>🦆 午饭：金马伦道两家烧鹅，哪家人少进哪家<span class="fh">展开</span></summary>
       <ul class="plist">
         <li><b>棋子燒鵝（尖沙咀店）</b>｜金马伦道 34-36A 号福侨大厦地铺｜10:00–22:00｜人均 HK$50–100：明炉烧鹅皮脆油香，平价快捷</li>
         <li><b>榕哥陈皮烧鹅（金马伦道店）</b>｜金马伦道 61-65 号｜09:00–21:00｜人均约 HK$110：40 年烧鹅师傅，招牌陈皮烧鹅（别家吃不到）、煲仔饭</li>
       </ul>
       <div class="callout">两家相隔约百米、距海港城步行 8–10 分钟。想加甜品：<b>糖朝</b>（汉口道28号，周日 07:30–24:00，木桶豆腐花＋烧味）。<br><b>甘牌烧鹅</b>（湾仔，米其林一星）品质最高但需排队 1 小时起，<em>本日不推荐</em>。</div>
-    </div>
+    </details>
 
-    <div class="card" style="margin-top:10px">
-      <div class="h3 b">🛍️ 海港城逛店重点</div>
+    <details class="card fold" style="margin-top:10px"><summary>🛍️ 海港城逛店重点<span class="fh">展开</span></summary>
       <ul class="plist">
         <li><b>海运观点</b>——免费 270 度维港观景平台</li>
         <li><b>LCX</b>——年轻潮流</li>
@@ -278,9 +310,9 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
         <li><b>连卡佛</b>——有明确价差再买</li>
       </ul>
       <div class="callout info">时间不够只逛<b>海运大厦、LCX、LOG-ON</b>。</div>
-    </div>
+    </details>
 
-    <div class="card" style="margin-top:10px">
+    <div class="card" id="medicine" style="margin-top:10px">
       <div class="h3 g">💊 买药清单（万宁，参考价港币）</div>
       <div class="h3" style="font-size:13.5px;margin-top:12px;color:var(--green)">已定</div>
       <ul class="plist">
@@ -396,11 +428,23 @@ footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
       <div class="callout info">全程线上，<b>不经网点开户</b>；网点只用于周日补签名（如能办理）。以下为 9 月 9 日前后核验的结论，银行政策可能调整，<b>以 HSBC HK App 内提示为准</b>。</div>
       <div class="h3">★ 开户填写资料（复制粘贴用）</div>
       <div class="copybox"><span class="lb">个人信息</span>
-<div class="cprow"><span class="k">姓名拼音</span><span class="v" data-copy="YU PEISHI">YU PEISHI</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">手机号</span><span class="v" data-copy="+8618600161233">+8618600161233</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">邮箱</span><span class="v plain">本人常用邮箱（未存储）</span></div><div class="cprow"><span class="k">税务居民</span><span class="v" data-copy="China">China</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">税号</span><span class="v plain">本人18位身份证号（现场输入，未存储）</span></div><div class="cprow"><span class="k">开户用途</span><span class="v" data-copy="储蓄／旅游消费 Savings &amp; Travel">储蓄／旅游消费 Savings &amp; Travel</span><button class="cpbtn" type="button">复制</button></div></div>
+姓名拼音：（填你的通行证拼音）
+手机号：（填可收短信的内地号码）
+邮箱：（填常用邮箱）
+税务居民：China
+税号：本人18位身份证号
+开户用途：储蓄／旅游消费 Savings &amp; Travel</div>
       <div class="copybox"><span class="lb">收件／居住地址（英文）</span>
-<div class="cprow"><span class="k">完整版</span><span class="v" data-copy="Room 3404, Unit 1, Building 13, Wanke Chunheli Residential Compound, Shenhe District, Shenyang, Liaoning, China">Room 3404, Unit 1, Building 13, Wanke Chunheli Residential Compound, Shenhe District, Shenyang, Liaoning, China</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">精简版</span><span class="v" data-copy="Rm 3404, Unit 1, Bldg 13, Wanke Chunheli, Shenhe, Shenyang, Liaoning, China">Rm 3404, Unit 1, Bldg 13, Wanke Chunheli, Shenhe, Shenyang, Liaoning, China</span><button class="cpbtn" type="button">复制</button></div></div>
+完整版：
+（英文地址，例：Room 3404, Unit 1, Building 13, XXX Residential Compound, XXX District, Shenyang, Liaoning, China）
+
+精简版：
+（英文地址缩写版，例：Rm 3404, Unit 1, Bldg 13, XXX, Shenhe, Shenyang, Liaoning, China）</div>
       <div class="copybox"><span class="lb">入金汇款信息（内地银行 App 电汇用）</span>
-<div class="cprow"><span class="k">收款人</span><span class="v" data-copy="YU PEISHI">YU PEISHI</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">SWIFT</span><span class="v" data-copy="HSBCHKHHHKH">HSBCHKHHHKH</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">收款行</span><span class="v" data-copy="HSBC Hong Kong, 1 Queen's Road Central, Hong Kong">HSBC Hong Kong, 1 Queen's Road Central, Hong Kong</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">账户号码</span><span class="v plain">开户成功后 App 首页查看，别存截图</span></div></div>
+收款人：（填你的通行证拼音）
+SWIFT：HSBCHKHHHKH
+收款行：HSBC Hong Kong, 1 Queen's Road Central, Hong Kong
+账户号码：开户成功后 App 首页查看，别存截图</div>
     </div>
 
     <div class="card" style="margin-top:10px">
@@ -544,44 +588,14 @@ document.querySelectorAll('.check li').forEach(function(li){
   li.addEventListener('click',function(){li.classList.toggle('done')});
 });
 </script>
-
 <script>
 (function(){
   var toast=document.createElement('div');toast.id='toast';document.body.appendChild(toast);
-  function show(t){toast.textContent=t;toast.classList.add('on');clearTimeout(window.__tt);window.__tt=setTimeout(function(){toast.classList.remove('on')},1400);}
-  function copy(text,btn){
-    var done=function(){if(btn){btn.classList.add('ok');btn.textContent='已复制';setTimeout(function(){btn.classList.remove('ok');btn.textContent='复制'},1400);}show('已复制：'+text.slice(0,24));};
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}
-    else{fb(text,done);}
-  }
+  function show(t){toast.textContent=t;toast.classList.add('on');clearTimeout(window.__t);window.__t=setTimeout(function(){toast.classList.remove('on')},1500);}
+  function cp(text,btn){var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制';btn.classList.add('ok');setTimeout(function(){btn.textContent='复制';btn.classList.remove('ok')},1400);}show('已复制：'+text.slice(0,26));};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done)});}else fb(text,done);}
   function fb(text,done){try{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){show('复制失败，请长按选择');}}
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('.cpbtn');if(!b)return;
-    var v=b.parentElement.querySelector('.v');if(!v)return;
-    copy(v.getAttribute('data-copy')||v.textContent,b);
-  });
+  document.addEventListener('click',function(e){var b=e.target.closest('.cpbtn');if(!b)return;cp(b.getAttribute('data-copy')||'',b);});
 })();
-</script>
-
-<script>
-(function(){
-  var KEY='hk_trip_check_v1';
-  function items(){return document.querySelectorAll('.check li');}
-  var saved={};
-  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
-  items().forEach(function(li,i){if(saved[i])li.classList.add('done');});
-  function save(){var st={};items().forEach(function(x,j){if(x.classList.contains('done'))st[j]=1;});try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
-  items().forEach(function(li){li.addEventListener('click',function(){setTimeout(save,0);});});
-  var bar=document.createElement('div');bar.id='ckbar';
-  var reset=document.createElement('button');reset.textContent='清空勾选';reset.className='ckreset';
-  reset.addEventListener('click',function(){items().forEach(function(li){li.classList.remove('done');});try{localStorage.removeItem(KEY);}catch(e){}update();});
-  var cnt=document.createElement('span');cnt.className='ckcnt';
-  function update(){var d=0;items().forEach(function(li){if(li.classList.contains('done'))d++;});cnt.textContent='已勾选 '+d+' / '+items().length;}
-  document.addEventListener('click',function(e){if(e.target.closest('.check li'))setTimeout(update,0);});
-  update();
-  var sec=document.querySelector('#checklist .card');
-  if(sec){bar.appendChild(cnt);bar.appendChild(reset);sec.parentNode.insertBefore(bar,sec);}
-})();
-</script>
-</body>
+</script></body>
 </html>
