@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>香港周末 · 9/12–9/13</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#f2f3f5;--card:#fff;--card2:#f7f8fa;--text:#181b1f;--muted:#6b7280;--line:#e4e7eb;--brand:#c8102e;--blue:#1f6feb;--green:#0e8a5f;--amber:#b7791f;--teal:#0e7c66;--purple:#7048c8;--radius:14px}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1015;--card:#161a21;--card2:#1c222b;--text:#e7eaee;--muted:#9aa4b2;--line:#262d38;--brand:#ff4d6a;--blue:#5aa2ff;--green:#3ddc97;--amber:#e5b567;--teal:#4fd1b0;--purple:#b28cff}}
+body{margin:0;background:var(--bg);color:var(--text);font:15.5px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;padding-bottom:32px}
+.topbar{position:sticky;top:0;z-index:60;background:var(--card);border-bottom:1px solid var(--line);padding-top:8px}
+.topbar .tt{margin:0 14px 8px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:7px}
+.topbar .tt i{width:7px;height:7px;border-radius:50%;background:var(--brand)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 14px 9px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;font-size:13px;padding:5px 11px;border-radius:999px;background:var(--card2);border:1px solid var(--line);color:var(--muted);text-decoration:none;white-space:nowrap}
+main{padding:14px 14px 0;max-width:720px;margin:0 auto}
+section{margin-bottom:26px;scroll-margin-top:100px}
+.sec-h{display:flex;align-items:center;gap:9px;margin:0 0 12px;font-size:17px;font-weight:700}
+.sec-h .badge{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--brand);color:#fff}
+.sec-h .badge.b2{background:var(--blue)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.card+.card{margin-top:10px}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.hero h2{margin:0 0 4px;font-size:19px;font-weight:750}
+.hero .sub{color:var(--muted);font-size:13px;margin-bottom:12px}
+.kv{display:grid;grid-template-columns:20px 1fr;gap:6px 10px;font-size:14px}
+.stripwrap{margin:0 -14px;padding:0 14px}
+.strip{display:flex;overflow-x:auto;padding:6px 0 12px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.stop{flex:0 0 auto;width:68px;text-align:center}
+.stop .ic{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;margin:0 auto 4px;background:var(--card);border:2px solid var(--c,var(--line));font-size:13px}
+.stop b{display:block;font-size:11.5px;font-weight:650;line-height:1.3}
+.stop s{display:block;text-decoration:none;font-size:10.5px;color:var(--muted)}
+.link{flex:0 0 auto;width:42px;padding-top:34px;text-align:center;font-size:9.5px;line-height:1.25;color:var(--muted);position:relative}
+.link::before{content:"→";position:absolute;top:5px;left:0;right:0;text-align:center;font-size:14px;color:var(--line)}
+.tl{position:relative}
+.tl-item{display:grid;grid-template-columns:40px 16px 1fr;column-gap:7px;position:relative;padding-bottom:16px}
+.tl-item::before{content:"";position:absolute;left:54px;top:0;bottom:0;width:2px;background:var(--line)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:last-child::before{bottom:auto;height:12px}
+.tl-time{font-size:12.5px;font-weight:700;color:var(--muted);text-align:right;padding-top:2px}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--c,var(--brand));margin:7px auto 0;box-shadow:0 0 0 3px var(--card)}
+.tl-body{min-width:0}
+.tl-title{font-size:14.5px;font-weight:700;line-height:1.4;margin-bottom:2px}
+.tl-desc{font-size:13.5px;color:var(--muted);line-height:1.62}
+.tl-desc b,.tl-desc strong{color:var(--text);font-weight:650}
+.tl-desc em{font-style:normal;color:var(--brand);font-weight:650}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:6px;background:var(--card2);border:1px solid var(--line);color:var(--muted)}
+.tag.r{background:var(--brand);color:#fff;border-color:transparent}
+.tag.g{background:var(--green);color:#fff;border-color:transparent}
+.callout{border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.62;margin:10px 0;background:var(--card2);border-left:3px solid var(--amber)}
+.callout.warn{border-left-color:var(--brand)}
+.callout.info{border-left-color:var(--blue)}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:13px 14px;margin-bottom:10px}
+.tcard-h{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px}
+.tcard-h .ti{font-size:20px;line-height:1.25;flex:none}
+.tcard-h b{display:block;font-size:14.5px;font-weight:700;line-height:1.35}
+.tcard-h span{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.tlist{margin:0;padding:0;list-style:none}
+.tlist li{position:relative;padding-left:15px;font-size:13.5px;line-height:1.65;margin-bottom:5px}
+.tlist li::before{content:"";position:absolute;left:2px;top:.66em;width:5px;height:5px;border-radius:50%;background:var(--muted);opacity:.45}
+.guide{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin:10px 0;font-size:13.5px;line-height:1.65}
+.guide ol{margin:0;padding-left:19px}
+.guide li{margin-bottom:4px}
+.plist{margin:0;padding:0;list-style:none}
+.plist li{position:relative;padding-left:15px;font-size:13.8px;line-height:1.68;margin-bottom:6px}
+.plist li::before{content:"";position:absolute;left:2px;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--muted);opacity:.45}
+.plist li em{font-style:normal;color:var(--brand);font-weight:650}
+.check{list-style:none;margin:0;padding:0}
+.check li{position:relative;padding-left:25px;font-size:14px;line-height:1.62;margin-bottom:7px}
+.check li::before{content:"";position:absolute;left:2px;top:5px;width:14px;height:14px;border:1.6px solid var(--muted);border-radius:4px;opacity:.5}
+.check li.done{color:var(--muted)}
+.check li.done::before{content:"✓";display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;background:var(--green);border-color:var(--green);opacity:1;line-height:1}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.87em;background:var(--card2);padding:1px 5px;border-radius:5px;border:1px solid var(--line)}
+.copybox{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;line-height:1.75;white-space:pre-wrap;margin:8px 0}
+.copybox .lb{color:var(--muted);font-family:sans-serif;font-size:11.5px;font-weight:700}
+.h3{font-size:14.5px;font-weight:750;margin:16px 0 8px;display:flex;align-items:center;gap:7px}
+.h3:first-child{margin-top:0}
+.h3::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--brand)}
+.h3.b::before{background:var(--blue)}
+.h3.g::before{background:var(--green)}
+footer{max-width:720px;margin:0 auto;padding:4px 14px 30px;font-size:12px;color:var(--muted);line-height:1.7}
+footer hr{border:0;border-top:1px solid var(--line);margin:0 0 12px}
+
+.cprow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+.cprow:last-child{border-bottom:0}
+.cprow .k{flex:0 0 auto;font-size:12.5px;color:var(--muted);font-weight:600;min-width:58px}
+.cprow .v{flex:1 1 auto;font-size:13.5px;word-break:break-all;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC",monospace}
+.cprow .v.plain{font-family:inherit;color:var(--muted)}
+.cpbtn{flex:0 0 auto;font-size:12px;padding:4px 10px;border-radius:8px;border:1px solid var(--line);background:var(--chip,var(--card2,#eef0f3));color:var(--text);cursor:pointer;font-weight:600}
+.cpbtn:active{transform:scale(.96)}
+.cpbtn.ok{background:#0e8a5f;border-color:#0e8a5f;color:#fff}
+#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:rgba(20,22,26,.92);color:#fff;font-size:13px;padding:9px 16px;border-radius:999px;opacity:0;transition:.22s;pointer-events:none;z-index:99}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+#ckbar{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:12.5px;color:var(--muted)}
+.ckcnt{font-weight:600}
+.ckreset{font-size:12px;padding:3px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="tt"><i></i>香港周末 · 9月12–13日</div>
+  <nav class="tabs">
+    <a href="#d1">周六 9/12</a>
+    <a href="#d2">周日 9/13</a>
+    <a href="#traffic">交通怎么坐</a>
+    <a href="#ticket">红馆取票</a>
+    <a href="#hsbc">汇丰开户</a>
+    <a href="#checklist">准备清单</a>
+  </nav>
+</header>
+
+<main>
+
+  <section>
+    <div class="hero">
+      <h2>谭咏麟红馆演唱会 ＋ 汇丰线上开户</h2>
+      <div class="sub">9月12日（周六）— 9月13日（周日）</div>
+      <div class="kv">
+        <span>🏨</span><span><b>九龙维景酒店</b>　窝打老道75号</span>
+        <span>🎤</span><span><b>9/12 20:15</b>　红馆（红磡畅运道9号）</span>
+        <span>✈️</span><span><b>9/13 19:10</b>　深圳机场起飞（公务舱）</span>
+      </div>
+      <div class="callout info" style="margin-top:12px">
+        信息核验：2026年9月9日。天气待出发前复核香港天文台；高铁车次与航班以实际订单为准。
+      </div>
+    </div>
+  </section>
+
+  <section id="d1">
+    <h2 class="sec-h">周六 9/12 <span class="badge">入境 · 开户 · 红馆</span></h2>
+
+    <div class="card" style="padding-top:8px">
+      <div class="stripwrap">
+        <div class="strip">
+          <div class="stop"><span class="ic" style="--c:var(--blue)">✈️</span><b>沈阳桃仙</b><s>09:05</s></div>
+          <div class="link">飞机</div>
+          <div class="stop"><span class="ic" style="--c:var(--blue)">🛬</span><b>深圳宝安</b><s>≈13:00</s></div>
+          <div class="link">地铁11号线<br>30分</div>
+          <div class="stop"><span class="ic" style="--c:var(--green)">🚇</span><b>福田站</b><s>13:30</s></div>
+          <div class="link">跨境高铁<br>14分</div>
+          <div class="stop"><span class="ic" style="--c:var(--brand)">🚄</span><b>西九龙</b><s>14:48</s></div>
+          <div class="link">的士<br>15-20分</div>
+          <div class="stop"><span class="ic" style="--c:var(--purple)">🏨</span><b>九龙维景</b><s>15:15</s></div>
+          <div class="link">步行<br>10分</div>
+          <div class="stop"><span class="ic" style="--c:var(--amber)">🍜</span><b>榮園麵家</b><s>17:45</s></div>
+          <div class="link">东铁线<br>1站</div>
+          <div class="stop"><span class="ic" style="--c:var(--brand)">🎤</span><b>红馆</b><s>20:15</s></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">09:05</div><div class="tl-dot" style="--c:var(--blue)"></div><div class="tl-body"><div class="tl-title">沈阳桃仙机场起飞</div><div class="tl-desc">深航（拟订公务舱）→ 深圳宝安机场，约 <b>13:00</b> 到达</div></div></div>
+        <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">深圳地铁 11 号线</div><div class="tl-desc">机场站 → 福田站，直达约 <b>30 分钟</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">14:34</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-title">跨境高铁：福田 → 香港西九龙</div><div class="tl-desc">约 <b>14 分钟</b>。<span class="tag r">拟选时段，未购票</span><br>航班提前或晚点，用 12306「灵活行」改乘同日有余票车次</div></div></div>
+        <div class="tl-item"><div class="tl-time">14:48</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-title">香港入境</div><div class="tl-desc">约 <b>15:15</b> 完成。入境后顺手在「移民局12367」小程序下载<b>当日出入境记录 PDF</b>，开户可能抽查</div></div></div>
+        <div class="tl-item"><div class="tl-time">15:15</div><div class="tl-dot" style="--c:var(--purple)"></div><div class="tl-body"><div class="tl-title">的士 → 九龙维景酒店，入住</div><div class="tl-desc">西九龙站 <b>B2 层</b>的士站上车，报「窝打老道75号九龙维景酒店」，约 <b>15–20 分钟</b>。全程不绕路</div></div></div>
+        <div class="tl-item"><div class="tl-time">15:45</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">酒店房间内：汇丰 App 开户 <span class="tag g">关键</span></div><div class="tl-desc">预留 <b>45 分钟</b>：拍证件、NFC 读芯片、填资料。详见下方「汇丰开户全程指引」</div></div></div>
+        <div class="tl-item"><div class="tl-time">17:05</div><div class="tl-dot" style="--c:var(--teal)"></div><div class="tl-body"><div class="tl-title">旺角老城区散步（压缩版）</div><div class="tl-desc">酒店 → 花园街 → 金鱼街 → 通菜街，约 <b>35 分钟</b>。开户提前完成可提前出门；本次略过花墟和雀鸟花园</div></div></div>
+        <div class="tl-item"><div class="tl-time">17:45</div><div class="tl-dot" style="--c:var(--amber)"></div><div class="tl-body"><div class="tl-title">晚饭：榮園麵家</div><div class="tl-desc">通菜街69号地铺（旺角站 D3/E2 出口约2分钟）｜11:30–21:00<br><em>只收现金／八达通</em>。招牌牛腩面、爆汁牛丸，人均 HK$50–100，敢吃辣加桌上自制辣椒油。别吃太晚，留取票时间</div></div></div>
+        <div class="tl-item"><div class="tl-time">18:30</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-title">沿西洋菜南街 → 旺角东站乘东铁线</div><div class="tl-desc"><b>1 站</b>直达红磡站。18:45–19:15 红馆现场取票、安检入场</div></div></div>
+        <div class="tl-item"><div class="tl-time">20:15</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-title">演唱会开始</div><div class="tl-desc">散场后红磡站乘东铁线 <b>1 站</b>至旺角东，步行回酒店。<br>宵夜备选：<b>发记甜品</b>（豉油街27号）营业至凌晨2:30，榴莲飘香、杨枝甘露</div></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3">🚶 旺角散步路线 · 约35分钟（不折返）</div>
+      <div class="guide">
+        <ol>
+          <li>酒店出门 → <b>窝打老道</b>向旺角方向（西南）步行约 10–12 分钟</li>
+          <li>到 <b>弼街／花园街北段（太子一带）</b> → <b>金華冰廳</b>（弼街47号）</li>
+          <li>沿 <b>花园街</b> 向南 → <b>奇趣饼家</b>（花园街135号）</li>
+          <li>转 <b>金鱼街</b>（通菜街北段）→ 水族店一条街，边走边看</li>
+          <li>向南接 <b>通菜街</b> → <b>榮園麵家</b>（69号地铺）吃饭</li>
+          <li>饭后沿 <b>西洋菜南街</b> 向南 → 过亚皆老街，跟「旺角东站」指示牌走</li>
+        </ol>
+      </div>
+      <div class="callout">📍 沿途小吃：<b>金華冰廳</b>（弼街47号，06:30–23:30，点单说「菠萝油」不是「菠萝包」）／<b>奇趣饼家</b>（花园街135号，现烤老婆饼、蛋卷）／<b>肥姐小食店</b>（登打士街55号，15:00开，<em>只收现金</em>）／<b>椰汁大王</b>（肥姐前行约150米）</div>
+    </div>
+  </section>
+
+  <section id="ticket">
+    <h2 class="sec-h">🎫 红馆现场取票 <span class="badge b2">仅限 URBTIX</span></h2>
+    <div class="card">
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">1</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-desc">旺角东乘东铁线往金钟方向，<b>1 站到红磡</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">2</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-desc">上到大堂，跟随「<b>香港体育馆／Hong Kong Coliseum</b>」指示；D2／D3 为可用出口，亦可按现场指示走 C3／D4。出站后预留 <b>5–10 分钟</b>步行找票房</div></div></div>
+        <div class="tl-item"><div class="tl-time">3</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-desc">到红馆广场找「<b>城市售票网／URBTIX 售票处</b>」，自助售票机就在票房侧。<em>先取票，再按门票标注的颜色闸口入场</em>——不是先去观众入口取票</div></div></div>
+        <div class="tl-item"><div class="tl-time">4</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-desc">自助取票用「<b>取票编码＋密码</b>」，或购票付款的<b>同一实体信用卡</b>（虚拟卡除外）。普通订单号或付款截图不能替代；机器无法出票则到旁边柜台咨询</div></div></div>
+      </div>
+      <div class="callout warn"><b>时间红线：</b>18:45 左右到广场，争取 <b>19:15 前取好票</b>；20:15 开演。</div>
+      <div class="callout">票房平日 10:00–18:30，当晚有演出时延长至开场后半小时——<b>这不是建议的最晚取票时间</b>。<br>票房电话：<code>+852 2355 7233</code>。第三方平台交票按订单约定。</div>
+    </div>
+  </section>
+
+  <section id="d2">
+    <h2 class="sec-h">周日 9/13 <span class="badge">单向不回头</span></h2>
+
+    <div class="card" style="padding-top:8px">
+      <div class="stripwrap">
+        <div class="strip">
+          <div class="stop"><span class="ic" style="--c:var(--purple)">🏨</span><b>酒店</b><s>08:20</s></div>
+          <div class="link">步行<br>10分</div>
+          <div class="stop"><span class="ic" style="--c:var(--amber)">🍔</span><b>MOKO<br>麦当劳</b><s>07:45</s></div>
+          <div class="link">东铁3站<br>+港岛2站</div>
+          <div class="stop"><span class="ic" style="--c:var(--green)">🍋</span><b>上环<br>柠檬王</b><s>10:00</s></div>
+          <div class="link">叮叮车<br>15分</div>
+          <div class="stop"><span class="ic" style="--c:var(--teal)">🚋</span><b>金钟</b><s>10:30</s></div>
+          <div class="link">步行<br>1小时</div>
+          <div class="stop"><span class="ic" style="--c:var(--teal)">🚶</span><b>皇后大道东<br>→湾仔</b><s>10:50</s></div>
+          <div class="link">步行12分<br>+小轮10分</div>
+          <div class="stop"><span class="ic" style="--c:var(--blue)">⛴️</span><b>尖沙咀</b><s>11:50</s></div>
+          <div class="link">步行<br>10分</div>
+          <div class="stop"><span class="ic" style="--c:var(--amber)">🦆</span><b>烧鹅<br>午餐</b><s>12:30</s></div>
+        </div>
+      </div>
+      <div class="stripwrap" style="border-top:1px dashed var(--line);padding-top:6px">
+        <div class="strip">
+          <div class="stop"><span class="ic" style="--c:var(--purple)">🛍️</span><b>海港城</b><s>13:15</s></div>
+          <div class="link">荃湾线<br>3站</div>
+          <div class="stop"><span class="ic" style="--c:var(--green)">💊</span><b>旺角<br>万宁</b><s>14:00</s></div>
+          <div class="link">步行<br>10分</div>
+          <div class="stop"><span class="ic" style="--c:var(--purple)">🧳</span><b>取行李</b><s>14:50</s></div>
+          <div class="link">的士<br>15分</div>
+          <div class="stop"><span class="ic" style="--c:var(--brand)">🏦</span><b>西九龙<br>汇丰</b><s>15:20</s></div>
+          <div class="link">高铁<br>14分</div>
+          <div class="stop"><span class="ic" style="--c:var(--green)">🚄</span><b>福田</b><s>16:40</s></div>
+          <div class="link">地铁11号线<br>40分</div>
+          <div class="stop"><span class="ic" style="--c:var(--blue)">✈️</span><b>深圳机场</b><s>17:45</s></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">07:45</div><div class="tl-dot" style="--c:var(--amber)"></div><div class="tl-body"><div class="tl-title">早餐：麦当劳（MOKO 新世纪广场店）<span class="tag g">已定</span></div><div class="tl-desc">太子道西193号 MOKO MTR 楼层 M19 铺（与旺角东站同层），06:00 开，酒店步行约 <b>10 分钟</b>。<br>早餐供应至 11:00；热香饼常年有，扭扭粉是港式特色。付款可刷手机</div></div></div>
+        <div class="tl-item"><div class="tl-time">08:20</div><div class="tl-dot" style="--c:var(--purple)"></div><div class="tl-body"><div class="tl-title">退房，行李寄存酒店前台</div><div class="tl-desc">下午回来取</div></div></div>
+        <div class="tl-item"><div class="tl-time">08:45</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">港铁 → 上环</div><div class="tl-desc">旺角东乘<b>东铁线 3 站</b>到金钟，换<b>港岛线 2 站</b>到上环，全程约 <b>30 分钟</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">09:15</div><div class="tl-dot" style="--c:var(--teal)"></div><div class="tl-body"><div class="tl-title">上环闲晃（弹性缓冲）</div><div class="tl-desc">摩罗上街古董摊、文武庙一带随意逛；出门晚了就略过，直接去柠檬王门口等开门</div></div></div>
+        <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">柠檬王（甘草柠檬）<span class="tag g">已定</span></div><div class="tl-desc">上环永吉街18号地铺（上环站 E1 出口步行2分钟），<b>全港仅此一家</b>。<br><em>10:00 开门即到，货最全</em>，不怕卖光。甘草柠檬 HK$60/包；<b>支付宝、微信、八达通、现金都收</b>。预计排队 10–15 分钟</div></div></div>
+        <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-dot" style="--c:var(--teal)"></div><div class="tl-body"><div class="tl-title">叮叮车：上环 → 金钟</div><div class="tl-desc">德辅道中乘 <b>东行（往筲箕湾方向）</b>电车，约 <b>15 分钟</b>到金钟太古广场站。车资几块钱，八达通／支付宝乘车码／现金均可，<b>上层前排视野最好</b>。赶时间可改港铁（上环→金钟 2 站）</div></div></div>
+        <div class="tl-item"><div class="tl-time">10:50</div><div class="tl-dot" style="--c:var(--teal)"></div><div class="tl-body"><div class="tl-title">皇后大道东自西向东散步</div><div class="tl-desc">太古广场步行 <b>3 分钟</b>到西口（星街一端），一路向东逛进湾仔：<br>星街小区 → 设计家具店 → 旧湾仔邮政局 → 蓝屋（石水渠街）。<b>全程顺行不折返，约 1 小时</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">11:50</div><div class="tl-dot" style="--c:var(--blue)"></div><div class="tl-body"><div class="tl-title">步行 → 湾仔码头，天星小轮 → 尖沙咀</div><div class="tl-desc">沿 <b>菲林明道北行约 12 分钟</b>到湾仔码头；小轮航程约 <b>10 分钟</b>，周日约 12–20 分钟一班。<br><b>下船就是尖沙咀钟楼和海港城</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-dot" style="--c:var(--amber)"></div><div class="tl-body"><div class="tl-title">午饭：金马伦道烧鹅 <span class="tag g">已定</span></div><div class="tl-desc">天星码头步行约 <b>10 分钟</b>。烧腊店翻台快，<b>45 分钟内吃完</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">13:15</div><div class="tl-dot" style="--c:var(--purple)"></div><div class="tl-body"><div class="tl-title">海港城（40 分钟时间盒，可现场砍）</div><div class="tl-desc">天星码头出来就是。<b>前面任何环节超时，这段直接放弃、提前回旺角</b>；买药已改到 MOKO，这里只逛</div></div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">荃湾线 → 旺角，MOKO 万宁买药</div><div class="tl-desc">尖沙咀站乘<b>荃湾线 3 站</b>到旺角，步行约 10 分钟到 MOKO（旺角东站旁）。<br><em>按清单拿了就走，不逛</em></div></div></div>
+        <div class="tl-item"><div class="tl-time">14:50</div><div class="tl-dot" style="--c:var(--purple)"></div><div class="tl-body"><div class="tl-title">步行回酒店取行李</div><div class="tl-desc">MOKO 步行约 10 分钟到酒店。<br>糕点类手信（珍妮曲奇、奇华、蝴蝶酥）本次不买；<b>草莓玫瑰果酱</b>超 100ml 属随身液体限制，不托运带不上飞机，放弃</div></div></div>
+        <div class="tl-item"><div class="tl-time">15:05</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-title">的士 → 西九龙站</div><div class="tl-desc">酒店门口打车约 15 分钟。到站后前往地面层汇丰网点（WEK G-15 号铺，近 F 出口），<b>通关前办理</b>。<br>饿了的话站内<b>添好运</b>（B1M 夹层1号铺，09:00–21:30）可打包带上车</div></div></div>
+        <div class="tl-item"><div class="tl-time">15:20</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-title">汇丰补签名（留足 30 分钟）</div><div class="tl-desc">网点周日 14:00–17:00 营业。能否受理、是否需预约以银行确认为准。<br><em>15:50 为办完红线</em>：没办完就放弃去通关，签名下次赴港再补，不影响账户使用</div></div></div>
+        <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-title">办理一地两检、候车</div><div class="tl-desc">出境＋入境都在西九龙站内完成。<b>周日下午人流大，至少提前 45 分钟到站</b>；闸机开车前 5 分钟关闭，错过不退改</div></div></div>
+        <div class="tl-item"><div class="tl-time">16:40</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-title">高铁：西九龙 → 福田</div><div class="tl-desc">约 14 分钟 <span class="tag r">拟选时段，未购票</span><br>16:20–16:45 之间的车次都接得上。17:00 前到福田，换地铁 11 号线去机场</div></div></div>
+        <div class="tl-item"><div class="tl-time">17:45</div><div class="tl-dot" style="--c:var(--blue)"></div><div class="tl-body"><div class="tl-title">到达深圳机场 T3</div><div class="tl-desc">福田高铁站上到 <b>B1 层</b>，沿直线长廊（有传送带）进 11 号线，<b>8 站约 40 分钟</b>到机场站，步行直达 T3。<br><b>19:10 起飞</b>、公务舱，提前约一个半小时到达，值机安检很充裕</div></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3">🦆 午饭：金马伦道两家烧鹅，哪家人少进哪家</div>
+      <ul class="plist">
+        <li><b>棋子燒鵝（尖沙咀店）</b>｜金马伦道 34-36A 号福侨大厦地铺｜10:00–22:00｜人均 HK$50–100：明炉烧鹅皮脆油香，平价快捷</li>
+        <li><b>榕哥陈皮烧鹅（金马伦道店）</b>｜金马伦道 61-65 号｜09:00–21:00｜人均约 HK$110：40 年烧鹅师傅，招牌陈皮烧鹅（别家吃不到）、煲仔饭</li>
+      </ul>
+      <div class="callout">两家相隔约百米、距海港城步行 8–10 分钟。想加甜品：<b>糖朝</b>（汉口道28号，周日 07:30–24:00，木桶豆腐花＋烧味）。<br><b>甘牌烧鹅</b>（湾仔，米其林一星）品质最高但需排队 1 小时起，<em>本日不推荐</em>。</div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3 b">🛍️ 海港城逛店重点</div>
+      <ul class="plist">
+        <li><b>海运观点</b>——免费 270 度维港观景平台</li>
+        <li><b>LCX</b>——年轻潮流</li>
+        <li><b>LOG-ON</b>——文具杂货</li>
+        <li><b>city'super</b>——进口零食，不买液体</li>
+        <li><b>连卡佛</b>——有明确价差再买</li>
+      </ul>
+      <div class="callout info">时间不够只逛<b>海运大厦、LCX、LOG-ON</b>。</div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3 g">💊 买药清单（万宁，参考价港币）</div>
+      <div class="h3" style="font-size:13.5px;margin-top:12px;color:var(--green)">已定</div>
+      <ul class="plist">
+        <li><b>无比滴 50ml</b> 约 $35–38</li>
+        <li><b>撒隆巴斯镇痛贴</b> 80片约 $80／140片约 $134–147</li>
+        <li><b>黄道益活络油 50ml</b> $79.9（万宁官方价）</li>
+        <li><b>保心安油 30ml</b> 约 $70–73</li>
+      </ul>
+      <div class="h3" style="font-size:13.5px;margin-top:14px;color:var(--blue)">推荐加购</div>
+      <ul class="plist">
+        <li><b>喇叭牌正露丸糖衣 36 粒</b> 约 $51–55</li>
+        <li><b>蚬壳胃散 60g</b> 约 $108</li>
+        <li><b>五蜈蚣标止咳丸</b> 约 $30（或太和洞久咳丸 $339/包，二选一）</li>
+        <li><b>幸福伤风素特强 36 片</b> 约 $168</li>
+        <li><b>娥罗纳英 H 软膏</b> 约 $40–60</li>
+        <li><b>安美露 80ml</b> 约 $36</li>
+      </ul>
+      <div class="callout warn">
+        <b>红线：</b><br>
+        ❌ <b>双飞人别买</b>——酒精约 80%，超民航 70% 上限，随身托运都禁止<br>
+        ❌ <b>大瓶洗发水</b>——超 100ml 随身上限，不托运带不走<br>
+        ✅ <b>只在万宁买</b>——街边药房黄道益叫价 $138（万宁 $79.9）、正露丸 $98（万宁 $51）还有山寨货<br>
+        ✅ 只买自用小量，不买含可待因止咳水；价格以门店当日为准
+      </div>
+    </div>
+  </section>
+
+  <section id="traffic">
+    <h2 class="sec-h">🚇 交通怎么坐 · 怎么买票</h2>
+
+    <div class="tcard">
+      <div class="tcard-h"><span class="ti">🚇</span><div><b>深圳地铁 11 号线</b><span>机场站 → 福田站 · 约 30 分钟</span></div></div>
+      <ul class="tlist">
+        <li>下飞机后跟随「<b>地铁 11 号线</b>」指示牌走，站厅在 T3 航站楼地下</li>
+        <li><b>买票：</b>支付宝／微信搜「<b>深圳地铁乘车码</b>」开通后直接刷闸机；也可自助机买单程票</li>
+        <li>方向：往<b>碧头</b>方向，坐到「<b>福田</b>」站下车</li>
+        <li>下车后跟「<b>福田火车站</b>」指示上到高铁站厅</li>
+      </ul>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-h"><span class="ti">🚄</span><div><b>跨境高铁 · 福田 ↔ 香港西九龙</b><span>单程约 14 分钟</span></div></div>
+      <ul class="tlist">
+        <li><b>买票：</b>12306 App／网站，出发站「<b>福田</b>」，到达站「<b>香港西九龙</b>」</li>
+        <li><b>乘车人证件：</b>选「<b>往来港澳通行证</b>」并填通行证号码（过关必须用通行证，票证一致最稳妥）</li>
+        <li><b>提前多久到：</b>福田站提前 <b>30–40 分钟</b>；西九龙站<b>至少提前 45 分钟</b>（周日下午人流大）</li>
+        <li><b>灵活行：</b>持西九龙↔福田／深圳北车票，可在 12306 或车站票务处改乘<b>同日同区间</b>其他有余票车次</li>
+        <li><b>西九龙站结构：</b>B2 层为到达层（的士站在这里）｜地面层 G 层有汇丰网点（WEK G-15 号铺，近 F 出口）</li>
+        <li><b>一地两检：</b>出境＋入境全部在西九龙站内完成，闸机开车前 5 分钟关闭，错过不退改</li>
+      </ul>
+      <div class="callout warn">高铁票是<b>实名制</b>，进站、过关、上车都要核验证件原件，别只带手机截图。</div>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-h"><span class="ti">🚉</span><div><b>港铁（MTR）</b><span>本次用到：东铁线 / 港岛线 / 荃湾线</span></div></div>
+      <ul class="tlist">
+        <li><b>支付方式（任选）：</b>八达通｜支付宝「<b>香港乘车码</b>」｜微信「<b>香港乘车码</b>」｜云闪付｜感应信用卡｜自助机买单程票</li>
+        <li><b>怎么坐：</b>进闸拍一次，出闸再拍一次，系统自动扣费</li>
+        <li><b>本次线路：</b><br>· 旺角东 → 红磡：<b>东铁线 1 站</b>，约 3 分钟<br>· 旺角东 → 金钟：<b>东铁线 3 站</b>（红磡→会展→金钟）<br>· 金钟 → 上环：<b>港岛线 2 站</b>（中环→上环）<br>· 尖沙咀 → 旺角：<b>荃湾线 3 站</b>（佐敦→油麻地→旺角）</li>
+        <li><b>换乘：</b>金钟站是东铁线与港岛线换乘站，站内跟指示牌走，无需出闸</li>
+      </ul>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-h"><span class="ti">🚋</span><div><b>叮叮车（香港电车）</b><span>上环 → 金钟 · 约 15 分钟</span></div></div>
+      <ul class="tlist">
+        <li><b>上车点：</b>上环<b>德辅道中</b>路边电车站，坐<b>东行（往筲箕湾方向）</b></li>
+        <li><b>怎么坐：</b><em>后门上车，前门下车时付款</em>（和普通巴士相反，别搞错）</li>
+        <li><b>付钱：</b>前门下车时用八达通拍卡，或支付宝「香港乘车码」，或投币（<b>不设找零</b>）</li>
+        <li><b>车费：</b>成人约 HK$3，全程统一票价，坐几站都一样</li>
+        <li><b>技巧：</b>上<b>二层最前排</b>，视野最好，是拍照位</li>
+        <li>赶时间可改港铁：上环 → 金钟 港岛线 2 站</li>
+      </ul>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-h"><span class="ti">⛴️</span><div><b>天星小轮 · 湾仔 → 尖沙咀</b><span>航程约 10 分钟</span></div></div>
+      <ul class="tlist">
+        <li><b>怎么去码头：</b>从皇后大道东沿<b>菲林明道一路向北</b>步行约 12 分钟，到海边就是湾仔码头</li>
+        <li><b>买票：</b>直接拍<b>八达通</b>过闸最省事；也可用现金在售票机买代币（<b>不设找零</b>）；部分闸机支持扫码</li>
+        <li><b>班次：</b>周日约 <b>12–20 分钟一班</b>，不用赶</li>
+        <li><b>下船位置：</b>尖沙咀天星码头，出来就是<b>钟楼</b>和<b>海港城</b>，去金马伦道步行约 10 分钟</li>
+        <li><b>座位：</b>靠窗看维港，往尖沙咀方向建议坐上层</li>
+      </ul>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-h"><span class="ti">🚕</span><div><b>香港的士</b><span>本次用 2 次：西九龙→酒店、酒店→西九龙</span></div></div>
+      <ul class="tlist">
+        <li><b>颜色：</b>坐<b>红色</b>的士（市区的士），全港通行</li>
+        <li><b>上车点：</b>西九龙站 <b>B2 层</b>的士站；酒店门口直接扬手即停</li>
+        <li><b>怎么沟通：</b>直接给司机看地址最稳——「窝打老道75号九龙维景酒店」／「西九龙站」</li>
+        <li><b>付款：</b>以<b>现金为主</b>，部分车收八达通或支付宝，上车前可先问一句</li>
+        <li><b>车费参考：</b>起表约 HK$29，西九龙→酒店约 HK$60–80，酒店→西九龙约 HK$60–80（含行李附加费）</li>
+      </ul>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-h"><span class="ti">🧭</span><div><b>西九龙站内外动线（重要）</b><span>别走错层</span></div></div>
+      <ul class="tlist">
+        <li><b>到达香港时：</b>下车 → 站内依次完成内地出境与香港入境 → 出闸 → 到 <b>B2 层</b>的士站</li>
+        <li><b>返程时：</b>到站后先上<b>地面层（G 层）</b>去汇丰网点办补签名 → 再回站内办一地两检、候车</li>
+        <li><b>汇丰网点：</b>地面层 WEK G-15 号铺，近 F 出口</li>
+        <li><b>饿了：</b>站内 B1M 夹层 1 号铺<b>添好运</b>（09:00–21:30），可打包带上车</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="hsbc">
+    <h2 class="sec-h">🏦 汇丰开户全程指引</h2>
+
+    <div class="card">
+      <div class="callout info">全程线上，<b>不经网点开户</b>；网点只用于周日补签名（如能办理）。以下为 9 月 9 日前后核验的结论，银行政策可能调整，<b>以 HSBC HK App 内提示为准</b>。</div>
+      <div class="h3">★ 开户填写资料（复制粘贴用）</div>
+      <div class="copybox"><span class="lb">个人信息</span>
+<div class="cprow"><span class="k">姓名拼音</span><span class="v" data-copy="YU PEISHI">YU PEISHI</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">手机号</span><span class="v" data-copy="+8618600161233">+8618600161233</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">邮箱</span><span class="v plain">本人常用邮箱（未存储）</span></div><div class="cprow"><span class="k">税务居民</span><span class="v" data-copy="China">China</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">税号</span><span class="v plain">本人18位身份证号（现场输入，未存储）</span></div><div class="cprow"><span class="k">开户用途</span><span class="v" data-copy="储蓄／旅游消费 Savings &amp; Travel">储蓄／旅游消费 Savings &amp; Travel</span><button class="cpbtn" type="button">复制</button></div></div>
+      <div class="copybox"><span class="lb">收件／居住地址（英文）</span>
+<div class="cprow"><span class="k">完整版</span><span class="v" data-copy="Room 3404, Unit 1, Building 13, Wanke Chunheli Residential Compound, Shenhe District, Shenyang, Liaoning, China">Room 3404, Unit 1, Building 13, Wanke Chunheli Residential Compound, Shenhe District, Shenyang, Liaoning, China</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">精简版</span><span class="v" data-copy="Rm 3404, Unit 1, Bldg 13, Wanke Chunheli, Shenhe, Shenyang, Liaoning, China">Rm 3404, Unit 1, Bldg 13, Wanke Chunheli, Shenhe, Shenyang, Liaoning, China</span><button class="cpbtn" type="button">复制</button></div></div>
+      <div class="copybox"><span class="lb">入金汇款信息（内地银行 App 电汇用）</span>
+<div class="cprow"><span class="k">收款人</span><span class="v" data-copy="YU PEISHI">YU PEISHI</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">SWIFT</span><span class="v" data-copy="HSBCHKHHHKH">HSBCHKHHHKH</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">收款行</span><span class="v" data-copy="HSBC Hong Kong, 1 Queen's Road Central, Hong Kong">HSBC Hong Kong, 1 Queen's Road Central, Hong Kong</span><button class="cpbtn" type="button">复制</button></div><div class="cprow"><span class="k">账户号码</span><span class="v plain">开户成功后 App 首页查看，别存截图</span></div></div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3 g">① 周六 15:45｜酒店内 App 开户（约 15–45 分钟）</div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-time">1</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc"><b>网络与定位：</b>连酒店 Wi-Fi 或香港数据卡，允许 App 获取精确 GPS 定位（须显示在香港）。<em>不要用内地卡漫游流量</em></div></div></div>
+        <div class="tl-item"><div class="tl-time">2</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc"><b>出入境记录：</b>入境后先在「移民局12367」小程序下载<b>当日出入境记录 PDF</b> 备用</div></div></div>
+        <div class="tl-item"><div class="tl-time">3</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc">打开 HSBC HK App → 开立账户 → 选择 <b>汇丰 One</b> → 身份选非香港身份证持有者／内地居民</div></div></div>
+        <div class="tl-item"><div class="tl-time">4</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc"><b>NFC 读通行证：</b>iPhone 的 NFC 感应区在<b>机身顶部（摄像头一端）</b>，把通行证原件贴住顶部保持约 10 秒。必须用<b>原件</b>，照片不行</div></div></div>
+        <div class="tl-item"><div class="tl-time">5</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc"><b>人脸识别：</b>摘眼镜口罩，光线均匀</div></div></div>
+        <div class="tl-item"><div class="tl-time">6</div><div class="tl-dot" style="--c:var(--brand)"></div><div class="tl-body"><div class="tl-desc"><b>卡片选项：手动改选「红狮子」（银联提款卡）。</b>2026 年新规红蓝二选一、只寄一张，<em>默认是蓝狮子</em>——不留意直接点「继续」收到的就是蓝卡；<b>先红后蓝可全程邮寄，先蓝后红补办需再赴港</b></div></div></div>
+        <div class="tl-item"><div class="tl-time">7</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc"><b>填写资料：</b>姓名拼音与通行证一致、英文住址（提前备好）、职业、大致收入；开户用途填「储蓄／旅游消费」</div></div></div>
+        <div class="tl-item"><div class="tl-time">8</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc"><b>税务居民声明：</b>选中国，税号填<b>身份证号</b>。这是 CRS 信息申报，<b>开户本身不涉及任何税费</b>，如实填写即可</div></div></div>
+        <div class="tl-item"><div class="tl-time">9</div><div class="tl-dot" style="--c:var(--green)"></div><div class="tl-body"><div class="tl-desc">提交后<b>保存申请编号</b>。多数人几分钟至几小时批出；若转人工审核需 1–3 个工作日（即下周一二），属正常情况</div></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3 b">② 周日 15:20｜西九龙站网点补签名（不保证当天办妥）</div>
+      <ul class="plist">
+        <li><b>网点：</b>港铁香港西九龙站个人理财中心，地面层 WEK G-15 号铺，近 F 出口</li>
+        <li><b>营业时间：</b>周一至六 09:00–17:00，<b>周日 14:00–17:00</b>，公众假期休息</li>
+        <li><b>排队是主要变量</b>——该网点内地客多、周日只开 3 小时；补签名本身约十来分钟。按行程 15:20 到站办理，<em>15:50 为办完红线</em></li>
+        <li><b>带齐：</b>港澳通行证原件、身份证、手机</li>
+        <li><b>前提：</b>账户须已批出。周六提交不等于周日一定审批通过；周日能否受理补签、是否需预约，<b>提前通过 HSBC HK App 客服确认</b></li>
+        <li><b>不补签名的影响有限：</b>App 内转账、存取、申卡都不受影响，只影响需核对签名的柜台业务。15:50 前办不妥，直接放弃去通关，下次赴港再补，<b>不要因此推迟返程</b></li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3">③ 回内地后｜收卡、入金、申请蓝狮子</div>
+      <ul class="plist">
+        <li><b>收红狮子：</b>EMS 寄到开户时填的内地地址（约 1–2 周），可用 EMS 小程序凭手机号查物流；现在无密码函，红卡直接在 App 设密码</li>
+        <li><b>申请蓝狮子：</b>账户批出后即可在 App「借记卡」入口<b>免费申请</b>（在内地就能办，无需人在香港），EMS 寄到家，按随卡说明激活</li>
+        <li><b>入金 1 万港币：</b>账户号码一生成就能收款，不必等实体卡。<b>月底前到账即可</b>（开户当月免管理费，次月起按日均 1 万港币豁免）。<br>方式：内地银行 App 购汇港币现汇 → 跨境电汇，收款人填通行证拼音，SWIFT 代码 <code>HSBCHKHHHKH</code>，手续费约 170–250 元人民币，1–3 个工作日到账。<b>一次汇齐比分笔省</b></li>
+        <li><b>日常：</b>账户别大额快进快出，新账户异常流水易触发风控</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="h3 g">④ Pulse 信用卡｜申请策略（放平心态，属锦上添花）</div>
+      <ul class="plist">
+        <li>Pulse 银联双币钻石卡常规上面向卓越理财及以上客户，One 账户仅在「放水期」有机会；2026 年 7 月起的一轮放水近期仍有下卡案例</li>
+        <li><b>先用 1 万的状态在 App 里直接申一次</b>（信用卡菜单 → Pulse 卡，全程线上，成本为零）；可能需要上传收入证明（工资流水或个税记录）。官方门槛为年薪 12 万港币或资产 10 万港币</li>
+        <li><b>被拒就每月重申一次</b>；想提高成功率可把存款加至 10 万港币（同一购汇＋电汇流程），让资金在账户里放一两周再申更自然</li>
+        <li>审批约两周，先批虚拟卡可线上消费，实体卡寄内地。注意：该卡<b>不能绑支付宝和微信</b>，主要靠 Apple Pay（需打客服 <code>+852 2233 3000</code> 验证后绑定）和云闪付</li>
+        <li>顺带澄清：网传的「开户要交税」<b>不属实</b>——开户、存款、刷卡返现均不涉及税费；仅当以后用账户炒股盈利时，境外投资收益需按 20% 自行申报</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <h2 class="sec-h">✅ 准备清单</h2>
+    <div class="card">
+      <div class="h3">证件及订单</div>
+      <ul class="check">
+        <li>港澳通行证及有效香港签注</li>
+        <li>身份证</li>
+        <li>往返机票、跨境高铁票（12306 购买）</li>
+        <li>酒店订单</li>
+        <li>演唱会门票／电子凭证</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <div class="h3 b">支付及通信</div>
+      <ul class="check">
+        <li>八达通（实体卡或手机八达通）</li>
+        <li>支付宝、微信支付、银联卡</li>
+        <li>港币现金 HK$300–500，优先 20／50／100 小额纸币</li>
+        <li>内地手机号保持启用，接收银行验证码</li>
+        <li class="done">电话卡已备：2 日港澳漫游包（建议 3–6GB）／香港数据卡设为流量卡并关闭内地卡数据漫游</li>
+        <li class="done">港币现钞已预约，按预约日期领取</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <div class="h3">随身物品</div>
+      <ul class="check">
+        <li>双肩包或轻便小箱子</li>
+        <li>充电线、带 CCC 标识的充电宝</li>
+        <li class="done">英标 Type G 转换插头（家中已确认；充电器支持 100–240V 无需变压器）</li>
+        <li>折叠伞</li>
+        <li>舒适的鞋</li>
+        <li>常用药品</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <div class="h3 g">汇丰开户</div>
+      <ul class="check">
+        <li>提前安装并更新 HSBC HK App，确认手机可读取通行证芯片（iPhone NFC 在机身顶部）</li>
+        <li>有效期不少于 6 个月的港澳通行证、身份证</li>
+        <li>可收短信的内地手机号、常用邮箱</li>
+        <li>提前备好英文住址、职业、税务居民及资金来源信息（如实填写）</li>
+        <li>入境当天下载 12367 出入境记录 PDF</li>
+        <li>周六提交后保存申请编号；周日携证件原件</li>
+        <li>不保存密码截图；不用陌生链接或代办服务</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <div class="h3">🎤 演唱会</div>
+      <ul class="check">
+        <li>门票原件／电子票；提前截图二维码、座位、入口和订单信息</li>
+        <li>URBTIX 取票：购票所用实体信用卡，或取票编码及密码</li>
+        <li>第三方平台取票：提前确认交票人、地点、时间、联系电话</li>
+        <li>保持购票平台登录，手机电量充足</li>
+        <li>18:45 左右到红馆，预留取票、安检时间</li>
+        <li>小型随身包、纸巾、耳塞、薄外套、短充电线</li>
+        <li>演出前吃完晚饭；不带大件行李进红馆</li>
+        <li>不带镭射笔、气球、酒精饮品、罐装／玻璃瓶装物品、专业摄影设备、大型灯牌、自拍杆、长柄雨伞</li>
+        <li>未经许可不摄影、录音或录像，以主办方临场规则为准</li>
+      </ul>
+    </div>
+    <div class="card" style="margin-top:10px">
+      <div class="h3">出发前最后确认</div>
+      <ul class="check">
+        <li>确认回程航班最终起飞时间（目前按 19:10，以订单为准）</li>
+        <li>在 12306 购买往返跨境高铁票（回程建议 16:20–16:45 之间车次，周日下午票源紧）</li>
+        <li>向酒店确认行李寄存及能否延迟退房</li>
+        <li>确认演唱会购票平台、取票方式和取票凭证</li>
+        <li>不托运行李时，避免购买瓶装酱料、饮料等液体手信</li>
+        <li>药品只买个人自用小包装；西药认 HK-XXXXX 注册编号，中成药优先 HKC-XXXXX，在万宁、屈臣氏或持牌药房购买</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <hr>
+  信息核验日期：2026 年 9 月 9 日。天气待出发前复核香港天文台最新预报。汇丰开户与网点服务以银行及 HSBC HK App 当日提示为准；高铁车次与航班时间以实际订单为准；店家营业时间与价格以现场为准。
+</footer>
+
+<script>
+document.querySelectorAll('.tabs a').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var el=document.querySelector(this.getAttribute('href'));
+    if(!el)return;e.preventDefault();
+    window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-92,behavior:'smooth'});
+  });
+});
+document.querySelectorAll('.check li').forEach(function(li){
+  li.addEventListener('click',function(){li.classList.toggle('done')});
+});
+</script>
+
+<script>
+(function(){
+  var toast=document.createElement('div');toast.id='toast';document.body.appendChild(toast);
+  function show(t){toast.textContent=t;toast.classList.add('on');clearTimeout(window.__tt);window.__tt=setTimeout(function(){toast.classList.remove('on')},1400);}
+  function copy(text,btn){
+    var done=function(){if(btn){btn.classList.add('ok');btn.textContent='已复制';setTimeout(function(){btn.classList.remove('ok');btn.textContent='复制'},1400);}show('已复制：'+text.slice(0,24));};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done);});}
+    else{fb(text,done);}
+  }
+  function fb(text,done){try{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){show('复制失败，请长按选择');}}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.cpbtn');if(!b)return;
+    var v=b.parentElement.querySelector('.v');if(!v)return;
+    copy(v.getAttribute('data-copy')||v.textContent,b);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var KEY='hk_trip_check_v1';
+  function items(){return document.querySelectorAll('.check li');}
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  items().forEach(function(li,i){if(saved[i])li.classList.add('done');});
+  function save(){var st={};items().forEach(function(x,j){if(x.classList.contains('done'))st[j]=1;});try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+  items().forEach(function(li){li.addEventListener('click',function(){setTimeout(save,0);});});
+  var bar=document.createElement('div');bar.id='ckbar';
+  var reset=document.createElement('button');reset.textContent='清空勾选';reset.className='ckreset';
+  reset.addEventListener('click',function(){items().forEach(function(li){li.classList.remove('done');});try{localStorage.removeItem(KEY);}catch(e){}update();});
+  var cnt=document.createElement('span');cnt.className='ckcnt';
+  function update(){var d=0;items().forEach(function(li){if(li.classList.contains('done'))d++;});cnt.textContent='已勾选 '+d+' / '+items().length;}
+  document.addEventListener('click',function(e){if(e.target.closest('.check li'))setTimeout(update,0);});
+  update();
+  var sec=document.querySelector('#checklist .card');
+  if(sec){bar.appendChild(cnt);bar.appendChild(reset);sec.parentNode.insertBefore(bar,sec);}
+})();
+</script>
+</body>
+</html>
