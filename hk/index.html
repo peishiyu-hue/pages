@@ -459,19 +459,19 @@ details.fold[open]>summary .fh::after{content:"（已展开）"}
       <div class="callout info">全程线上，<b>不经网点开户</b>；网点只用于周日补签名（如能办理）。以下为 9 月 9 日前后核验的结论，银行政策可能调整，<b>以 HSBC HK App 内提示为准</b>。</div>
       <div class="h3">★ 开户填写资料（复制粘贴用）</div>
       <div class="copybox"><span class="lb">个人信息</span>
-<div class="cprow"><span class="k">姓名拼音</span><input class="pin" data-key="name" placeholder="在此填一次（存本机）"><button class="cpbtn" type="button">复制</button></div>
-<div class="cprow"><span class="k">手机号</span><input class="pin" data-key="phone" inputmode="tel" placeholder="在此填一次（存本机）"><button class="cpbtn" type="button">复制</button></div>
-<div class="cprow"><span class="k">邮箱</span><input class="pin" data-key="email" inputmode="email" placeholder="在此填一次（存本机）"><button class="cpbtn" type="button">复制</button></div>
+<div class="cprow"><span class="k">姓名拼音</span><span class="v" data-copy="YU PEISHI">YU PEISHI</span><button class="cpbtn" type="button">复制</button></div>
+<div class="cprow"><span class="k">手机号</span><span class="v" data-copy="+8618600161233">+8618600161233</span><button class="cpbtn" type="button">复制</button></div>
+<div class="cprow"><span class="k">邮箱</span><span class="v plain">本人常用邮箱（未存储）</span></div>
 <div class="cprow"><span class="k">税务居民</span><span class="v" data-copy="China">China</span><button class="cpbtn" type="button">复制</button></div>
 <div class="cprow"><span class="k">税号</span><span class="v plain">本人18位身份证号（现场输入）</span></div>
 <div class="cprow"><span class="k">开户用途</span><span class="v" data-copy="储蓄／旅游消费 Savings &amp; Travel">储蓄／旅游消费 Savings &amp; Travel</span><button class="cpbtn" type="button">复制</button></div>
-<div class="note">姓名／手机／邮箱只存在你手机浏览器（本机），不上传、不公开；填一次以后打开都在。</div></div>
+</div>
       <div class="copybox"><span class="lb">收件／居住地址（英文）</span>
-<div class="cprow"><span class="k">完整版</span><input class="pin" data-key="addr_long" placeholder="在此填一次（存本机）"><button class="cpbtn" type="button">复制</button></div>
-<div class="cprow"><span class="k">精简版</span><input class="pin" data-key="addr_short" placeholder="在此填一次（存本机）"><button class="cpbtn" type="button">复制</button></div>
-<div class="note">只存本机，不上传。</div></div>
+<div class="cprow"><span class="k">完整版</span><span class="v" data-copy="Room 3404, Unit 1, Building 13, Wanke Chunheli Residential Compound, Shenhe District, Shenyang, Liaoning, China">Room 3404, Unit 1, Building 13, Wanke Chunheli Residential Compound, Shenhe District, Shenyang, Liaoning, China</span><button class="cpbtn" type="button">复制</button></div>
+<div class="cprow"><span class="k">精简版</span><span class="v" data-copy="Rm 3404, Unit 1, Bldg 13, Wanke Chunheli, Shenhe, Shenyang, Liaoning, China">Rm 3404, Unit 1, Bldg 13, Wanke Chunheli, Shenhe, Shenyang, Liaoning, China</span><button class="cpbtn" type="button">复制</button></div>
+</div>
       <div class="copybox"><span class="lb">入金汇款信息（内地银行 App 电汇用）</span>
-<div class="cprow"><span class="k">收款人</span><input class="pin" data-key="payee" placeholder="通行证拼音（存本机）"><button class="cpbtn" type="button">复制</button></div>
+<div class="cprow"><span class="k">收款人</span><span class="v" data-copy="YU PEISHI">YU PEISHI</span><button class="cpbtn" type="button">复制</button></div>
 <div class="cprow"><span class="k">SWIFT</span><span class="v" data-copy="HSBCHKHHHKH">HSBCHKHHHKH</span><button class="cpbtn" type="button">复制</button></div>
 <div class="cprow"><span class="k">收款行</span><span class="v" data-copy="HSBC Hong Kong, 1 Queen's Road Central, Hong Kong">HSBC Hong Kong, 1 Queen's Road Central, Hong Kong</span><button class="cpbtn" type="button">复制</button></div>
 <div class="cprow"><span class="k">账户号</span><span class="v plain">开户成功后 App 首页查看，别存截图</span></div></div>
@@ -625,9 +625,7 @@ document.querySelectorAll('.check li').forEach(function(li){
   function cp(text,btn){var done=function(){if(btn){var o=btn.textContent;btn.textContent='已复制';btn.classList.add('ok');setTimeout(function(){btn.textContent='复制';btn.classList.remove('ok')},1400);}show('已复制：'+text.slice(0,26));};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fb(text,done)});}else fb(text,done);}
   function fb(text,done){try{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}catch(e){show('复制失败，请长按选择');}}
-  function rowText(b){if(b.getAttribute('data-copy')!=null)return b.getAttribute('data-copy');var r=b.closest('.cprow');if(r){var i=r.querySelector('input');if(i)return i.value;}var p=b.parentElement&&b.parentElement.querySelector('.v');return p?(p.getAttribute('data-copy')||p.textContent):'';}
-  document.addEventListener('click',function(e){var b=e.target.closest('.cpbtn');if(!b)return;var t=rowText(b);if(!t){show('先在上面填一下，再点复制');return;}cp(t,b);});
-  ['name','phone','email','addr_long','addr_short','payee'].forEach(function(k){var el=document.querySelector('.pin[data-key="'+k+'"]');if(!el)return;try{var v=localStorage.getItem('hk_pin_'+k);if(v)el.value=v;}catch(err){}el.addEventListener('input',function(){try{localStorage.setItem('hk_pin_'+k,el.value);}catch(err){}});});
-})();
+  function rowText(b){if(b.getAttribute('data-copy')!=null)return b.getAttribute('data-copy');var p=b.parentElement&&b.parentElement.querySelector('.v');return p?(p.getAttribute('data-copy')||p.textContent):'';}
+  document.addEventListener('click',function(e){var b=e.target.closest('.cpbtn');if(!b)return;var t=rowText(b);if(!t){show('这条没有可复制内容');return;}cp(t,b);});
 </script></body>
 </html>
