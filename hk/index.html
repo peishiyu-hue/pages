@@ -68,6 +68,10 @@ section{margin-bottom:26px;scroll-margin-top:100px}
 .plist li{position:relative;padding-left:15px;font-size:13.8px;line-height:1.68;margin-bottom:6px}
 .plist li::before{content:"";position:absolute;left:2px;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--muted);opacity:.45}
 .plist li em{font-style:normal;color:var(--brand);font-weight:650}
+.ckbar{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);margin:0 0 10px;flex-wrap:wrap}
+.ckbar b{color:var(--text);font-size:15px}
+.ckbar .ckbtn{margin-left:auto;font-size:12px;padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card2,transparent);color:var(--text);cursor:pointer;font-weight:600}
+.ckbar .ckbtn:active{transform:scale(.96)}
 .check{list-style:none;margin:0;padding:0}
 .check li{position:relative;padding-left:25px;font-size:14px;line-height:1.62;margin-bottom:7px}
 .check li::before{content:"";position:absolute;left:2px;top:5px;width:14px;height:14px;border:1.6px solid var(--muted);border-radius:4px;opacity:.5}
@@ -530,6 +534,7 @@ details.fold[open]>summary .fh::after{content:"（已展开）"}
 
   <section id="checklist">
     <h2 class="sec-h">✅ 准备清单</h2>
+    <div class="ckbar">已完成 <b id="ckDone">0</b> / <span id="ckTotal">0</span><button class="ckbtn" type="button" id="ckClear">清空</button></div>
     <div class="card">
       <div class="h3">证件及订单</div>
       <ul class="check">
@@ -616,9 +621,35 @@ document.querySelectorAll('.tabs a').forEach(function(a){
     window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-92,behavior:'smooth'});
   });
 });
-document.querySelectorAll('.check li').forEach(function(li){
-  li.addEventListener('click',function(){li.classList.toggle('done')});
-});
+(function(){
+  var KEY='hk_check_v1';
+  var items=Array.prototype.slice.call(document.querySelectorAll('.check li'));
+  var done=document.getElementById('ckDone'), total=document.getElementById('ckTotal');
+  function render(){
+    var n=items.filter(function(li){return li.classList.contains('done')}).length;
+    done.textContent=n; total.textContent=items.length;
+  }
+  function save(){
+    var on=[]; items.forEach(function(li,i){ if(li.classList.contains('done')) on.push(i); });
+    try{localStorage.setItem(KEY,JSON.stringify(on))}catch(e){}
+  }
+  var saved=null;
+  try{ saved=JSON.parse(localStorage.getItem(KEY)||'null') }catch(e){ saved=null; }
+  if(Array.isArray(saved)){ items.forEach(function(li,i){ li.classList.toggle('done', saved.indexOf(i)>=0); }); }
+  else { save(); }
+  items.forEach(function(li){
+    li.addEventListener('click',function(){ li.classList.toggle('done'); save(); render(); });
+  });
+  var clear=document.getElementById('ckClear');
+  if(clear){ clear.addEventListener('click',function(e){
+    e.stopPropagation();
+    items.forEach(function(li){ li.classList.remove('done'); });
+    save(); render();
+    if(window.__showToast) { } 
+    try{ var t=document.getElementById('toast'); if(t){ t.textContent='清单已清空'; t.classList.add('on'); clearTimeout(window.__t); window.__t=setTimeout(function(){t.classList.remove('on')},1500);} }catch(err){}
+  }); }
+  render();
+})();
 </script>
 <script>
 (function(){
