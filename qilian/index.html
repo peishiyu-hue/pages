@@ -29,14 +29,15 @@ h3{font-size:13px;font-weight:700;color:#5b6b85;margin:16px 0 8px;letter-spacing
 .arrow{flex:0 0 auto;color:#c2cddd;font-size:13px;padding-top:5px}
 /* 时间线 */
 .tl{background:#fff;border-radius:12px;padding:6px 14px 10px;box-shadow:0 1px 3px rgba(16,24,40,.07)}
-.row{display:flex;gap:0;padding:13px 0;border-bottom:1px solid #f1f5fa;position:relative}
-.row:last-child{border-bottom:none}
-.row .t{flex:0 0 76px;padding:0 14px 0 0;text-align:right;position:relative}
-.row .t span{display:inline-block;font-size:11.5px;font-weight:700;color:#2b6cb0;background:#eaf2fd;border-radius:7px;padding:3px 8px;font-variant-numeric:tabular-nums;letter-spacing:.2px}
-.row .t::before{content:"";position:absolute;right:-4px;top:11px;width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid #9fc0e8}
+.row{display:grid;grid-template-columns:58px 1fr;column-gap:20px;position:relative;padding-bottom:16px}
+.row::before{content:"";position:absolute;left:66px;top:0;bottom:0;width:2px;background:#e6ecf5}
+.row:last-child{padding-bottom:2px}
+.row:last-child::before{bottom:auto;height:12px}
+.row .t{font-size:12.5px;font-weight:700;color:#6b7a90;text-align:right;padding-top:2px;position:relative;font-variant-numeric:tabular-nums}
+.row .t::after{content:"";position:absolute;right:-25px;top:6px;width:10px;height:10px;border-radius:50%;background:#2b6cb0;box-shadow:0 0 0 3px #fff}
 .row .d{padding-left:20px}
 .row .d{flex:1 1 auto;min-width:0}
-.row .hd{font-size:14px;font-weight:650;color:#16202e;display:flex;align-items:baseline;gap:7px}
+.row .hd{font-size:14.5px;font-weight:650;color:#16202e;display:flex;align-items:baseline;gap:7px}
 .row .hd .tm{color:#2b6cb0;font-variant-numeric:tabular-nums;font-weight:700;flex:0 0 auto}
 .row .dt{font-size:12.5px;color:#63718a;margin-top:3px}
 .row .dt b{color:#334155}
@@ -66,9 +67,9 @@ details .in b{color:#243044}
 var DAYS=[
 {id:'pre',tab:'出发前',title:'出发前要办的事',html:`
 <div class="card blue"><div class="ct">🎫 要买的票（9/24 集中检查一次）</div>
-<div class="row"><div class="t"><span>卓尔山</span></div><div class="d"><div class="hd">入园票＋摆渡车</div><div class="dt">几元的“电子导览”<b>不含入园票</b>，别买错</div></div></div>
-<div class="row"><div class="t"><span>阿咪东索</span></div><div class="d"><div class="hd">先确认开放再买<span class="tag warn">状态存疑</span></div><div class="dt">携程标“暂停营业”、去哪儿标开放 → <b>打 0970-8877888 确认</b></div></div></div>
-<div class="row"><div class="t"><span>博物院</span></div><div class="d"><div class="hd">青海藏文化博物院</div><div class="dt">想看《彩绘大观》上部 → 买<b>南馆</b>；⚠️ 它<b>不是</b>青海省博物馆，预约规则不同</div></div></div>
+<div class="row"><div class="t">卓尔山</div><div class="d"><div class="hd">入园票＋摆渡车</div><div class="dt">几元的“电子导览”<b>不含入园票</b>，别买错</div></div></div>
+<div class="row"><div class="t">阿咪东索</div><div class="d"><div class="hd">先确认开放再买<span class="tag warn">状态存疑</span></div><div class="dt">携程标“暂停营业”、去哪儿标开放 → <b>打 0970-8877888 确认</b></div></div></div>
+<div class="row"><div class="t">博物院</div><div class="d"><div class="hd">青海藏文化博物院</div><div class="dt">想看《彩绘大观》上部 → 买<b>南馆</b>；⚠️ 它<b>不是</b>青海省博物馆，预约规则不同</div></div></div>
 </div>
 <div class="card"><div class="ct">🧥 穿（10 月门源/祁连夜间可到 −6~−7℃）</div>
 <ul><li><b>冲锋衣</b>（防风防水，必带）＋<b>羽绒</b>（必带，不是“备着”）</li>
@@ -99,27 +100,27 @@ var DAYS=[
 <div class="stop"><div class="ic">🚅</div><div class="nm">西宁</div><div class="tm">约 14:30</div></div></div>
 <h3>本人（沈阳出发）</h3>
 <div class="tl">
-<div class="row"><div class="t"><span>05:50</span></div><div class="d"><div class="hd">起床 → 06:00 出发</div></div></div>
-<div class="row"><div class="t"><span>06:30</span></div><div class="d"><div class="hd">抵桃仙机场</div></div></div>
-<div class="row"><div class="t"><span>07:35</span></div><div class="d"><div class="hd">起飞（沈阳 → 兰州）</div></div></div>
-<div class="row"><div class="t"><span>约 11:00</span></div><div class="d"><div class="hd">落地兰州中川 T3</div><div class="dt">拿完行李 <b>下楼就是“中川机场东站”</b>，不用出机场</div></div></div>
-<div class="row"><div class="t"><span>11:40</span></div><div class="d"><div class="hd">中川机场东 → 兰州西<span class="tag ok">城际 40—46 分 · 约 ¥17—18.5</span></div><div class="dt">打车约 35—45 分；大巴 3 号线约 1 小时 20 分、约 ¥30。<b>城际只从兰州西发车</b> —— 所以“离兰州西远不远”才是选打车还是城际的依据</div></div></div>
-<div class="row"><div class="t"><span>约 12:35</span></div><div class="d"><div class="hd">兰州西 → 西宁（动车）</div><div class="dt">换乘留约 30 分钟</div></div></div>
-<div class="row"><div class="t"><span>约 14:30</span></div><div class="d"><div class="hd">到西宁，入住西宁丽亭</div></div></div>
+<div class="row"><div class="t">05:50</div><div class="d"><div class="hd">起床 → 06:00 出发</div></div></div>
+<div class="row"><div class="t">06:30</div><div class="d"><div class="hd">抵桃仙机场</div></div></div>
+<div class="row"><div class="t">07:35</div><div class="d"><div class="hd">起飞（沈阳 → 兰州）</div></div></div>
+<div class="row"><div class="t">约 11:00</div><div class="d"><div class="hd">落地兰州中川 T3</div><div class="dt">拿完行李 <b>下楼就是“中川机场东站”</b>，不用出机场</div></div></div>
+<div class="row"><div class="t">11:40</div><div class="d"><div class="hd">中川机场东 → 兰州西<span class="tag ok">城际 40—46 分 · 约 ¥17—18.5</span></div><div class="dt">打车约 35—45 分；大巴 3 号线约 1 小时 20 分、约 ¥30。<b>城际只从兰州西发车</b> —— 所以“离兰州西远不远”才是选打车还是城际的依据</div></div></div>
+<div class="row"><div class="t">约 12:35</div><div class="d"><div class="hd">兰州西 → 西宁（动车）</div><div class="dt">换乘留约 30 分钟</div></div></div>
+<div class="row"><div class="t">约 14:30</div><div class="d"><div class="hd">到西宁，入住西宁丽亭</div></div></div>
 </div>
 <h3>两位同伴（广州出发，机场取车）</h3>
 <div class="tl">
-<div class="row"><div class="t"><span>06:55</span></div><div class="d"><div class="hd">起飞（白云 → 西宁）</div><div class="dt">时刻来自原计划，<b>出票后以实际为准</b></div></div></div>
-<div class="row"><div class="t"><span>约 10:15</span></div><div class="d"><div class="hd">落地西宁，机场取车（途观 L）</div></div></div>
-<div class="row"><div class="t"><span>取车</span></div><div class="d"><div class="hd">必带：驾照 ＋ 身份证 ＋ 本人信用卡<span class="tag">预授权要够额度</span></div>
+<div class="row"><div class="t">06:55</div><div class="d"><div class="hd">起飞（白云 → 西宁）</div><div class="dt">时刻来自原计划，<b>出票后以实际为准</b></div></div></div>
+<div class="row"><div class="t">约 10:15</div><div class="d"><div class="hd">落地西宁，机场取车（途观 L）</div></div></div>
+<div class="row"><div class="t">取车</div><div class="d"><div class="hd">必带：驾照 ＋ 身份证 ＋ 本人信用卡<span class="tag">预授权要够额度</span></div>
 <div class="dt"><b>验车必拍</b>：车身四角＋车顶、仪表盘（油量＋里程）、四条轮胎、前挡风；有旧划痕当场让工作人员在单子上标</div></div></div>
 </div>
 <h3>下午：市区漫步（都在城东，步行或起步价打车）</h3>
 <div class="tl">
-<div class="row"><div class="t"><span>15:00</span></div><div class="d"><div class="hd">东关清真大寺</div><div class="dt">城东区东关大街，从丽亭打车约 5—10 分钟；<b>看外立面与周边街巷就够</b>；顺带走东关大街</div></div></div>
-<div class="row"><div class="t"><span>16:00</span></div><div class="d"><div class="hd">下南关街<span class="tag">手抓羊肉一条街</span></div><div class="dt">与东关大寺相连，步行；<b>就是今晚要吃的街</b>，先认路，顺手买点酿皮／甜醅／酸奶</div></div></div>
-<div class="row"><div class="t"><span>17:00</span></div><div class="d"><div class="hd">兴海路</div><div class="dt">步行或打车 5 分钟；另一条吃饭街，逛到饭点直接落座</div></div></div>
-<div class="row"><div class="t"><span>有余力</span></div><div class="d"><div class="hd">莫家街</div><div class="dt">城中区，打车约 10 分钟；更夜市化，不想跑就跳过</div></div></div>
+<div class="row"><div class="t">15:00</div><div class="d"><div class="hd">东关清真大寺</div><div class="dt">城东区东关大街，从丽亭打车约 5—10 分钟；<b>看外立面与周边街巷就够</b>；顺带走东关大街</div></div></div>
+<div class="row"><div class="t">16:00</div><div class="d"><div class="hd">下南关街<span class="tag">手抓羊肉一条街</span></div><div class="dt">与东关大寺相连，步行；<b>就是今晚要吃的街</b>，先认路，顺手买点酿皮／甜醅／酸奶</div></div></div>
+<div class="row"><div class="t">17:00</div><div class="d"><div class="hd">兴海路</div><div class="dt">步行或打车 5 分钟；另一条吃饭街，逛到饭点直接落座</div></div></div>
+<div class="row"><div class="t">有余力</div><div class="d"><div class="hd">莫家街</div><div class="dt">城中区，打车约 10 分钟；更夜市化，不想跑就跳过</div></div></div>
 </div>
 <div class="card tint"><div class="ct">🍽 晚餐（西宁 · 兴海路／下南关街）</div>
 <ul><li><b>清真益鑫羊肉手抓馆</b> — 湟光花园北街白玉巷 5 号<button class="cp" data-c="湟光花园北街白玉巷5号">复制</button><span class="tag">人均约 ¥80</span></li>
@@ -137,30 +138,30 @@ var DAYS=[
 <div class="stop"><div class="ic">🏨</div><div class="nm">祁连宾馆</div><div class="tm">约 15:50</div></div></div>
 <div class="card blue"><div class="ct">📏 今天的分量</div>总里程 <b>约 282 公里</b>、纯驾驶 <b>约 6 小时</b>；加观景、午餐、拍照 <b>实际 7—8 小时</b>。<b>08:30 出发，别拖到 09:00 后。</b></div>
 <div class="tl">
-<div class="row"><div class="t"><span>07:00</span></div><div class="d"><div class="hd">起床、酒店早餐</div><div class="dt">★ 出发前<b>在酒店上好厕所</b> —— 之后到青石嘴才有像样的公厕</div></div></div>
-<div class="row"><div class="t"><span>08:00</span></div><div class="d"><div class="hd">退房、装车</div><div class="dt">今晚住祁连，大件一次装好</div></div></div>
-<div class="row"><div class="t"><span>08:15</span></div><div class="d"><div class="hd">市区加满油<span class="tag warn">别跳</span></div><div class="dt">沿线加油站稀疏，可靠的是<b>青石嘴、峨堡（中石油）、祁连县城（中石化）</b></div></div></div>
-<div class="row"><div class="t"><span>08:30</span></div><div class="d"><div class="hd">出发，走 G227 往大通方向</div></div></div>
-<div class="row"><div class="t"><span>约 10:30</span></div><div class="d"><div class="hd">达坂山观景台<span class="tag">约 100 km</span></div><div class="dt">海拔高、风大，下车加衣；观景台有厕所但是<b>旱厕</b>；山口别站到路肩</div></div></div>
-<div class="row"><div class="t"><span>11:40</span></div><div class="d"><div class="hd">门源青石嘴：补油＋上公厕<span class="tag">约 28 km</span></div><div class="dt">下坡＋沿河谷，风景好但弯多；公厕是 2025 年新建的</div></div></div>
-<div class="row"><div class="t"><span>12:00</span></div><div class="d"><div class="hd">午餐：青石嘴</div><details><summary>吃什么（点开）</summary><div class="in"><b>穆中源餐厅</b>（建博商住楼 3 号）<button class="cp" data-c="穆中源餐厅 建博商住楼3号">复制</button>｜<b>小圆门食府</b>（西部商贸城）｜<b>花海特色农家院</b>（铁迈西村 203 号）<br>途中简单吃、别拖。</div></details></div></div>
-<div class="row"><div class="t"><span>13:00</span></div><div class="d"><div class="hd">青石嘴 → 峨堡<span class="tag">约 79 km / 1 小时 7 分</span></div></div></div>
-<div class="row"><div class="t"><span>14:10</span></div><div class="d"><div class="hd">峨堡古城遗址公园</div><div class="dt">元代土坯残垣立在草原上，<b>顺看 20 分钟</b>；⚠️ 厕所不好找（要走近一公里去水厕）</div></div></div>
-<div class="row"><div class="t"><span>14:40</span></div><div class="d"><div class="hd">峨堡 → 祁连县城<span class="tag">约 72 km</span></div><div class="dt">翻过垭口后进入祁连</div></div></div>
-<div class="row"><div class="t"><span>约 15:50</span></div><div class="d"><div class="hd">抵祁连宾馆，办入住</div><div class="dt">县城海拔 2800 m，<b>今天起放慢节奏</b></div></div></div>
-<div class="row"><div class="t"><span>16:30</span></div><div class="d"><div class="hd">到县城后休息、附近转转</div><div class="dt">今天开了约 6 小时车，<b>不安排景点</b>；傍晚在县城周边走走看日落（10 月日落约 19:20—19:40）</div></div></div>
-<div class="row"><div class="t"><span>19:00</span></div><div class="d"><div class="hd">晚餐：祁连八宝镇</div><details><summary>吃什么（点开）</summary><div class="in"><b>老街烤肉·土火锅</b>（八宝西路 103 号）｜<b>撒拉尔餐厅</b>（土火锅，等得久）｜<b>老王烤羊肉城</b>（人民路 38 号）｜<b>尕二楼</b><br>祁连连住三晚，这几家可以轮着吃。</div></details></div></div>
+<div class="row"><div class="t">07:00</div><div class="d"><div class="hd">起床、酒店早餐</div><div class="dt">★ 出发前<b>在酒店上好厕所</b> —— 之后到青石嘴才有像样的公厕</div></div></div>
+<div class="row"><div class="t">08:00</div><div class="d"><div class="hd">退房、装车</div><div class="dt">今晚住祁连，大件一次装好</div></div></div>
+<div class="row"><div class="t">08:15</div><div class="d"><div class="hd">市区加满油<span class="tag warn">别跳</span></div><div class="dt">沿线加油站稀疏，可靠的是<b>青石嘴、峨堡（中石油）、祁连县城（中石化）</b></div></div></div>
+<div class="row"><div class="t">08:30</div><div class="d"><div class="hd">出发，走 G227 往大通方向</div></div></div>
+<div class="row"><div class="t">约 10:30</div><div class="d"><div class="hd">达坂山观景台<span class="tag">约 100 km</span></div><div class="dt">海拔高、风大，下车加衣；观景台有厕所但是<b>旱厕</b>；山口别站到路肩</div></div></div>
+<div class="row"><div class="t">11:40</div><div class="d"><div class="hd">门源青石嘴：补油＋上公厕<span class="tag">约 28 km</span></div><div class="dt">下坡＋沿河谷，风景好但弯多；公厕是 2025 年新建的</div></div></div>
+<div class="row"><div class="t">12:00</div><div class="d"><div class="hd">午餐：青石嘴</div><details><summary>吃什么（点开）</summary><div class="in"><b>穆中源餐厅</b>（建博商住楼 3 号）<button class="cp" data-c="穆中源餐厅 建博商住楼3号">复制</button>｜<b>小圆门食府</b>（西部商贸城）｜<b>花海特色农家院</b>（铁迈西村 203 号）<br>途中简单吃、别拖。</div></details></div></div>
+<div class="row"><div class="t">13:00</div><div class="d"><div class="hd">青石嘴 → 峨堡<span class="tag">约 79 km / 1 小时 7 分</span></div></div></div>
+<div class="row"><div class="t">14:10</div><div class="d"><div class="hd">峨堡古城遗址公园</div><div class="dt">元代土坯残垣立在草原上，<b>顺看 20 分钟</b>；⚠️ 厕所不好找（要走近一公里去水厕）</div></div></div>
+<div class="row"><div class="t">14:40</div><div class="d"><div class="hd">峨堡 → 祁连县城<span class="tag">约 72 km</span></div><div class="dt">翻过垭口后进入祁连</div></div></div>
+<div class="row"><div class="t">约 15:50</div><div class="d"><div class="hd">抵祁连宾馆，办入住</div><div class="dt">县城海拔 2800 m，<b>今天起放慢节奏</b></div></div></div>
+<div class="row"><div class="t">16:30</div><div class="d"><div class="hd">到县城后休息、附近转转</div><div class="dt">今天开了约 6 小时车，<b>不安排景点</b>；傍晚在县城周边走走看日落（10 月日落约 19:20—19:40）</div></div></div>
+<div class="row"><div class="t">19:00</div><div class="d"><div class="hd">晚餐：祁连八宝镇</div><details><summary>吃什么（点开）</summary><div class="in"><b>老街烤肉·土火锅</b>（八宝西路 103 号）｜<b>撒拉尔餐厅</b>（土火锅，等得久）｜<b>老王烤羊肉城</b>（人民路 38 号）｜<b>尕二楼</b><br>祁连连住三晚，这几家可以轮着吃。</div></details></div></div>
 </div>
 <div class="card tint"><div class="ct">⚠️ 今天要留意的</div><ul><li>10 月达坂山<b>可能降雪、遇雪可能限行</b> —— 出发前查一次门源／祁连路况</li><li>达坂山口、门源河谷、峨堡草原都是<b>路边即景</b>，值得看的就停</li></ul></div>`},
 
 {id:'d3',tab:'10/5 祁连',title:'10/5（一）祁连：卓尔山（上午）＋ 阿咪东索 ＋ 冰沟林海',html:`
 <div class="tl">
-<div class="row"><div class="t"><span>08:30</span></div><div class="d"><div class="hd">卓尔山<span class="tag ok">上午顺光</span></div><div class="dt">县城东北侧；<b>上午顺光，丹霞色彩最艳</b>。买入园票＋摆渡车 → 摆渡车上山 → 观景台群；<b>留约 3 小时</b>。⚠️ A/B 两个入口方向不同，导航前先确认去哪个</div></div></div>
-<div class="row"><div class="t"><span>12:00</span></div><div class="d"><div class="hd">午餐：祁连县城</div><details><summary>吃什么（点开，这里要吃好几顿）</summary><div class="in"><b>正经正餐</b>：<b>老街烤肉·土火锅</b>（八宝西路 103 号）<button class="cp" data-c="祁连县八宝西路103号 老街烤肉土火锅">复制</button>｜<b>撒拉尔餐厅</b>（土火锅，本地招牌，等得久）｜<b>老王烤羊肉城</b>（人民路 38 号）｜<b>尕二楼</b>（地方菜）｜<b>大美青海特色餐饮</b>（八宝镇）<br><b>面食小吃</b>：<b>祁连尕面片</b>｜<b>羊肠面</b>｜<b>牦牛酸奶</b>（街边小摊，加白糖）｜<b>奶皮子</b><br>祁连连住三晚，正餐可以轮着吃；哪家合口就固定吃那家。</div></details></div></div>
-<div class="row"><div class="t"><span>13:30</span></div><div class="d"><div class="hd">阿咪东索<span class="tag warn">先确认开放</span></div><div class="dt">携程标“暂停营业”、去哪儿标开放，两边冲突 → <b>出发前打 0970-8877888</b>；<b>不开放就用卓尔山替换</b></div></div></div>
+<div class="row"><div class="t">08:30</div><div class="d"><div class="hd">卓尔山<span class="tag ok">上午顺光</span></div><div class="dt">县城东北侧；<b>上午顺光，丹霞色彩最艳</b>。买入园票＋摆渡车 → 摆渡车上山 → 观景台群；<b>留约 3 小时</b>。⚠️ A/B 两个入口方向不同，导航前先确认去哪个</div></div></div>
+<div class="row"><div class="t">12:00</div><div class="d"><div class="hd">午餐：祁连县城</div><details><summary>吃什么（点开，这里要吃好几顿）</summary><div class="in"><b>正经正餐</b>：<b>老街烤肉·土火锅</b>（八宝西路 103 号）<button class="cp" data-c="祁连县八宝西路103号 老街烤肉土火锅">复制</button>｜<b>撒拉尔餐厅</b>（土火锅，本地招牌，等得久）｜<b>老王烤羊肉城</b>（人民路 38 号）｜<b>尕二楼</b>（地方菜）｜<b>大美青海特色餐饮</b>（八宝镇）<br><b>面食小吃</b>：<b>祁连尕面片</b>｜<b>羊肠面</b>｜<b>牦牛酸奶</b>（街边小摊，加白糖）｜<b>奶皮子</b><br>祁连连住三晚，正餐可以轮着吃；哪家合口就固定吃那家。</div></details></div></div>
+<div class="row"><div class="t">13:30</div><div class="d"><div class="hd">阿咪东索<span class="tag warn">先确认开放</span></div><div class="dt">携程标“暂停营业”、去哪儿标开放，两边冲突 → <b>出发前打 0970-8877888</b>；<b>不开放就用卓尔山替换</b></div></div></div>
 
-<div class="row"><div class="t"><span>14:30</span></div><div class="d"><div class="hd">冰沟林海</div><div class="dt">距县城约 10 km，<b>免费、无区间车、可自驾进</b>；峡谷河岸边的密林，远处草原与雪山</div></div></div>
-<div class="row"><div class="t"><span>19:00</span></div><div class="d"><div class="hd">晚餐：县城土火锅</div><div class="dt">土火锅是当地特色，牦牛／羊肉为主</div></div></div>
+<div class="row"><div class="t">14:30</div><div class="d"><div class="hd">冰沟林海</div><div class="dt">距县城约 10 km，<b>免费、无区间车、可自驾进</b>；峡谷河岸边的密林，远处草原与雪山</div></div></div>
+<div class="row"><div class="t">19:00</div><div class="d"><div class="hd">晚餐：县城土火锅</div><div class="dt">土火锅是当地特色，牦牛／羊肉为主</div></div></div>
 </div>
 <div class="card blue"><div class="ct">🏔 卓尔山（已排进 10/5 上午）</div>
 <p>在县城<b>东北侧</b>，八宝河北岸，<b>与阿咪东索（牛心山）隔河相望 —— 同一座山的两侧，所以放同一天顺路</b>；<b>丘陵草原＋丹霞地貌</b>，对面牛心山的日照金山是经典机位。</p>
@@ -169,10 +170,10 @@ var DAYS=[
 
 {id:'d4',tab:'10/6 祁连',title:'10/6（二）祁连：黑河大峡谷 ＋（野牛沟 或 阿柔大寺）',html:`
 <div class="tl">
-<div class="row"><div class="t"><span>09:00</span></div><div class="d"><div class="hd">黑河大峡谷</div><div class="dt">距县城约 41 km，<b>全天开放、无区间车</b>；⚠️ <b>谷内信号弱，先下离线地图</b>；沿线无公厕</div></div></div>
-<div class="row"><div class="t"><span>12:00</span></div><div class="d"><div class="hd">午餐：祁连县城</div></div></div>
-<div class="row"><div class="t"><span>下午</span></div><div class="d"><div class="hd">野牛沟草原画廊（向西）<span class="tag">约 83 km</span> 或 阿柔大寺（向东）<span class="tag">约 21 km</span></div><div class="dt">二选一 —— <b>待定</b></div></div></div>
-<div class="row"><div class="t"><span>19:00</span></div><div class="d"><div class="hd">晚餐：县城</div></div></div>
+<div class="row"><div class="t">09:00</div><div class="d"><div class="hd">黑河大峡谷</div><div class="dt">距县城约 41 km，<b>全天开放、无区间车</b>；⚠️ <b>谷内信号弱，先下离线地图</b>；沿线无公厕</div></div></div>
+<div class="row"><div class="t">12:00</div><div class="d"><div class="hd">午餐：祁连县城</div></div></div>
+<div class="row"><div class="t">下午</div><div class="d"><div class="hd">野牛沟草原画廊（向西）<span class="tag">约 83 km</span> 或 阿柔大寺（向东）<span class="tag">约 21 km</span></div><div class="dt">二选一 —— <b>待定</b></div></div></div>
+<div class="row"><div class="t">19:00</div><div class="d"><div class="hd">晚餐：县城</div></div></div>
 </div>
 <div class="card"><div class="ct">🛕 阿柔大寺</div><p>八宝镇东南约 21 km（去门源路上会经过），祁连县规模较大的格鲁派寺院，始建于清顺治年间。入寺参观，注意礼仪（不随意拍僧人）。</p></div>
 <div class="card"><div class="ct">🌾 野牛沟草原画廊</div><p>距县城约 83 km。⚠️ <b>加油间隔大、无公厕</b>。</p></div>`},
@@ -184,10 +185,10 @@ var DAYS=[
 <div class="stop"><div class="ic">🍜</div><div class="nm">门源</div><div class="tm">午餐</div></div><div class="arrow">→</div>
 <div class="stop"><div class="ic">🏨</div><div class="nm">西宁丽亭</div><div class="tm">约 15:00</div></div></div>
 <div class="tl">
-<div class="row"><div class="t"><span>09:00</span></div><div class="d"><div class="hd">祁连出发</div><div class="dt">出发前加满油</div></div></div>
-<div class="row"><div class="t"><span>中午</span></div><div class="d"><div class="hd">门源午餐（青石嘴）</div><div class="dt">有公厕＋加油站；店同 10/4 午餐那几家</div></div></div>
-<div class="row"><div class="t"><span>约 15:00</span></div><div class="d"><div class="hd">抵西宁，入住</div></div></div>
-<div class="row"><div class="t"><span>晚上</span></div><div class="d"><div class="hd">西宁夜市</div></div></div>
+<div class="row"><div class="t">09:00</div><div class="d"><div class="hd">祁连出发</div><div class="dt">出发前加满油</div></div></div>
+<div class="row"><div class="t">中午</div><div class="d"><div class="hd">门源午餐（青石嘴）</div><div class="dt">有公厕＋加油站；店同 10/4 午餐那几家</div></div></div>
+<div class="row"><div class="t">约 15:00</div><div class="d"><div class="hd">抵西宁，入住</div></div></div>
+<div class="row"><div class="t">晚上</div><div class="d"><div class="hd">西宁夜市</div></div></div>
 </div>
 <div class="card tint"><div class="ct">⚠️ 回程要留意</div><ul><li>回程<b>约 300 公里、纯驾驶 5.5—6 小时</b>（含午餐停车实际约 7 小时）</li><li><b>别把 17:00 当“宽裕”</b>：10 月天黑早、高原下坡＋大车多，<b>15:00 前务必上路</b></li><li>目前<b>按原路走</b></li></ul></div>`},
 
@@ -199,11 +200,11 @@ var DAYS=[
 <div class="stop"><div class="ic">🛫</div><div class="nm">中川 T3</div><div class="tm">20:00</div></div><div class="arrow">→</div>
 <div class="stop"><div class="ic">🛬</div><div class="nm">沈阳</div><div class="tm">23:50</div></div></div>
 <div class="tl">
-<div class="row"><div class="t"><span>上午</span></div><div class="d"><div class="hd">青海藏文化博物院</div><div class="dt">想看《彩绘大观》上部 → 优先<b>南馆</b>票；预留约 3 小时</div></div></div>
-<div class="row"><div class="t"><span>中午</span></div><div class="d"><div class="hd">西宁吃散伙饭<span class="tag warn">待定</span></div><div class="dt">两位同伴<b>从西宁直接飞回</b>，我<b>坐动车去兰州</b> —— 是在西宁一起逛、还是一起逛完再分开、还是兰州单独行动，<b>都可调整</b></div></div></div>
-<div class="row"><div class="t"><span>15:30</span></div><div class="d"><div class="hd">还车（按租车约定）</div></div></div>
-<div class="row"><div class="t"><span>下午</span></div><div class="d"><div class="hd">兰州市区可以小小地走一下</div></div></div>
-<div class="row"><div class="t"><span>20:00</span></div><div class="d"><div class="hd">到中川机场</div><div class="dt">21:10 起飞 → 23:50 到沈阳</div></div></div>
+<div class="row"><div class="t">上午</div><div class="d"><div class="hd">青海藏文化博物院</div><div class="dt">想看《彩绘大观》上部 → 优先<b>南馆</b>票；预留约 3 小时</div></div></div>
+<div class="row"><div class="t">中午</div><div class="d"><div class="hd">西宁吃散伙饭<span class="tag warn">待定</span></div><div class="dt">两位同伴<b>从西宁直接飞回</b>，我<b>坐动车去兰州</b> —— 是在西宁一起逛、还是一起逛完再分开、还是兰州单独行动，<b>都可调整</b></div></div></div>
+<div class="row"><div class="t">15:30</div><div class="d"><div class="hd">还车（按租车约定）</div></div></div>
+<div class="row"><div class="t">下午</div><div class="d"><div class="hd">兰州市区可以小小地走一下</div></div></div>
+<div class="row"><div class="t">20:00</div><div class="d"><div class="hd">到中川机场</div><div class="dt">21:10 起飞 → 23:50 到沈阳</div></div></div>
 </div>
 <div class="card tint"><div class="ct">⚠️ 别按“机场离市区近”估时间</div>中川机场在永登县，<b>离市区约 60 公里量级</b>。<b>建议下午 5 点半前收摊出发</b>，预留 1.5 小时以上。</div>`},
 
@@ -216,10 +217,10 @@ var DAYS=[
 <li><b>出县城先加满油</b>；<b>尽量不开夜车</b></li>
 <li>国庆窗口<b>确有降雪可能</b>（2024 年 10 月出现多日雨夹雪／小雪），<b>达坂山遇雪可能限行</b></li></ul></div>
 <div class="card tint"><div class="ct">🆘 应急</div>
-<div class="row"><div class="t"><span>高反</span></div><div class="d"><div class="dt">停止上升、吸氧、休息；严重 → <b>下撤西宁就医</b></div></div></div>
-<div class="row"><div class="t"><span>降雪封路</span></div><div class="d"><div class="dt">备用路线，或原地多住一天</div></div></div>
-<div class="row"><div class="t"><span>车抛锚</span></div><div class="d"><div class="dt">靠边＋三角牌；<b>取车时就把租车公司的救援与保险电话记下来</b></div></div></div>
-<div class="row"><div class="t"><span>赶不上返程</span></div><div class="d"><div class="dt"><b>以 19:00 到中川 T3 为硬底线</b>，宁可提前结束西宁行程</div></div></div>
+<div class="row"><div class="t">高反</div><div class="d"><div class="dt">停止上升、吸氧、休息；严重 → <b>下撤西宁就医</b></div></div></div>
+<div class="row"><div class="t">降雪封路</div><div class="d"><div class="dt">备用路线，或原地多住一天</div></div></div>
+<div class="row"><div class="t">车抛锚</div><div class="d"><div class="dt">靠边＋三角牌；<b>取车时就把租车公司的救援与保险电话记下来</b></div></div></div>
+<div class="row"><div class="t">赶不上返程</div><div class="d"><div class="dt"><b>以 19:00 到中川 T3 为硬底线</b>，宁可提前结束西宁行程</div></div></div>
 </div></div>`},
 
 {id:'todo',tab:'待定',title:'还没定 ／ 待核实',html:`
