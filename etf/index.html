@@ -20,8 +20,12 @@ tr:last-child td{border-bottom:none}
 .tag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:5px;background:#233047;color:#8fa3c4;margin-left:8px}
 .foot{color:#5d6b85;font-size:11.5px;margin-top:18px;line-height:1.8}
 .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.badge{display:inline-block;margin-top:10px;padding:5px 12px;border-radius:6px;font-size:13px;font-weight:600}
+.badge.closed{background:#3a2b1d;color:#ffc47a;border:1px solid #5c452b}
+.badge.live{background:#1d3a2b;color:#7ae0a5;border:1px solid #2b5c45}
 </style></head><body>
 <h1>四腿组合 · 实时看板</h1>
+<div class="badge closed" id="badge">正在取数…</div>
 <div class="sub" id="sub">正在取数…</div>
 
 <div class="sum">
@@ -106,6 +110,19 @@ function load(){
         if(t) stamp=t[1]+'-'+t[2]+'-'+t[3]+' '+t[4]+':'+t[5];
       });
       render(quotes);
+      // ★ 状态徽标：行情时间不是今天 => 休市中，明确告知"数值不会变动是正常的"
+      var b=document.getElementById('badge');
+      if(stamp){
+        var d=new Date();
+        var today=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+        if(stamp.slice(0,10)===today){
+          b.className='badge live'; b.textContent='盘中 · 数据为今日最新（'+stamp.slice(11)+'）';
+        }else{
+          b.className='badge closed';
+          b.textContent='休市中 · 数据为最近交易日 '+stamp.slice(0,10)+' 收盘（'+stamp.slice(11)+'）· 数值不变动属正常';
+        }
+        b.style.display='inline-block';
+      }
       document.getElementById('sub').innerHTML='数据源：腾讯行情公开接口（准实时）｜每 30 秒自动刷新｜行情时间：'+(stamp||'--')
             +'｜本页更新时间：'+new Date().toLocaleTimeString('zh-CN');
     })
