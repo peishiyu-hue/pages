@@ -155,7 +155,7 @@ function drawChart(){
   var el=document.getElementById('chart');
   if(SERIES.length<2||SERIES[0].pts.length<2){el.innerHTML='<div style="color:#65718a;font-size:12px;padding:60px 0">历史数据不足</div>';return}
   var w=1000,h=210,allv=[];
-  SERIES.forEach(function(S){S.pts.forEach(function(p){if(isFinite(p[1]))allv.push(p[1])})});
+  SERIES.forEach(function(S){S.pts.forEach(function(p){if(isFinite(p.c))allv.push(p.c)})});
   if(!allv.length){el.innerHTML='<div style="color:#65718a;font-size:12px;padding:60px 0">历史数据不足</div>';return}
   var lo=Math.min.apply(null,allv),hi=Math.max.apply(null,allv);
   if(!isFinite(lo)||!isFinite(hi)||hi<=lo){lo=(lo||100)-1;hi=(hi||100)+1}
@@ -163,7 +163,7 @@ function drawChart(){
   var n=SERIES[0].pts.length;
   var paths='';
   SERIES.forEach(function(S){
-    var d='M'+S.pts.map(function(p,i){return (i/(S.pts.length-1)*w).toFixed(1)+','+(h-(p[1]-lo)/(hi-lo)*h).toFixed(1)}).join(' L');
+    var d='M'+S.pts.map(function(p,i){return (i/(S.pts.length-1)*w).toFixed(1)+','+(h-(p.c-lo)/(hi-lo)*h).toFixed(1)}).join(' L');
     paths+='<path d="'+d+'" fill="none" stroke="'+S.c+'" stroke-width="'+(S.bold?2.4:1.5)+'"'
          + (S.dash?' stroke-dasharray="5 4"':'') +' opacity="'+(S.bold?1:.85)+'" vector-effect="non-scaling-stroke"/>';
   });
