@@ -1,49 +1,80 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>四腿组合 · 实时看板</title>
+<title>ETF 投资组合 · 实时看板</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Microsoft YaHei",system-ui,-apple-system,sans-serif;background:#0f1420;color:#e8edf5;padding:28px 32px}
-@media(max-width:640px){body{padding:16px 14px}}
-h1{font-size:20px;font-weight:600;letter-spacing:.5px}
-.sub{color:#7c8aa5;font-size:12.5px;margin-top:6px;line-height:1.6}
-.sum{margin:22px 0 26px;display:flex;gap:18px;align-items:stretch;flex-wrap:wrap}
-.card{background:#182031;border:1px solid #232e45;border-radius:12px;padding:16px 20px;min-width:170px;flex:1 1 170px}
-.card .k{color:#7c8aa5;font-size:12px}
-.card .v{font-size:27px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
-.up{color:#ff5f56}.dn{color:#2ecc71}.flat{color:#c9d4e6}
-table{width:100%;border-collapse:collapse;margin-top:8px;font-variant-numeric:tabular-nums}
-th,td{padding:12px 10px;text-align:right;border-bottom:1px solid #1e2739;font-size:14px;white-space:nowrap}
-th{color:#7c8aa5;font-weight:500;font-size:12px;text-align:right}
-th:first-child,td:first-child{text-align:left}
+html,body{height:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(1200px 600px at 15% -10%,#1a2438 0%,#0d1220 55%,#0a0f1a 100%);
+  color:#e9eef7;min-height:100%;padding:40px 44px 56px;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;
+}
+@media(max-width:720px){body{padding:22px 16px 40px}}
+.wrap{max-width:1120px;margin:0 auto}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+h1{font-size:25px;font-weight:650;letter-spacing:.3px}
+h1 .dot{color:#4d7cfe}
+.meta{color:#76849c;font-size:12.5px;margin-top:9px;line-height:1.7}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;
+  font-size:13px;font-weight:600;white-space:nowrap;letter-spacing:.2px}
+.badge i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.badge.closed{background:rgba(255,176,84,.11);color:#ffbe6d;border:1px solid rgba(255,176,84,.28)}
+.badge.closed i{background:#ffbe6d;box-shadow:0 0 8px rgba(255,190,109,.7)}
+.badge.live{background:rgba(74,222,158,.11);color:#68e0a8;border:1px solid rgba(74,222,158,.28)}
+.badge.live i{background:#68e0a8;box-shadow:0 0 8px rgba(104,224,168,.7)}
+.sum{margin:30px 0 34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,rgba(30,41,62,.92),rgba(22,31,48,.92));
+  border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#2b3a57}
+.card.w::before{background:linear-gradient(180deg,#ff6b60,#ff9a52)}
+.card.d::before{background:linear-gradient(180deg,#2ecc71,#4de0a0)}
+.card .k{color:#7f8ea8;font-size:12.5px;letter-spacing:.3px}
+.card .v{font-size:29px;font-weight:700;margin-top:8px;letter-spacing:-.4px}
+.card .v.sm{font-size:19px;font-weight:650;letter-spacing:0}
+.up{color:#ff6b60}.dn{color:#3fd98a}.flat{color:#c6d2e6}
+h2{font-size:13px;font-weight:600;color:#8697b2;letter-spacing:.6px;margin:0 0 12px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14.5px;
+  background:rgba(20,28,44,.6);border:1px solid rgba(255,255,255,.06);border-radius:14px;overflow:hidden}
+th,td{padding:14px 16px;text-align:right;white-space:nowrap}
+th{color:#8290a8;font-weight:550;font-size:12px;letter-spacing:.4px;
+  background:rgba(255,255,255,.028);border-bottom:1px solid rgba(255,255,255,.07)}
+td{border-bottom:1px solid rgba(255,255,255,.045)}
 tr:last-child td{border-bottom:none}
-.tag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:5px;background:#233047;color:#8fa3c4;margin-left:8px}
-.foot{color:#5d6b85;font-size:11.5px;margin-top:18px;line-height:1.8}
-.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.badge{display:inline-block;margin-top:10px;padding:5px 12px;border-radius:6px;font-size:13px;font-weight:600}
-.badge.closed{background:#3a2b1d;color:#ffc47a;border:1px solid #5c452b}
-.badge.live{background:#1d3a2b;color:#7ae0a5;border:1px solid #2b5c45}
+th:first-child,td:first-child{text-align:left}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:6px;
+  background:rgba(77,124,254,.14);color:#8fb0ff;margin-left:9px;letter-spacing:.3px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
+.foot{color:#63718a;font-size:11.8px;margin-top:26px;line-height:1.85}
+.foot b{color:#8b99b2;font-weight:600}
 </style></head><body>
-<h1>四腿组合 · 实时看板</h1>
-<div class="badge closed" id="badge">正在取数…</div>
-<div class="sub" id="sub">正在取数…</div>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>ETF 投资组合<span class="dot"> · </span>实时看板</h1>
+      <div class="meta" id="sub">正在取数…</div>
+    </div>
+    <div class="badge closed" id="badge"><i></i><span>正在取数…</span></div>
+  </header>
 
-<div class="sum">
-  <div class="card"><div class="k">今日加权涨跌</div><div class="v flat" id="wchg">--</div></div>
-  <div class="card"><div class="k">组合权重</div><div class="v" style="font-size:18px">45 / 30 / 15 / 10</div></div>
-  <div class="card"><div class="k">再平衡</div><div class="v" style="font-size:18px">每季度</div></div>
-  <div class="card"><div class="k">距下次再平衡</div><div class="v" style="font-size:18px" id="next">--</div></div>
-</div>
+  <div class="sum">
+    <div class="card" id="c0"><div class="k">今日加权涨跌</div><div class="v flat" id="wchg">--</div></div>
+    <div class="card"><div class="k">组合权重</div><div class="v sm">45 / 30 / 15 / 10</div></div>
+    <div class="card"><div class="k">再平衡</div><div class="v sm">每季度</div></div>
+    <div class="card"><div class="k">距下次再平衡</div><div class="v sm" id="next">--</div></div>
+  </div>
 
-<div class="scroll">
-<table><thead><tr><th>标的</th><th>权重</th><th>现价</th><th>昨收</th><th>今日涨跌</th><th>成交额(亿)</th></tr></thead>
-<tbody id="rows"><tr><td colspan="6" style="text-align:left;color:#7c8aa5">正在取数…</td></tr></tbody></table>
-</div>
+  <h2>持仓明细</h2>
+  <div class="scroll">
+  <table><thead><tr><th>标的</th><th>权重</th><th>现价</th><th>昨收</th><th>今日涨跌</th><th>成交额(亿)</th></tr></thead>
+  <tbody id="rows"><tr><td colspan="6" style="text-align:left;color:#7f8ea8">正在取数…</td></tr></tbody></table>
+  </div>
 
-<div class="foot">
-  口径：涨跌＝现价÷昨收−1；加权涨跌＝各腿涨跌×权重。<br>
-  数据源：腾讯行情公开接口（准实时）｜每 30 秒自动刷新｜页面为纯静态，任何设备直接打开即可看。<br>
-  ★ 本页只做监测，不构成买卖建议。买入前请另行核对<b>折溢价</b>（纳指腿尤其）。
+  <div class="foot">
+    <b>口径</b>：涨跌＝现价÷昨收−1；加权涨跌＝各腿涨跌×权重。<br>
+    <b>数据</b>：腾讯行情公开接口（准实时），每 30 秒自动刷新。<br>
+    <b>提示</b>：本页仅作监测，不构成买卖建议；买入前请另行核对<b>折溢价</b>（纳指腿尤其）。
+  </div>
 </div>
 
 <script>
@@ -53,31 +84,22 @@ var LEGS=[
   {code:'sh511220', name:'城投债ETF海富通',     w:15},
   {code:'sh518880', name:'黄金ETF华安',         w:10}
 ];
-
 function cls(v){ return v>0 ? 'up' : (v<0 ? 'dn' : 'flat'); }
 function fmt(v,n){ return (v==null||isNaN(v)) ? '--' : v.toFixed(n==null?3:n); }
-
 function nextRebalance(){
-  var t=new Date(), y=t.getFullYear();
-  var q=[[2,31],[5,30],[8,30],[11,31]];
-  for(var i=0;i<q.length;i++){
-    var d=new Date(y,q[i][0],q[i][1]);
-    if(d>t){ return d; }
-  }
+  var t=new Date(), y=t.getFullYear(), q=[[2,31],[5,30],[8,30],[11,31]];
+  for(var i=0;i<q.length;i++){ var d=new Date(y,q[i][0],q[i][1]); if(d>t) return d; }
   return new Date(y+1,2,31);
 }
-
 function renderNext(){
-  var d=nextRebalance();
-  var days=Math.ceil((d-new Date())/(1000*60*60*24));
-  document.getElementById('next').textContent=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()+'（'+days+'天）';
+  var d=nextRebalance(), days=Math.ceil((d-new Date())/86400000);
+  document.getElementById('next').textContent=(d.getMonth()+1)+'/'+d.getDate()+' · 还有 '+days+' 天';
 }
-
 function render(quotes){
   var total=0, rows='', okAny=false;
   LEGS.forEach(function(L){
     var q=quotes[L.code];
-    if(!q){ rows+='<tr><td>'+L.name+'<span class="tag">'+L.code.slice(2)+'</span></td><td>'+L.w+'%</td><td colspan="4" style="color:#7c8aa5">取数失败</td></tr>'; return; }
+    if(!q){ rows+='<tr><td>'+L.name+'<span class="tag">'+L.code.slice(2)+'</span></td><td>'+L.w+'%</td><td colspan="4" style="color:#7f8ea8">取数失败</td></tr>'; return; }
     okAny=true;
     var chg=(q.prev>0)? ((q.price/q.prev-1)*100) : 0;
     total+=chg*L.w/100;
@@ -88,17 +110,16 @@ function render(quotes){
   });
   document.getElementById('rows').innerHTML=rows;
   var e=document.getElementById('wchg');
-  if(okAny){ e.textContent=(total>0?'+':'')+total.toFixed(2)+'%'; e.className='v '+cls(total); }
+  if(okAny){ e.textContent=(total>0?'+':'')+total.toFixed(2)+'%'; e.className='v '+cls(total);
+             document.getElementById('c0').className='card '+(total>0?'w':'d'); }
   else { e.textContent='--'; e.className='v flat'; }
 }
-
 function load(){
   var url='https://qt.gtimg.cn/q='+LEGS.map(function(l){return l.code;}).join(',');
   fetch(url,{cache:'no-store'})
     .then(function(r){ return r.arrayBuffer(); })
     .then(function(buf){
-      var txt=new TextDecoder('gbk').decode(buf);
-      var quotes={}, stamp='';
+      var txt=new TextDecoder('gbk').decode(buf), quotes={}, stamp='';
       txt.split(';').forEach(function(line){
         var m=line.match(/v_([a-z]{2}\d+)\s*=\s*"([^"]*)"/);
         if(!m) return;
@@ -110,32 +131,23 @@ function load(){
         if(t) stamp=t[1]+'-'+t[2]+'-'+t[3]+' '+t[4]+':'+t[5];
       });
       render(quotes);
-      // ★ 状态徽标：行情时间不是今天 => 休市中，明确告知"数值不会变动是正常的"
-      var b=document.getElementById('badge');
+      var b=document.getElementById('badge'), sp=b.querySelector('span');
       if(stamp){
         var d=new Date();
         var today=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-        if(stamp.slice(0,10)===today){
-          b.className='badge live'; b.textContent='盘中 · 数据为今日最新（'+stamp.slice(11)+'）';
-        }else{
-          b.className='badge closed';
-          b.textContent='休市中 · 数据为最近交易日 '+stamp.slice(0,10)+' 收盘（'+stamp.slice(11)+'）· 数值不变动属正常';
-        }
-        b.style.display='inline-block';
+        if(stamp.slice(0,10)===today){ b.className='badge live'; sp.textContent='盘中'; }
+        else { b.className='badge closed'; sp.textContent='休市中 · '+stamp.slice(5,10)+' 收盘'; }
       }
-      document.getElementById('sub').innerHTML='数据源：腾讯行情公开接口（准实时）｜每 30 秒自动刷新｜行情时间：'+(stamp||'--')
-            +'｜本页更新时间：'+new Date().toLocaleTimeString('zh-CN');
+      document.getElementById('sub').innerHTML='行情 '+stamp+' ｜ 每 30 秒自动刷新 ｜ 数据源：腾讯行情';
     })
     .catch(function(e){
-      document.getElementById('sub').innerHTML='取数失败（'+e.message+'）—— 请检查网络后刷新'
-            +'｜本页更新时间：'+new Date().toLocaleTimeString('zh-CN');
+      document.getElementById('sub').innerHTML='取数失败（'+e.message+'）';
+      var b=document.getElementById('badge'); b.className='badge closed';
+      b.querySelector('span').textContent='连接异常';
       render({});
     });
 }
-
-renderNext();
-load();
-setInterval(load,30000);
-setInterval(renderNext,60000);
+renderNext(); load();
+setInterval(load,30000); setInterval(renderNext,60000);
 </script>
 </body></html>
