@@ -29,14 +29,16 @@ h3{font-size:13px;font-weight:700;color:#5b6b85;margin:16px 0 8px;letter-spacing
 .arrow{flex:0 0 auto;color:#c2cddd;font-size:13px;padding-top:5px}
 /* 时间线 */
 .tl{background:#fff;border-radius:12px;padding:6px 14px 10px;box-shadow:0 1px 3px rgba(16,24,40,.07)}
-.row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid #eef2f7;position:relative}
+.row{display:flex;gap:0;padding:12px 0;border-bottom:1px solid #eef2f7;position:relative}
 .row:last-child{border-bottom:none}
-.row .t{flex:0 0 52px;font-size:13px;font-weight:700;color:#2b6cb0;font-variant-numeric:tabular-nums;padding-top:1px}
+.row .t{flex:0 0 54px;font-size:13px;font-weight:700;color:#2b6cb0;font-variant-numeric:tabular-nums;padding-top:1px;padding-right:14px;text-align:right;position:relative}
+.row .t::before{content:"";position:absolute;right:-5px;top:8px;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid #9fc0e8}
+.row .d{padding-left:20px}
 .row .d{flex:1 1 auto;min-width:0}
 .row .hd{font-size:14px;font-weight:650;color:#16202e}
 .row .dt{font-size:12.5px;color:#63718a;margin-top:3px}
 .row .dt b{color:#334155}
-.row:not(:last-child) .t::after{content:"";position:absolute;left:25px;top:30px;bottom:-2px;width:1px;background:linear-gradient(#dbe4f0,#eef2f7)}
+.row:not(:last-child) .t::after{content:"";position:absolute;right:-1px;top:17px;bottom:-13px;width:1.5px;background:#dbe4f0}
 .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:5px;background:#eef4fd;color:#3d6fbf;margin-left:6px;font-weight:500;vertical-align:1px}
 .tag.warn{background:#fff1f0;color:#c2410c}
 .tag.ok{background:#effaf3;color:#15803d}
@@ -68,6 +70,13 @@ var DAYS=[
 <li><b>人工泪液</b>（高原干、风大）</li>
 <li>感冒药、蒙脱石散、益生菌；创可贴、碘伏、云南白药喷雾；晕车药、抗过敏</li>
 <li>⚠️ 长期用药放随身包，<b>不托运</b></li></ul></div>
+<div class="card"><div class="ct">🛒 到西宁要买的（京东下单寄到西宁丽亭，到时直接装车）</div>
+<ul><li><b>矿泉水</b>（按 6 天量备，车上常备）</li>
+<li><b>电解质水／运动饮料</b>（高原干燥、路上补</li>
+<li><b>便携氧气瓶 ×2—3</b>（海拔上来后用；也可在县城补）</li>
+<li><b>顶饿干粮</b>：牛肉干、坚果、能量棒、饼干（路上和景区之间常常错过饭点）</li>
+<li><b>保温杯</b>（服务区接热水）</li></ul>
+<div class="note">这几样到了当地买是明智的 —— 带过来又重又占地方。</div></div>
 <div class="card"><div class="ct">🎒 随身 / 车上</div>
 <ul><li>保温杯、充电宝、<b>离线地图</b>（野牛沟、黑河峡谷没信号）</li>
 <li><b>牛肉干、坚果、热水</b>（避免“只能吃面”）</li></ul></div>`},
@@ -120,7 +129,7 @@ var DAYS=[
 <div class="stop"><div class="ic">🏔</div><div class="nm">卓尔山</div><div class="tm">视时间</div></div></div>
 <div class="card blue"><div class="ct">📏 今天的分量</div>总里程 <b>约 282 公里</b>、纯驾驶 <b>约 6 小时</b>；加观景、午餐、拍照 <b>实际 7—8 小时</b>。<b>08:30 出发，别拖到 09:00 后。</b></div>
 <div class="tl">
-<div class="row"><div class="t">07:00</div><div class="d"><div class="hd">起床、酒店早餐</div></div></div>
+<div class="row"><div class="t">07:00</div><div class="d"><div class="hd">起床、酒店早餐</div><div class="dt">★ 出发前<b>在酒店上好厕所</b> —— 之后到青石嘴才有像样的公厕</div></div></div>
 <div class="row"><div class="t">08:00</div><div class="d"><div class="hd">退房、装车</div><div class="dt">今晚住祁连，大件一次装好</div></div></div>
 <div class="row"><div class="t">08:15</div><div class="d"><div class="hd">市区加满油<span class="tag warn">别跳</span></div><div class="dt">沿线加油站稀疏，可靠的是<b>青石嘴、峨堡（中石油）、祁连县城（中石化）</b></div></div></div>
 <div class="row"><div class="t">08:30</div><div class="d"><div class="hd">出发，走 G227 往大通方向</div></div></div>
@@ -181,7 +190,7 @@ var DAYS=[
 <div class="stop"><div class="ic">🛬</div><div class="nm">沈阳</div><div class="tm">23:50</div></div></div>
 <div class="tl">
 <div class="row"><div class="t">上午</div><div class="d"><div class="hd">青海藏文化博物院</div><div class="dt">想看《彩绘大观》上部 → 优先<b>南馆</b>票；预留约 3 小时</div></div></div>
-<div class="row"><div class="t">中午</div><div class="d"><div class="hd">西宁 → 兰州（动车），兰州市区吃午饭</div></div></div>
+<div class="row"><div class="t">中午</div><div class="d"><div class="hd">西宁吃散伙饭<span class="tag warn">待定</span></div><div class="dt">两位同伴<b>从西宁直接飞回</b>，我<b>坐动车去兰州</b> —— 是在西宁一起逛、还是一起逛完再分开、还是兰州单独行动，<b>都可调整</b></div></div></div>
 <div class="row"><div class="t">15:30</div><div class="d"><div class="hd">还车（按租车约定）</div></div></div>
 <div class="row"><div class="t">下午</div><div class="d"><div class="hd">兰州市区可以小小地走一下</div></div></div>
 <div class="row"><div class="t">20:00</div><div class="d"><div class="hd">到中川机场</div><div class="dt">21:10 起飞 → 23:50 到沈阳</div></div></div>
