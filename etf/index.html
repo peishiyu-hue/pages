@@ -131,7 +131,8 @@ function kline(code,days){
   var u='https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param='+code+',day,,,'+days+',qfq';
   return fetch(u,{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
     var d=j.data&&j.data[code];if(!d)return null;var k=d.qfqday||d.day||[];
-    return k.map(function(r){return {d:r[0],c:parseFloat(r[2])}});
+    return k.map(function(r){return {d:r[0],c:parseFloat(r[2])}})
+            .filter(function(x){return x&&x.d&&isFinite(x.c)&&x.c>0});   // ★ 过滤坏点，避免 NaN 污染整图
   });
 }
 function portfolioSeries(all){
@@ -154,12 +155,15 @@ function drawChart(){
   var el=document.getElementById('chart');
   if(SERIES.length<2||SERIES[0].pts.length<2){el.innerHTML='<div style="color:#65718a;font-size:12px;padding:60px 0">历史数据不足</div>';return}
   var w=1000,h=210,allv=[];
-  SERIES.forEach(function(S){S.pts.forEach(function(p){allv.push(p[1])})});
-  var lo=Math.min.apply(null,allv),hi=Math.max.apply(null,allv),pad=(hi-lo)*0.12||1;lo-=pad;hi+=pad;
+  SERIES.forEach(function(S){S.pts.forEach(function(p){if(isFinite(p[1]))allv.push(p[1])})});
+  if(!allv.length){el.innerHTML='<div style="color:#65718a;font-size:12px;padding:60px 0">历史数据不足</div>';return}
+  var lo=Math.min.apply(null,allv),hi=Math.max.apply(null,allv);
+  if(!isFinite(lo)||!isFinite(hi)||hi<=lo){lo=(lo||100)-1;hi=(hi||100)+1}
+  var pad=(hi-lo)*0.12||1;lo-=pad;hi+=pad;
   var n=SERIES[0].pts.length;
   var paths='';
   SERIES.forEach(function(S){
-    var d='M'+S.pts.map(function(p,i){return (i/(n-1)*w).toFixed(1)+','+(h-(p[1]-lo)/(hi-lo)*h).toFixed(1)}).join(' L');
+    var d='M'+S.pts.map(function(p,i){return (i/(S.pts.length-1)*w).toFixed(1)+','+(h-(p[1]-lo)/(hi-lo)*h).toFixed(1)}).join(' L');
     paths+='<path d="'+d+'" fill="none" stroke="'+S.c+'" stroke-width="'+(S.bold?2.4:1.5)+'"'
          + (S.dash?' stroke-dasharray="5 4"':'') +' opacity="'+(S.bold?1:.85)+'" vector-effect="non-scaling-stroke"/>';
   });
@@ -181,8 +185,9 @@ function loadChart(){
      var firsts=[ps[0].d];
      LEGS.concat(BENCH).forEach(function(o){var s=all[o.code];if(s&&s.length)firsts.push(s[0].d)});
      firsts.sort();start=firsts[firsts.length-1];
-     function reb(s){var f=s.filter(function(x){return x.d>=start});if(f.length<2)return null;
-       var b=f[0].c;return f.map(function(x){return {d:x.d,c:x.c/b*100}})}
+     function reb(s){var f=s.filter(function(x){return x.d>=start&&isFinite(x.c)&&x.c>0});if(f.length<2)return null;
+       var b=f[0].c;if(!isFinite(b)||b<=0)return null;
+       return f.map(function(x){return {d:x.d,c:x.c/b*100}}).filter(function(x){return isFinite(x.c)})}
      SERIES=[];
      var p=reb(ps);if(p){SERIES.push({name:'组合（加权）',c:'#ff6b60',bold:true,pts:p,ret:p[p.length-1].c-100})}
      LEGS.forEach(function(L){var s=reb(all[L.code]);if(s)SERIES.push({name:L.name.replace('ETF',''),c:L.c,pts:s,ret:s[s.length-1].c-100})});
