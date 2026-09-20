@@ -181,10 +181,8 @@ function loadChart(){
      var all={};res.forEach(function(p){all[p[0]]=p[1]});
      var ps=portfolioSeries(all);if(!ps||ps.length<3)return;
      // 共同起点＝各序列最后一个"首个交易日"的最大值（保证所有线都有数据）
-     var start='';
-     var firsts=[ps[0].d];
-     LEGS.concat(BENCH).forEach(function(o){var s=all[o.code];if(s&&s.length)firsts.push(s[0].d)});
-     firsts.sort();start=firsts[firsts.length-1];
+     // ★ 以"组合自身"的起点为准；各基准/各腿从各自有数据的地方起画（避免基准历史短把起点推到末尾）
+     var start=ps[Math.max(0,ps.length-250)].d;
      function reb(s){var f=s.filter(function(x){return x.d>=start&&isFinite(x.c)&&x.c>0});if(f.length<2)return null;
        var b=f[0].c;if(!isFinite(b)||b<=0)return null;
        return f.map(function(x){return {d:x.d,c:x.c/b*100}}).filter(function(x){return isFinite(x.c)})}
