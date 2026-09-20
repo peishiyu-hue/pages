@@ -35,6 +35,8 @@ th:first-child,td:first-child{text-align:left}
 .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
 .foot{color:#63718a;font-size:11.8px;margin-top:26px;line-height:1.85}.foot b{color:#8b99b2;font-weight:600}
 .pend{color:#8a7a5c;font-size:11px}
+#ylab span{position:absolute;right:0;transform:translateY(-50%);color:#6b7791;font-size:11px}
+#ylab span.base{color:#8fa3c4;font-weight:600}
 #legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:12px}
 #legend span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:#a9b6cc}
 #legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
@@ -57,9 +59,9 @@ th:first-child,td:first-child{text-align:left}
     <div class="card"><div class="k">组合净值（自年初）</div><div class="v sm" id="nav">--</div><div class="n" id="navN">建仓后显示</div></div>
   </div>
 
-  <h2>收益曲线 <span class="hint" id="chartHint">组合 / 四腿 / 沪深300 · 中证500 ｜ 起点＝100</span></h2>
+  <h2>收益曲线 <span class="hint" id="chartHint">各线均以自身起点＝100 归一（可横向比较涨跌幅）｜区间见下方日期</span></h2>
   <div class="card" style="padding:18px 20px">
-    <div id="chart" style="width:100%;height:220px"></div>
+    <div style="position:relative;height:230px"><div id="chart" style="position:absolute;left:0;right:52px;top:0;bottom:0"></div><div id="ylab" style="position:absolute;right:0;top:0;bottom:0;width:48px"></div></div>
     <div id="legend"></div>
     <div style="display:flex;justify-content:space-between;color:#65718a;font-size:11.5px;margin-top:10px"><span id="cs"></span><span id="ce"></span></div>
   </div>
@@ -161,7 +163,19 @@ function drawChart(){
   if(!isFinite(lo)||!isFinite(hi)||hi<=lo){lo=(lo||100)-1;hi=(hi||100)+1}
   var pad=(hi-lo)*0.12||1;lo-=pad;hi+=pad;
   var n=SERIES[0].pts.length;
-  var paths='';
+  // ★ Y 轴：画网格线、100 基准线，并在右侧标出刻度值
+  function ypx(v){return h-(v-lo)/(hi-lo)*h}
+  var step=[1,2,5,10,20,25,50].filter(function(x){return (hi-lo)/x<=6})[0]||100;
+  var g='',lab='',t0=Math.ceil(lo/step)*step;
+  for(var v=t0; v<=hi; v+=step){
+    var y=ypx(v).toFixed(1);
+    g+='<line x1="0" y1="'+y+'" x2="'+w+'" y2="'+y+'" stroke="rgba(255,255,255,.07)" stroke-width="1" vector-effect="non-scaling-stroke"/>';
+    lab+='<span style="top:'+(ypx(v)/h*100).toFixed(2)+'%'+(Math.abs(v-100)<1e-6?';color:#8fa3c4;font-weight:600':'')+'">'+v+'</span>';
+  }
+  if(lo<100&&hi>100){var yb=ypx(100).toFixed(1);
+    g+='<line x1="0" y1="'+yb+'" x2="'+w+'" y2="'+yb+'" stroke="rgba(143,163,196,.55)" stroke-width="1" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/>';}
+  document.getElementById('ylab').innerHTML=lab;
+  var paths=g;
   SERIES.forEach(function(S){
     var d='M'+S.pts.map(function(p,i){return (i/(S.pts.length-1)*w).toFixed(1)+','+(h-(p.c-lo)/(hi-lo)*h).toFixed(1)}).join(' L');
     paths+='<path d="'+d+'" fill="none" stroke="'+S.c+'" stroke-width="'+(S.bold?2.4:1.5)+'"'
@@ -193,6 +207,7 @@ function loadChart(){
      drawChart();drawLegend();
      document.getElementById('cs').textContent=start;
      document.getElementById('ce').textContent=ps[ps.length-1].d;
+     document.getElementById('chartHint').textContent='各线均以自身起点＝100 归一（可横向比较涨跌幅）｜区间 '+start+' ~ '+ps[ps.length-1].d+'（约 '+Math.round(ps.length/244*12)+' 个月）';
      var st=stats(ps),md=maxDD(ps);
      document.getElementById('vol').textContent=st.vol.toFixed(1)+'%';
      document.getElementById('mdd').textContent=md.toFixed(1)+'%';
