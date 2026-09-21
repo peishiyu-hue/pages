@@ -35,6 +35,8 @@ h3{font-size:13px;font-weight:700;color:#5b6b85;margin:16px 0 8px;letter-spacing
 .row:last-child::before{bottom:auto;height:12px}
 .row .t{font-size:12.5px;font-weight:700;color:#6b7a90;text-align:right;padding-top:2px;position:relative;font-variant-numeric:tabular-nums}
 .row .t::after{content:"";position:absolute;right:-25px;top:6px;width:10px;height:10px;border-radius:50%;background:#2b6cb0;box-shadow:0 0 0 3px #fff}
+/* ★ 2026-09-21 Percy：每天时间线最后一行的圆点后面没有竖线接着、看着突兀 ⇒ 末行不画圆点 */
+.row:last-child .t::after{display:none}
 .row .d{padding-left:20px}
 .row .d{flex:1 1 auto;min-width:0}
 .row .hd{font-size:14.5px;font-weight:650;color:#16202e;display:flex;align-items:baseline;gap:7px}
@@ -96,17 +98,17 @@ var DAYS=[
 <div class="stop"><div class="ic">🛫</div><div class="nm">沈阳桃仙</div><div class="tm">07:35</div></div><div class="arrow">→</div>
 <div class="stop"><div class="ic">🛬</div><div class="nm">兰州中川 T3</div><div class="tm">约 11:00</div></div><div class="arrow">→</div>
 <div class="stop"><div class="ic">🚆</div><div class="nm">中川机场东站</div><div class="tm">T3 楼下</div></div><div class="arrow">→</div>
-<div class="stop"><div class="ic">🚄</div><div class="nm">兰州西</div><div class="tm">40—46 分</div></div><div class="arrow">→</div>
-<div class="stop"><div class="ic">🚅</div><div class="nm">西宁</div><div class="tm">约 14:30</div></div></div>
+<div class="stop"><div class="ic">🚄</div><div class="nm">兰州西</div><div class="tm">约 12:40</div></div><div class="arrow">→</div>
+<div class="stop"><div class="ic">🚅</div><div class="nm">西宁</div><div class="tm">下午 2 点多</div></div></div>
 <h3>本人（沈阳出发）</h3>
 <div class="tl">
 <div class="row"><div class="t">05:50</div><div class="d"><div class="hd">起床 → 06:00 出发</div></div></div>
 <div class="row"><div class="t">06:30</div><div class="d"><div class="hd">抵桃仙机场</div></div></div>
 <div class="row"><div class="t">07:35</div><div class="d"><div class="hd">起飞（沈阳 → 兰州）</div></div></div>
 <div class="row"><div class="t">约 11:00</div><div class="d"><div class="hd">落地兰州中川 T3</div><div class="dt">拿完行李 <b>下楼就是“中川机场东站”</b>，不用出机场</div></div></div>
-<div class="row"><div class="t">11:40</div><div class="d"><div class="hd">中川机场东 → 兰州站<span class="tag ok">城际 40—46 分 · 约 ¥17—18.5（到【兰州站】）</span></div><div class="dt">打车约 35—45 分；大巴 3 号线约 1 小时 20 分、约 ¥30。<</b> —— 所以“离兰州站远不远”才是选打车还是城际的依据。<br>⚠️ <b>换乘提醒</b>：城际<b>到的是【兰州站】</b>，<b>兰州站与兰州西是两个不同的站、相距十几公里</b> ⇒ 买“兰州→西宁”的动车时<b>务必选出发站是「兰州」的车，别买成「兰州西」出发</b>；两段都在 12306 买，<b>兰州站换乘留 40 分钟以上</b>。</div></div></div>
-<div class="row"><div class="t">约 12:35</div><div class="d"><div class="hd">兰州站 → 西宁（动车）</div><div class="dt">换乘留约 30 分钟</div></div></div>
-<div class="row"><div class="t">约 14:30</div><div class="d"><div class="hd">到西宁，入住西宁丽亭</div></div></div>
+<div class="row"><div class="t">约 12:40</div><div class="d"><div class="hd">中川机场东 → <b>兰州西</b><span class="tag ok">城际约 40—46 分 · 约 ¥17—18.5（到【兰州西】）</span></div><div class="dt">中川机场既有到<b>兰州站</b>的车、也有到<b>兰州西</b>的车 —— <b>我们坐去【兰州西】的那班</b>（车票已订）。<br>⚠️ <b>别坐错站</b>：<b>兰州站与兰州西是两个不同的站、相距十几公里</b>，上车前务必确认终到站是「兰州西」。</div></div></div>
+<div class="row"><div class="t">下午 2 点多</div><div class="d"><div class="hd">兰州西 → 西宁（动车）</div><div class="dt">车票已订；换乘留约 30 分钟以上</div></div></div>
+<div class="row"><div class="t">下午 2 点多后</div><div class="d"><div class="hd">到西宁，入住西宁丽亭</div></div></div>
 </div>
 <h3>两位同伴（广州出发，机场取车）</h3>
 <div class="tl">
@@ -129,10 +131,9 @@ var DAYS=[
 <li><b>胡子手抓烤肉</b>（下南关街一带）｜<b>下杨家青海土火锅</b>（兴海路总店）</li></ul>
 <div class="note">晚 8 点后人多，想吃热门的就早一点去。</div></div>`},
 
-{id:'d2',tab:'10/4 →祁连',title:'10/4（日）西宁 → 达坂山 → 门源 → 祁连',html:`
+{id:'d2',tab:'10/4 →祁连',title:'10/4（日）西宁 → 门源 → 峨堡 → 祁连',html:`
 <div class="strip">
 <div class="stop"><div class="ic">🚗</div><div class="nm">西宁</div><div class="tm">08:30 出发</div></div><div class="arrow">→</div>
-<div class="stop"><div class="ic">⛰</div><div class="nm">达坂山</div><div class="tm">约 10:30</div></div><div class="arrow">→</div>
 <div class="stop"><div class="ic">🍜</div><div class="nm">门源青石嘴</div><div class="tm">12:00 午餐</div></div><div class="arrow">→</div>
 <div class="stop"><div class="ic">🏛</div><div class="nm">峨堡古城</div><div class="tm">14:10</div></div><div class="arrow">→</div>
 <div class="stop"><div class="ic">🏨</div><div class="nm">祁连宾馆</div><div class="tm">约 15:50</div></div></div>
@@ -141,18 +142,17 @@ var DAYS=[
 <div class="row"><div class="t">07:00</div><div class="d"><div class="hd">起床、酒店早餐</div><div class="dt">★ 出发前<b>在酒店上好厕所</b> —— 之后到青石嘴才有像样的公厕</div></div></div>
 <div class="row"><div class="t">08:00</div><div class="d"><div class="hd">退房、装车</div><div class="dt">今晚住祁连，大件一次装好</div></div></div>
 <div class="row"><div class="t">08:15</div><div class="d"><div class="hd">市区加满油<span class="tag warn">别跳</span></div><div class="dt">沿线加油站稀疏，可靠的是<b>青石嘴、峨堡（中石油）、祁连县城（中石化）</b></div></div></div>
-<div class="row"><div class="t">08:30</div><div class="d"><div class="hd">出发，走 G227 往大通方向</div></div></div>
-<div class="row"><div class="t">约 10:30</div><div class="d"><div class="hd">达坂山观景台<span class="tag">约 100 km</span></div><div class="dt">海拔高、风大，下车加衣；观景台有厕所但是<b>旱厕</b>；山口别站到路肩</div></div></div>
+<div class="row"><div class="t">08:30</div><div class="d"><div class="hd">出发，走 G0611 高速（往门源方向）</div><div class="dt">⚠️ <b>原 G227 达坂山段 2026.5—2027.7 封闭施工</b>，改走高速；<b>达坂山观景台到不了</b>，沿途在高速上远眺岗什卡雪峰</div></div></div>
 <div class="row"><div class="t">11:40</div><div class="d"><div class="hd">门源青石嘴：补油＋上公厕<span class="tag">约 28 km</span></div><div class="dt">下坡＋沿河谷，风景好但弯多；公厕是 2025 年新建的</div></div></div>
 <div class="row"><div class="t">12:00</div><div class="d"><div class="hd">午餐：青石嘴</div><details><summary>吃什么（点开）</summary><div class="in"><b>穆中源餐厅</b>（建博商住楼 3 号）<button class="cp" data-c="穆中源餐厅 建博商住楼3号">复制</button>｜<b>小圆门食府</b>（西部商贸城）｜<b>花海特色农家院</b>（铁迈西村 203 号）<br>途中简单吃、别拖。</div></details></div></div>
 <div class="row"><div class="t">13:00</div><div class="d"><div class="hd">青石嘴 → 峨堡<span class="tag">约 79 km / 1 小时 7 分</span></div></div></div>
 <div class="row"><div class="t">14:10</div><div class="d"><div class="hd">峨堡古城遗址公园</div><div class="dt">元代土坯残垣立在草原上，<b>顺看 20 分钟</b>；⚠️ 厕所不好找（要走近一公里去水厕）</div></div></div>
-<div class="row"><div class="t">14:40</div><div class="d"><div class="hd">峨堡 → 祁连县城<span class="tag">约 72 km</span></div><div class="dt">翻过垭口后进入祁连</div></div></div>
+<div class="row"><div class="t">14:40</div><div class="d"><div class="hd">峨堡 → 祁连县城<span class="tag">约 72 km</span></div><div class="dt">翻过垭口后进入祁连。⚠️ <b>峨堡到祁连之间约 150 km 没有加油站 ⇒ 这里必须加满再走</b></div></div></div>
 <div class="row"><div class="t">约 15:50</div><div class="d"><div class="hd">抵祁连宾馆，办入住</div><div class="dt">县城海拔 2800 m，<b>今天起放慢节奏</b></div></div></div>
 <div class="row"><div class="t">16:30</div><div class="d"><div class="hd">到县城后休息、附近转转</div><div class="dt">今天开了约 6 小时车，<b>不安排景点</b>；傍晚在县城周边走走看日落（10 月日落约 19:20—19:40）</div></div></div>
 <div class="row"><div class="t">19:00</div><div class="d"><div class="hd">晚餐：祁连八宝镇</div><details><summary>吃什么（点开）</summary><div class="in"><b>老街烤肉·土火锅</b>（八宝西路 103 号）｜<b>撒拉尔餐厅</b>（土火锅，等得久）｜<b>老王烤羊肉城</b>（人民路 38 号）｜<b>尕二楼</b><br>祁连连住三晚，这几家可以轮着吃。</div></details></div></div>
 </div>
-<div class="card tint"><div class="ct">⚠️ 今天要留意的</div><ul><li>10 月达坂山<b>可能降雪、遇雪可能限行</b> —— 出发前查一次门源／祁连路况</li><li>达坂山口、门源河谷、峨堡草原都是<b>路边即景</b>，值得看的就停</li></ul></div>`},
+<div class="card tint"><div class="ct">⚠️ 今天要留意的</div><ul><li><b>达坂山段封闭施工（2026.5—2027.7）</b>，走 G0611 高速；<b>出发前查一次门源／祁连路况</b></li><li>门源河谷、峨堡草原都是<b>路边即景</b>，值得看的就停</li></ul></div>`},
 
 {id:'d3',tab:'10/5 祁连',title:'10/5（一）祁连：卓尔山（上午）＋ 阿咪东索 ＋ 冰沟林海',html:`
 <div class="tl">
