@@ -27,6 +27,14 @@ h3{font-size:13px;font-weight:700;color:#5b6b85;margin:16px 0 8px;letter-spacing
 .stop .nm{font-size:11.5px;color:#3d4a5c;margin-top:3px;font-weight:600}
 .stop .tm{font-size:11px;color:#8494ab}
 .arrow{flex:0 0 auto;color:#c2cddd;font-size:13px;padding-top:5px}
+.check{list-style:none;margin:0;padding:0}
+.check li{position:relative;padding-left:25px;font-size:14px;line-height:1.62;margin-bottom:7px;cursor:pointer;user-select:none}
+.check li::before{content:"";position:absolute;left:2px;top:5px;width:14px;height:14px;border:1.6px solid #9aa7b8;border-radius:4px;background:#fff}
+.check li.done{color:#9aa7b8;text-decoration:line-through}
+.check li.done::before{content:"\2713";display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;background:#2b6cb0;border-color:#2b6cb0}
+.ckbar{font-size:13px;color:#63718a;margin:4px 0 10px}
+.ckbar b{color:#2b6cb0;font-size:15px}
+.ckbtn{margin-left:10px;font-size:12px;padding:2px 8px;border:1px solid #cbd5e1;background:#fff;border-radius:6px;cursor:pointer;color:#63718a}
 /* 时间线 */
 .tl{background:#fff;border-radius:12px;padding:6px 14px 10px;box-shadow:0 1px 3px rgba(16,24,40,.07)}
 .row{display:grid;grid-template-columns:58px 1fr;column-gap:20px;position:relative;padding-bottom:16px}
@@ -68,29 +76,31 @@ details .in b{color:#243044}
 // ── 数据 ──────────────────────────────────────────────
 var DAYS=[
 {id:'pre',tab:'出发前',title:'出发前要办的事',html:`
+<div class="ckbar">已完成 <b id="qkDone">0</b> / <span id="qkTotal">0</span><button class="ckbtn" type="button" id="qkClear">清空</button></div>
 <div class="card blue"><div class="ct">🎫 要买的票（9/24 集中检查一次）</div>
 <div class="row"><div class="t">卓尔山</div><div class="d"><div class="hd">入园票＋摆渡车</div><div class="dt">几元的“电子导览”<b>不含入园票</b>，别买错</div></div></div>
 <div class="row"><div class="t">阿咪东索</div><div class="d"><div class="hd">先确认开放再买</div><div class="dt"><b>已按"会开放"准备</b>（十一基本确定营业）；出发前打 <b>0970-8877888</b> 再确认一次即可</div></div></div>
 <div class="row"><div class="t">博物院</div><div class="d"><div class="hd">青海藏文化博物院</div><div class="dt">想看《彩绘大观》上部 → 买<b>南馆</b>；⚠️ 它<b>不是</b>青海省博物馆，预约规则不同</div></div></div>
 </div>
 <div class="card"><div class="ct">🧥 穿（10 月门源/祁连夜间可到 −6~−7℃）</div>
-<ul><li><b>冲锋衣</b>（防风防水，必带）＋<b>羽绒</b>（必带，不是“备着”）</li>
+<ul class="check"><li><b>冲锋衣</b>（防风防水，必带）＋<b>羽绒</b>（必带，不是“备着”）</li>
 <li>抓绒中层；速干长袖（别纯棉）；冲锋裤＋保暖内裤；防水徒步鞋</li>
-<li>帽子、手套、围巾、墨镜、防晒霜、润唇膏</li></ul></div>
+<li>帽子、手套、围巾、墨镜、防晒霜、润唇膏</li>
+<li><b>护膝</b>（已有现成的，带上；下山台阶用）</li></ul></div>
 <div class="card"><div class="ct">💊 药</div>
-<ul><li>红景天（<b>提前服</b>）、便携氧气罐、布洛芬</li>
+<ul class="check"><li>红景天（<b>提前服</b>）、便携氧气罐、布洛芬</li>
 <li><b>人工泪液</b>（高原干、风大）</li>
 <li>感冒药、蒙脱石散、益生菌；创可贴、碘伏、云南白药喷雾；晕车药、抗过敏</li>
 <li>⚠️ 长期用药放随身包，<b>不托运</b></li></ul></div>
 <div class="card"><div class="ct">🛒 到西宁要买的（京东下单寄到西宁丽亭，到时直接装车）</div>
-<ul><li><b>矿泉水</b>（按 6 天量备，车上常备）</li>
+<ul class="check"><li><b>矿泉水</b>（按 6 天量备，车上常备）</li>
 <li><b>电解质水／运动饮料</b>（高原干燥、路上补</li>
 <li><b>便携氧气瓶 ×2—3</b>（海拔上来后用；也可在县城补）</li>
 <li><b>顶饿干粮</b>：牛肉干、坚果、能量棒、饼干（路上和景区之间常常错过饭点）</li>
 <li><b>保温杯</b>（服务区接热水）</li></ul>
 </div>
 <div class="card"><div class="ct">🎒 随身 / 车上</div>
-<ul><li>保温杯、充电宝、<b>离线地图</b>（野牛沟、黑河峡谷没信号）</li>
+<ul class="check"><li>保温杯、充电宝、<b>离线地图</b>（野牛沟、黑河峡谷没信号）</li>
 <li><b>牛肉干、坚果、热水</b>（避免“只能吃面”）</li></ul></div>`},
 
 {id:'d1',tab:'10/3 落地西宁',title:'10/3（六）落地西宁',html:`
@@ -249,4 +259,20 @@ document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',
   function done(){var o=b.textContent;b.textContent='已复制';setTimeout(function(){b.textContent=o},1200)}
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(done).catch(function(){alert(v)})}
   else{var ta=document.createElement('textarea');ta.value=v;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){alert(v)}ta.remove()}})});
-</script></body></html>
+</script>
+<script>
+(function(){
+  var KEY='qilian_check_v1';
+  var items=Array.prototype.slice.call(document.querySelectorAll('.check li'));
+  var dEl=document.getElementById('qkDone'), tEl=document.getElementById('qkTotal');
+  if(tEl) tEl.textContent=items.length;
+  function render(){ if(dEl) dEl.textContent=items.filter(function(li){return li.classList.contains('done')}).length;
+    try{ var on=[]; items.forEach(function(li,i){ if(li.classList.contains('done')) on.push(i); }); localStorage.setItem(KEY, JSON.stringify(on)); }catch(e){} }
+  try{ var saved=JSON.parse(localStorage.getItem(KEY)||'[]'); if(Array.isArray(saved)) saved.forEach(function(i){ if(items[i]) items[i].classList.add('done'); }); }catch(e){}
+  items.forEach(function(li){ li.addEventListener('click', function(){ li.classList.toggle('done'); render(); }); });
+  var cl=document.getElementById('qkClear');
+  if(cl) cl.addEventListener('click', function(){ items.forEach(function(li){ li.classList.remove('done'); }); render(); });
+  render();
+})();
+</script>
+</body></html>
