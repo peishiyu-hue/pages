@@ -1802,21 +1802,26 @@ MPK 不是 $\alpha$，是 $\alpha k^{\alpha-1}$，随 $k$ 变。MPK（marginal p
 <p>$$i = i^*$$</p>
 <p>注意这一步的思想翻转：第 4 讲里利率是货币市场<strong>内生</strong>决定的（产出定了才定利率，答疑 03）；在小国开放经济里利率被世界<strong>外生</strong>钉死。利率这个变量"退场"了——汇率 $\varepsilon$ 接过它的位置成为新的调节变量（浮动汇率下），或者货币供给变成被动的（固定汇率下）。这就是 M–F 与 IS–LM 的全部结构差别。</p>
 <h2>二、IS*：净出口进凯恩斯交叉（2024-M1a 推导原题）</h2>
-<p><strong>需求侧加净出口</strong>。净出口由两块决定：本国人收入越高买进口越多（进口倾向 $m>0$）；本币越升值、本国货越贵，出口越难（汇率敏感度 $\mu>0$）：</p>
+<p><strong>需求侧加净出口。</strong> 开放经济的商品需求多一项净出口；净出口由汇率决定——本币越升值（$\varepsilon$ 升），本国货相对越贵，出口越难、进口越易，净出口越少：</p>
+<p>$$NX = NX(\varepsilon), \qquad NX'(\varepsilon) < 0$$</p>
+<p>$(\varepsilon, NX)$ 平面上是一条向右下倾斜的曲线。这个简写就是 2024-M1a 核验答案采用的设定。</p>
+<p><strong>推导 IS*（图形三步，方程作锚）。</strong> 商品市场均衡（凯恩斯交叉的机器）：</p>
+<p>$$Y = C(Y-T) + I(i^*) + G + NX(\varepsilon)$$</p>
+<ol>
+<li>利率被世界利率钉住（§一），投资 $I(i^*)$ 是常数；</li>
+<li>取定某个汇率 $\varepsilon_1$：$NX(\varepsilon_1)$ 给定，计划支出线与 45° 线交出均衡产出 $Y_1$——在 $(Y,\varepsilon)$ 平面得到一个点；</li>
+<li>汇率升到 $\varepsilon_2$：$NX$ 减小 → 计划支出线整体下移 → 均衡产出降到 $Y_2$。每个 $\varepsilon$ 都对应一个均衡 $Y$，且 $\varepsilon$ 越高 $Y$ 越低——这些点连成 <strong>IS*</strong>：<strong>$(Y,\varepsilon)$ 平面上向右下倾斜</strong>（升值伤净出口、压低产出）。</li>
+</ol>
+<p>答题写法：一行均衡方程 + 两幅图（$NX$ 递减曲线、凯恩斯交叉在升值前后的两个位置）+ 一句"故 IS* 向右下倾斜"。</p>
+<h3>把 NX 拆开：进口倾向与开放乘数（2006-M3 才需要）</h3>
+<p>推导 IS* 用不到更细的设定；需要回答"进口倾向"问题时才把净出口拆成两股驱动——进口随收入（边际进口倾向 $m>0$）、升值伤净出口（汇率敏感度 $\mu>0$）：</p>
 <p>$$NX = \bar X - mY - \mu\varepsilon$$</p>
-<p>（$\bar X$：外国需求决定的外生出口；$-mY$：进口随收入；$-\mu\varepsilon$：升值伤净出口。）</p>
-<p><strong>凯恩斯交叉（第 2 讲的机器原样开动）</strong>：产出 = 总需求：</p>
-<p>$$Y = C_0 + c(Y-T) + I_0 - b\,i^* + G + \bar X - mY - \mu\varepsilon$$</p>
-<p><strong>推导 IS*</strong>（2024-M1a 的标准动作，逐步写）：含 $Y$ 项归左边：</p>
-<p>$$Y - cY + mY = \underbrace{C_0 - cT + I_0 - bi^* + G + \bar X}_{\bar A} - \mu\varepsilon$$</p>
-<p>$$\boxed{\;Y = \frac{\bar A - \mu\varepsilon}{1-c+m} = \alpha_G^{open}\,(\bar A - \mu\varepsilon)\;}$$</p>
-<p>其中<strong>开放经济乘数</strong></p>
-<p>$$\alpha_G^{open} = \frac{1}{1-c+m} < \frac{1}{1-c} = \alpha_G$$</p>
-<p><strong>比封闭乘数小</strong>——支出的扩张效应有一部分从进口"漏"到了国外（漏出多一项 $mY$）。</p>
+<p>（$\bar X$：外国需求决定的外生出口。）代入交叉均衡，含 $Y$ 项归左边解出：</p>
+<p>$$\boxed{\;Y = \frac{\bar A - \mu\varepsilon}{1-c+m} = \alpha_G^{open}\,(\bar A - \mu\varepsilon)\;}, \qquad \alpha_G^{open} = \frac{1}{1-c+m} < \frac{1}{1-c} = \alpha_G$$</p>
+<p><strong>开放经济乘数比封闭乘数小</strong>——支出的扩张效应有一部分从进口"漏"到了国外。</p>
 <p><strong>2006-M3（边际进口倾向变化对收入的影响）就由这一行回答</strong>：$Y = \alpha_G^{open}\bar A$ 对 $m$ 求导：</p>
 <p>$$\frac{\partial Y}{\partial m} = -\frac{\bar A}{(1-c+m)^2} < 0$$</p>
-<p>边际进口倾向越高 → 乘数越小 → 同样自发支出下均衡收入越低。直觉：收入每增一元，有 $m$ 元漏去买了进口货，不再拉动本国下一轮收入。</p>
-<p><strong>IS* 的形状</strong>：$(Y, \varepsilon)$ 平面上向右下倾斜（$\varepsilon = \dfrac{\bar A - Y/\alpha_G^{open}}{\mu}$）——升值伤净出口、压低产出。</p>
+<p>边际进口倾向越高 → 乘数越小 → 同样自发支出下均衡收入越低。直觉：收入每增一元，有 $m$ 元漏去买进口货，不再拉动本国下一轮收入。</p>
 <h3>弹性与马歇尔–勒纳条件（2010-M3，B 级）</h3>
 <p>$NX = \bar X - mY - \mu\varepsilon$ 是线性近似，汇率系数 $\mu$ 把汇率变动的两个效应打包了。拆开看，贬值（$\varepsilon$ 降）时有两股方向相反的力：</p>
 <ul>
@@ -1939,12 +1944,12 @@ MPK 不是 $\alpha$，是 $\alpha k^{\alpha-1}$，随 $k$ 变。MPK（marginal p
 <h2>自测详解</h2>
 <p><strong>第 1 题</strong>（2024-M1a）</p>
 <ul>
-<li>需求：$Y = C_0 + c(Y-T) + I_0 - bi^* + G + \bar X - mY - \mu\varepsilon$（净出口两项来源：进口随收入、升值伤净出口）；</li>
-<li>归并 $Y$：$Y(1-c+m) = \bar A - \mu\varepsilon$；</li>
-<li>$Y = \alpha_G^{open}(\bar A - \mu\varepsilon)$，$\alpha_G^{open}=1/(1-c+m)$；</li>
-<li>点出开放乘数小于封闭乘数（进口漏出）。</li>
+<li>立假设：小国开放、资本完全流动，$i=i^*$；净出口是汇率的递减函数 $NX(\varepsilon)$，$NX'(\varepsilon)<0$；</li>
+<li>商品市场均衡：$Y = C(Y-T) + I(i^*) + G + NX(\varepsilon)$；</li>
+<li>图形推导：$\varepsilon$ 升 → $NX$ 降 → 计划支出线下移 → 交叉图均衡 $Y$ 降；逐点连线，IS* 在 $(Y,\varepsilon)$ 平面右下倾斜；</li>
+<li>（若题目要求显式解：取线性形式 $NX=\bar X-mY-\mu\varepsilon$ 代入解出 $Y=\alpha_G^{open}(\bar A-\mu\varepsilon)$，$\alpha_G^{open}=1/(1-c+m)$——开放乘数小于封闭乘数，进口漏出。）</li>
 </ul>
-<p><strong>踩分点</strong>：净出口函数的两个决定因素要先立假设再代入；$i=i^*$ 代入投资项体现"开放"。</p>
+<p><strong>踩分点</strong>：先立 $i=i^*$ 与 $NX'(\varepsilon)<0$ 两条假设；链条"汇率→净出口→计划支出→均衡产出"要完整，图与方程互相标注。</p>
 <p><strong>第 2 题</strong>（2024-M1b）</p>
 <ul>
 <li>IS* 右移（$G$ 进 $\bar A$）；</li>
