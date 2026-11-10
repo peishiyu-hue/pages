@@ -2935,7 +2935,7 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <blockquote>
 <p>本文定位：<strong>纯数学工具课，不讲任何经济学内容</strong>。目标是覆盖本讲义系列（尤其是第 7 讲索洛模型）实际用到的全部求导知识：导数的含义、基本法则、乘积与商法则、链式法则、偏导数、时间导数记号、对数求导法、一阶条件。读完后，第 7 讲的每一步推导都应能自己看懂、自己复现。
 记号约定与讲义系列一致：$k=K/(AL)$、$y=f(k)=k^{\alpha}$ 为有效劳动人均口径；字母上加点表示对时间的导数（如 $\dot k \equiv dk/dt$）；$\partial$ 表示偏导数；$g_X \equiv \dot X/X$ 表示变量 $X$ 的增长率。
-用法：先通读一遍，再回头重读第 7 讲 §二、§三、§六、§七，把每一步推导亲手推一遍。</p>
+用法：先通读一遍，再回头重读第 7 讲 §三、§四、§七、§八，把每一步推导亲手推一遍。</p>
 </blockquote>
 <hr />
 <h2>一、导数是什么：从平均变化率到瞬时变化率</h2>
@@ -2960,9 +2960,9 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <p><strong>讲义实例。</strong></p>
 <ul>
 <li>幂法则：C–D 生产函数的集约形式 $f(k)=k^{\alpha}$ 求 MPK（见第一节），再求一次二阶导数得 $f''(k)=\alpha(\alpha-1)k^{\alpha-2}<0$——第 7 讲"边际产出递减"的出处；</li>
-<li>常数倍 + 和差：第 7 讲 §六的黄金律目标函数 $c^* = f(k^*) - (n+g+\delta)k^*$ 对 $k^*$ 求导：第一项 $f'(k^*)$，第二项常数倍 $(n+g+\delta)\cdot(k^*)' = n+g+\delta$，合并 $c^{*\prime} = f'(k^*) - (n+g+\delta)$（§八还要用）；</li>
+<li>常数倍 + 和差：第 7 讲 §七的黄金律目标函数 $c^* = f(k^*) - (n+g+\delta)k^*$ 对 $k^*$ 求导：第一项 $f'(k^*)$，第二项常数倍 $(n+g+\delta)\cdot(k^*)' = n+g+\delta$，合并 $c^{*\prime} = f'(k^*) - (n+g+\delta)$（§九还要用）；</li>
 <li>指数函数：Ramsey 模型的贴现因子 $e^{-\rho t}$ 对 $t$ 求导得 $-\rho e^{-\rho t}$（常数倍 + 链式法则，补遗 03 用到）；</li>
-<li>对数函数：增长率换算的全部基础（§六、§七）。</li>
+<li>对数函数：增长率换算的全部基础（§七、§八）。</li>
 </ul>
 <h2>三、乘积法则与商法则</h2>
 <p><strong>法则陈述。</strong> 设 $u(x)$、$v(x)$ 都可导：</p>
@@ -2973,7 +2973,7 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <p>其中 $(v^{-1})'$ 用链式法则（§四，幂法则先对外层 $v^{-1}$ 求导得 $-v^{-2}$，再乘内层 $v'$）：$(v^{-1})' = -\dfrac{v'}{v^2}$。代回：</p>
 <p>$$u'\cdot\frac{1}{v} + u\cdot\left(-\frac{v'}{v^2}\right) = \frac{u'}{v} - \frac{u\,v'}{v^2} = \frac{u'v - u v'}{v^2}$$</p>
 <p><strong>记忆法</strong>：乘积法则"你导我不导、我导你不导，两项相加"；商法则分子是"上导下 − 上下导"，分母永远是非负的 $v^2$——所以商的导数符号完全由分子决定。</p>
-<p><strong>讲义实例（第 7 讲 §三第 2 步，2024-M2 的采分步，逐步重演）。</strong> 对 $k \equiv \dfrac{K}{AL}$ 求时间导数。分子 $u=K$、分母 $v=AL$，都对时间 $t$ 求导。分母 $AL$ 本身是乘积，先用乘积法则：</p>
+<p><strong>讲义实例（第 7 讲 §四第 2 步，2024-M2 的采分步，逐步重演）。</strong> 对 $k \equiv \dfrac{K}{AL}$ 求时间导数。分子 $u=K$、分母 $v=AL$，都对时间 $t$ 求导。分母 $AL$ 本身是乘积，先用乘积法则：</p>
 <p>$$\frac{d(AL)}{dt} = \dot A\,L + A\,\dot L$$</p>
 <p>套商法则：</p>
 <p>$$\dot k \;=\; \frac{\dot K\cdot(AL) - K\cdot(\dot A L + A\dot L)}{(AL)^2}$$</p>
@@ -2981,13 +2981,13 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <p>$$\dot k \;=\; \frac{\dot K}{AL} \;-\; \frac{K\,(A\dot L + L\dot A)}{(AL)^2}$$</p>
 <p>第二项分子分母约掉一个 $AL$：$\dfrac{K\,(A\dot L + L\dot A)}{(AL)^2} = \dfrac{K}{AL}\cdot\dfrac{A\dot L + L\dot A}{AL} = k\left(\dfrac{\dot L}{L} + \dfrac{\dot A}{A}\right)$。代入人口与技术增长率 $\dot L/L = n$、$\dot A/A = g$：</p>
 <p>$$\dot k \;=\; \frac{\dot K}{AL} - (n+g)\,k$$</p>
-<p>这就是第 7 讲资本积累方程的关键一步。考场提示：这一步用商法则或对数求导（§七）任选其一，<strong>对数求导更不容易错</strong>——乘除取对数变加减，不用背 $v^2$ 的位置。</p>
+<p>这就是第 7 讲资本积累方程的关键一步。考场提示：这一步用商法则或对数求导（§八）任选其一，<strong>对数求导更不容易错</strong>——乘除取对数变加减，不用背 $v^2$ 的位置。</p>
 <h2>四、链式法则：复合函数一层一层剥</h2>
 <p><strong>法则陈述。</strong> 若 $y = f(u)$、$u = g(x)$，即 $y = f(g(x))$，则</p>
 <p>$$\frac{dy}{dx} \;=\; \frac{dy}{du}\cdot\frac{du}{dx} \;=\; f'(g(x))\cdot g'(x)$$</p>
 <p>外层函数对"内层整体"求导，再乘内层对自变量的导数。多层复合就一层层乘下去。</p>
 <p><strong>直观解释。</strong> $x$ 动一点，$u$ 动 $g'(x)$ 倍；$u$ 动一点，$y$ 动 $f'(u)$ 倍；两层放大率相乘，就是 $x$ 对 $y$ 的总放大率。俗称"剥洋葱"：先剥外层（把内层整个当成一个变量），再剥内层。</p>
-<p><strong>讲义实例（第 7 讲 §二欧拉定理第一步，全讲义最容易卡住的一步，掰开揉碎）。</strong> 规模报酬不变给出：对任意 $\lambda>0$，</p>
+<p><strong>讲义实例（第 7 讲 §三欧拉定理第一步，全讲义最容易卡住的一步，掰开揉碎）。</strong> 规模报酬不变给出：对任意 $\lambda>0$，</p>
 <p>$$F(\lambda K,\,\lambda L) = \lambda\, F(K,L)$$</p>
 <p><strong>两边对 $\lambda$ 求导。</strong> 先看右边：$F(K,L)$ 不含 $\lambda$（$K$、$L$ 是固定的数），所以 $\lambda F(K,L)$ 对 $\lambda$ 的导数就是 $F(K,L)$。</p>
 <p>再看左边，这是复合函数：把 $\lambda K$ 和 $\lambda L$ 分别看成两个<strong>内函数</strong> $u(\lambda)=\lambda K$、$v(\lambda)=\lambda L$，左边就是 $F(u(\lambda),\,v(\lambda))$。$F$ 通过 $u$、$v$ 两条渠道依赖 $\lambda$（二元版本的链式法则，每条渠道各乘一次再相加）：</p>
@@ -3007,31 +3007,42 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <p><strong>求 $MPL = \dfrac{\partial Y}{\partial L}$</strong>：$K$ 当常数，$K^{\alpha}$ 是常数因子；$(AL)^{1-\alpha}$ 对 $L$ 是复合函数，链式法则——外层幂法则、内层 $AL$ 对 $L$ 的导数是 $A$：</p>
 <p>$$MPL = K^{\alpha}\cdot(1-\alpha)(AL)^{-\alpha}\cdot A = (1-\alpha)\,K^{\alpha}A^{1-\alpha}L^{-\alpha}$$</p>
 <p>整理成份额形式：$MPL = \dfrac{(1-\alpha)Y}{L}$。</p>
-<p>于是 $MPK\cdot K + MPL\cdot L = \alpha Y + (1-\alpha)Y = Y$——欧拉定理在 C–D 下的直接验证（第 7 讲 §二）。</p>
-<h2>六、字母上加点 = 时间导数</h2>
+<p>于是 $MPK\cdot K + MPL\cdot L = \alpha Y + (1-\alpha)Y = Y$——欧拉定理在 C–D 下的直接验证（第 7 讲 §三）。</p>
+<h2>六、全微分与全导数：两个变量一起动</h2>
+<p><strong>偏导数只管"一次动一个"；现实中两个要素往往同时变化</strong>——全微分和全导数就是处理"一起动"的工具。</p>
+<p><strong>全微分（total differential）</strong>：$z=f(x,y)$ 中 $x$、$y$ 各自发生微小变动 $dx$、$dy$ 时，$z$ 的总变化近似为两个偏导贡献的叠加：</p>
+<p>$$dz=\frac{\partial z}{\partial x}\,dx+\frac{\partial z}{\partial y}\,dy$$</p>
+<p>读法：每个变量按自己的边际贡献（偏导数）出力，总变化是各路贡献之和。经济学对应：$K$、$L$ 同时微调时，产出的变化 $dQ=MP_K\,dK+MP_L\,dL$。</p>
+<p><strong>全导数（total derivative）</strong>：当 $x$、$y$ 都随同一个参数 $t$ 变化（$x=x(t)$、$y=y(t)$），$z$ 对 $t$ 的变化率——全微分两边同除以 $dt$：</p>
+<p>$$\frac{dz}{dt}=\frac{\partial z}{\partial x}\frac{dx}{dt}+\frac{\partial z}{\partial y}\frac{dy}{dt}$$</p>
+<p><strong>$dt$ 的含义</strong>：$\Delta t$ 是有限时间增量（一年、一个季度）；$dt$ 是无穷小时间增量；$\dfrac{dz}{dt}$ 是<strong>瞬时变化率</strong>——某一瞬间"每单位时间变多少"。宏观里所有点号变量（下一节）都是瞬时变化率。</p>
+<p><strong>讲义实例</strong>：第 7 讲索洛模型里产出随时间的演化就是全导数——$K(t)$、$L(t)$ 都随时间变，产出对时间的变化率为</p>
+<p>$$\frac{dQ}{dt}=MP_K\,\frac{dK}{dt}+MP_L\,\frac{dL}{dt}$$</p>
+<p><strong>与偏导数的关系（常见疑问）</strong>：计算 $Q=\int_0^K MP_K(k,\bar L)\,dk$ 这类积分时用偏导数而不用全微分，是因为积分路径上 $L$ 全程固定、只有 $K$ 在变——只沿一个轴移动时，变化只由那个方向的偏导数描述；全微分是用来刻画两个变量<strong>同时</strong>变动的任意路径的。一句话：<strong>单变量路径用偏导，多变量联动用全微分/全导数。</strong></p>
+<h2>七、字母上加点 = 时间导数</h2>
 <p><strong>记号来历。</strong> $\dot x \equiv \dfrac{dx}{dt}$，头顶一个点是<strong>牛顿记号</strong>，物理学（力学）的传统写法，专用于对时间 $t$ 求导。宏观增长模型全是时间的函数——$K(t)$、$L(t)$、$A(t)$、$k(t)$——写 $\dot K$ 比写 $dK/dt$ 省一行，于是整个增长文献都用点。第 7 讲里 $\dot K$（资本积累）、$\dot L$、$\dot A$、$\dot k$、$\dot c$ 全是这个记号。</p>
 <p><strong>关键换算：增长率 = 对数的时间导数。</strong> 记 $g_x \equiv \dfrac{\dot x}{x}$（$x$ 的增长率），则</p>
 <p>$$\frac{d\ln x}{dt} \;=\; \frac{\dot x}{x} \;=\; g_x$$</p>
 <p><strong>推导（链式法则两步，不许跳）</strong>：$\ln x$ 是复合函数——外层 $\ln(\cdot)$，内层 $x(t)$。外层对内层求导：$\dfrac{d\ln x}{dx} = \dfrac{1}{x}$（§二对数法则）；内层对 $t$ 求导：$\dfrac{dx}{dt} = \dot x$。链式法则相乘：</p>
 <p>$$\frac{d\ln x}{dt} = \frac{1}{x}\cdot\dot x = \frac{\dot x}{x}$$</p>
-<p><strong>讲义实例</strong>：第 7 讲全程在用——$\dot L/L = n$、$\dot A/A = g$ 即 $\ln L$、$\ln A$ 分别以恒定速率 $n$、$g$ 随时间上升；增长核算方程（§七）整个建立在这一行换算上。<strong>考场提示：看到"取对数后对时间求导"，脑子里直接替换成"换成增长率"，中间一步都不用写。</strong></p>
-<h2>七、对数求导法与增长率换算（全篇高潮，增长核算的源头）</h2>
+<p><strong>讲义实例</strong>：第 7 讲全程在用——$\dot L/L = n$、$\dot A/A = g$ 即 $\ln L$、$\ln A$ 分别以恒定速率 $n$、$g$ 随时间上升；增长核算方程（§八）整个建立在这一行换算上。<strong>考场提示：看到"取对数后对时间求导"，脑子里直接替换成"换成增长率"，中间一步都不用写。</strong></p>
+<h2>八、对数求导法与增长率换算（全篇高潮，增长核算的源头）</h2>
 <p><strong>法则陈述。</strong> 对数把乘除幂全部降级——乘变加、除变减、幂变乘：</p>
 <p>$$\ln(XY) = \ln X + \ln Y, \qquad \ln\!\left(\frac{X}{Y}\right) = \ln X - \ln Y, \qquad \ln(X^{a}) = a\ln X$$</p>
-<p>两边对时间求导，左边变成增长率（§六），右边逐项求导，于是得到<strong>增长率换算三定律</strong>：</p>
+<p>两边对时间求导，左边变成增长率（§七），右边逐项求导，于是得到<strong>增长率换算三定律</strong>：</p>
 <ul>
 <li><strong>积的增长率 = 增长率之和</strong>：$g_{XY} = g_X + g_Y$；</li>
 <li><strong>商的增长率 = 增长率之差</strong>：$g_{X/Y} = g_X - g_Y$；</li>
 <li><strong>幂的增长率 = 指数 × 增长率</strong>：$g_{X^{a}} = a\,g_X$。</li>
 </ul>
-<p><strong>实例①（对接第 7 讲 §三另解）：$k = \dfrac{K}{AL}$ 的增长率。</strong> 取对数：</p>
+<p><strong>实例①（对接第 7 讲 §四另解）：$k = \dfrac{K}{AL}$ 的增长率。</strong> 取对数：</p>
 <p>$$\ln k = \ln K - \ln A - \ln L$$</p>
 <p>两边对时间求导，逐项换成增长率：</p>
 <p>$$\frac{\dot k}{k} = \frac{\dot K}{K} - \frac{\dot A}{A} - \frac{\dot L}{L} = \frac{\dot K}{K} - g - n$$</p>
 <p>两边同乘 $k$，注意 $\dfrac{\dot K}{K}\cdot k = \dfrac{\dot K}{K}\cdot\dfrac{K}{AL} = \dfrac{\dot K}{AL}$：</p>
 <p>$$\dot k = \frac{\dot K}{AL} - (n+g)\,k$$</p>
 <p>与 §三商法则的结果一字不差，但全程只有加减法。<strong>考场推资本积累方程，商法则与对数求导任选其一，对数求导更快、更不容易错。</strong></p>
-<p><strong>实例②（对接第 7 讲 §七）：增长核算方程。</strong> 对 $Y = A K^{\alpha} L^{1-\alpha}$ 取对数（幂变乘、乘变加）：</p>
+<p><strong>实例②（对接第 7 讲 §八）：增长核算方程。</strong> 对 $Y = A K^{\alpha} L^{1-\alpha}$ 取对数（幂变乘、乘变加）：</p>
 <p>$$\ln Y = \ln A + \alpha\ln K + (1-\alpha)\ln L$$</p>
 <p>两边对时间求导（常数 $\alpha$、$1-\alpha$ 按常数倍法则提出）：</p>
 <p>$$\boxed{\;g_Y \;=\; g_A + \alpha\,g_K + (1-\alpha)\,g_L\;}$$</p>
@@ -3039,18 +3050,18 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <p><strong>实例③（一句带过）</strong>：名义量与乘积的处理同理——如货币需求里的 $P\cdot y$（价格 × 实际产出），其增长率 $= g_P + g_y = $ 通胀率 + 实际产出增速。乘积取对数即拆，无需新工具。</p>
 <p><strong>补一小段：弹性。</strong> $y=f(x)$ 中，$y$ 对 $x$ 的<strong>弹性</strong>定义为"$x$ 变动 1%，$y$ 变动百分之几"：</p>
 <p>$$\text{弹性} \;=\; \frac{dy/y}{dx/x} \;=\; f'(x)\cdot\frac{x}{y} \;=\; \frac{d\ln y}{d\ln x}$$</p>
-<p>最后一步恒等号正来自 §六的换算（分子分母各乘一个 $dt$）。对双对数函数 $\ln y = a + b\ln x$，两边微分直接得 $\dfrac{d\ln y}{d\ln x} = b$——<strong>双对数设定下系数 $b$ 直接就是弹性</strong>，这是计量讲义里双对数回归系数解读的依据（详见计量第 02 讲）。特例：幂函数 $y=x^{b}$ 取对数即 $\ln y = b\ln x$，弹性恒等于指数 $b$，与 $x$ 无关（自测第 6 题）。</p>
-<h2>八、一阶条件：最优点处切线水平</h2>
+<p>最后一步恒等号正来自 §七的换算（分子分母各乘一个 $dt$）。对双对数函数 $\ln y = a + b\ln x$，两边微分直接得 $\dfrac{d\ln y}{d\ln x} = b$——<strong>双对数设定下系数 $b$ 直接就是弹性</strong>，这是计量讲义里双对数回归系数解读的依据（详见计量第 02 讲）。特例：幂函数 $y=x^{b}$ 取对数即 $\ln y = b\ln x$，弹性恒等于指数 $b$，与 $x$ 无关（自测第 6 题）。</p>
+<h2>九、一阶条件：最优点处切线水平</h2>
 <p><strong>法则陈述。</strong> 可微函数 $f(x)$ 若在<strong>内部点</strong> $x^*$ 取到最大（或最小）值，则该点切线必水平：</p>
 <p>$$f'(x^*) = 0 \qquad\text{（一阶条件，FOC）}$$</p>
 <p><strong>直观解释。</strong> 若 $f'(x^*)>0$，往右挪一点点函数值还能涨；若 $f'(x^*)<0$，往左挪一点点还能涨——都不可能是顶点。只有导数为零（切线水平、进退都不能再改善）的地方才可能是内部最优点。注意一阶条件是<strong>必要</strong>条件：它同时被极大值、极小值和拐点满足，判断极大还需二阶条件 $f''(x^*)<0$（讲义里函数都是凹的，自动满足，不必每次写）。</p>
-<p><strong>讲义实例①（对接第 7 讲 §六：黄金律，逐步推）。</strong> 稳态消费 $c^* = f(k^*) - (n+g+\delta)k^*$（产出减收支相抵投资），$s$ 通过 $k^*$ 影响 $c^*$。把 $c^*$ 看作 $k^*$ 的函数，对 $k^*$ 求导（和差法则 + 常数倍法则）：</p>
+<p><strong>讲义实例①（对接第 7 讲 §七：黄金律，逐步推）。</strong> 稳态消费 $c^* = f(k^*) - (n+g+\delta)k^*$（产出减收支相抵投资），$s$ 通过 $k^*$ 影响 $c^*$。把 $c^*$ 看作 $k^*$ 的函数，对 $k^*$ 求导（和差法则 + 常数倍法则）：</p>
 <p>$$\frac{dc^*}{dk^*} = f'(k^*) - (n+g+\delta)$$</p>
 <p>令一阶条件为零：</p>
 <p>$$\boxed{\;f'(k^*_G) = n+g+\delta\;}$$</p>
 <p>即黄金律资本存量 $k^*_G$：资本的边际产出恰好等于收支相抵线的斜率。二阶条件 $f''<0$ 自动满足（边际产出递减），故确为最大值。</p>
-<p><strong>讲义实例②（对接第 7 讲 §二，一句话）</strong>：企业利润 $\pi = F(K,L) - rK - wL$，分别对 $K$、$L$ 写利润最大化的一阶条件 $\partial \pi/\partial K = 0$、$\partial \pi/\partial L = 0$，直接给出 $r = MPK$、$w = MPL$——竞争均衡下要素按边际产出定价，欧拉定理（§四）据此变成收入分配等式。</p>
-<h2>九、自测</h2>
+<p><strong>讲义实例②（对接第 7 讲 §三，一句话）</strong>：企业利润 $\pi = F(K,L) - rK - wL$，分别对 $K$、$L$ 写利润最大化的一阶条件 $\partial \pi/\partial K = 0$、$\partial \pi/\partial L = 0$，直接给出 $r = MPK$、$w = MPL$——竞争均衡下要素按边际产出定价，欧拉定理（§四）据此变成收入分配等式。</p>
+<h2>十、自测</h2>
 <ol>
 <li>对 $y = k^{\alpha}$ 求 $y'$，并计算 $k=4$、$\alpha = 1/3$ 时 MPK 的数值。</li>
 <li>对 $Y = K^{\alpha}(AL)^{1-\alpha}$ 分别求 $MPK$ 与 $MPL$，并验证 $MPK\cdot K + MPL\cdot L = Y$。</li>
@@ -3097,7 +3108,7 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <p><strong>第 4 题</strong></p>
 <ul>
 <li>取对数：$\ln Y = \ln A + \alpha\ln K + (1-\alpha)\ln L$；</li>
-<li>两边对时间求导，用 $\dfrac{d\ln X}{dt} = \dfrac{\dot X}{X} = g_X$（链式法则，§六）：</li>
+<li>两边对时间求导，用 $\dfrac{d\ln X}{dt} = \dfrac{\dot X}{X} = g_X$（链式法则，§七）：</li>
 </ul>
 <p>$$\frac{\dot Y}{Y} = \frac{\dot A}{A} + \alpha\,\frac{\dot K}{K} + (1-\alpha)\,\frac{\dot L}{L}$$</p>
 <ul>
@@ -3121,11 +3132,11 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 </ul>
 <p>$$\text{弹性} = \frac{1}{2}x^{-1/2}\cdot\frac{x}{x^{1/2}} = \frac{1}{2}\cdot x^{-1/2 + 1 - 1/2} = \frac{1}{2}\cdot x^{0} = \frac{1}{2}$$</p>
 <ul>
-<li>$x=9$ 处弹性仍为 $\dfrac{1}{2}$；事实上对任何 $x$ 都是 $\dfrac{1}{2}$——<strong>幂函数的弹性恒等于其指数，与 $x$ 无关</strong>（取对数 $\ln y = \frac{1}{2}\ln x$，双对数系数即弹性，§七）。</li>
+<li>$x=9$ 处弹性仍为 $\dfrac{1}{2}$；事实上对任何 $x$ 都是 $\dfrac{1}{2}$——<strong>幂函数的弹性恒等于其指数，与 $x$ 无关</strong>（取对数 $\ln y = \frac{1}{2}\ln x$，双对数系数即弹性，§八）。</li>
 </ul>
 <p><strong>踩分点</strong>：不必先代 $x=9$ 再算——先化简一般式发现 $x$ 全部约掉，答案与取值无关，这才是本题的考点。</p>
-<h2>十、至此</h2>
-<p>八节工具全部落位：导数的含义（边际 = 导数）、四条基本法则、乘积与商法则（资本积累方程）、链式法则（欧拉定理）、偏导数（MPK/MPL）、点号记号与增长率换算、对数求导（增长核算）、一阶条件（黄金律与要素定价）。下一步动作：回到第 7 讲，把 §二、§三、§六、§七的推导亲手复现一遍——每一步都能对上本篇的某一条法则，就算过关。</p>
+<h2>十一、至此</h2>
+<p>九节工具全部落位：导数的含义（边际 = 导数）、四条基本法则、乘积与商法则（资本积累方程）、链式法则（欧拉定理）、偏导数（MPK/MPL）、全微分与全导数（两要素联动）、点号记号与增长率换算、对数求导（增长核算）、一阶条件（黄金律与要素定价）。下一步动作：回到第 7 讲，把 §三、§四、§七、§八的推导亲手复现一遍——每一步都能对上本篇的某一条法则，就算过关。</p>
 <div class="lecend"><a href="#top">↑ 回到目录</a></div>
 </section>
 </body>
