@@ -2964,6 +2964,48 @@ $Y = \frac{25}{15}\times 190 + \frac{50}{15}\times 100 = 316.7 + 333.3 = 650$ �
 <li>指数函数：Ramsey 模型的贴现因子 $e^{-\rho t}$ 对 $t$ 求导得 $-\rho e^{-\rho t}$（常数倍 + 链式法则，补遗 03 用到）；</li>
 <li>对数函数：增长率换算的全部基础（§七、§八）。</li>
 </ul>
+<p><strong>幂函数与指数函数再展开（考试高频，单独过一遍）。</strong></p>
+<p>幂法则的几个常用变体，同一法则统吃：</p>
+<ul>
+<li>负指数与分数指数：$(x^{-1})' = -x^{-2}$（即 $\left(\dfrac{1}{x}\right)' = -\dfrac{1}{x^2}$）；$(\sqrt{x})' = (x^{1/2})' = \dfrac{1}{2}x^{-1/2} = \dfrac{1}{2\sqrt{x}}$；</li>
+<li>常数倍照乘、多项式逐项：$(5x^3)' = 15x^2$，$(x^3 - 2x + 7)' = 3x^2 - 2$（常数项导数为 $0$）；</li>
+<li>高阶规律：每求一次导，系数乘当前指数、指数减一——$f(x)=x^{a}$ 时 $f''(x) = a(a-1)x^{a-2}$。当 $0<a<1$ 时 $f'>0$ 而 $f''<0$——<strong>"边际产出为正但递减"的数学骨架</strong>（$f(k)=k^{\alpha}$ 正是此形，$\alpha$ 在 $0$ 与 $1$ 之间）；</li>
+<li>来历一句话：$x^{a} = e^{a\ln x}$，链式法则求导得 $e^{a\ln x}\cdot\dfrac{a}{x} = a\,x^{a-1}$——对数把"幂"翻译成"乘法"，这正是本补遗把它和对数法则放在一起讲的原因。</li>
+</ul>
+<p>指数函数一族，围绕 $(e^x)'=e^x$ 展开：</p>
+<ul>
+<li>$e^x$ 是唯一"导数等于自身"的函数——任意点的斜率就等于函数值本身，$e$ 这个底正是被这条性质挑出来的；它也可以从反函数关系看出：$e^x$ 是 $\ln x$ 的反函数，反函数求导"导数互为倒数"，$\dfrac{d\ln y}{dy}=\dfrac{1}{y}$ 倒过来即 $\dfrac{dy}{dx}=y=e^x$；</li>
+<li>一般底换底：$a^x = e^{x\ln a}$（两边取对数可验证），链式法则得 $(a^x)' = e^{x\ln a}\cdot\ln a = a^x\ln a$。多出的 $\ln a$ 可记作"换底税"；特例 $a=e$ 时 $\ln e = 1$，退化为 $(e^x)'=e^x$；</li>
+<li>复合口诀：<strong>先照抄自己，再乘指数的导数</strong>（底不是 $e$ 再补 $\ln a$）：$(e^{u(x)})' = e^{u(x)}\cdot u'(x)$，$(a^{u(x)})' = a^{u(x)}\ln a\cdot u'(x)$。例：$(e^{2x})' = 2e^{2x}$；$(e^{gt})' = g\,e^{gt}$；$(10^{x})' = 10^{x}\ln 10$；$(e^{-x^2})' = -2x\,e^{-x^2}$。</li>
+</ul>
+<p>两类函数对照着记（考试爱混）：</p>
+<table style="table-layout:fixed"><colgroup><col style="width:36%"><col style="width:36%"><col style="width:29%"></colgroup>
+<thead>
+<tr>
+<th></th>
+<th>幂函数 $x^{a}$</th>
+<th>指数函数 $a^{x}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谁在动</td>
+<td>底 $x$</td>
+<td>指数 $x$</td>
+</tr>
+<tr>
+<td>导数</td>
+<td>$a\,x^{a-1}$</td>
+<td>$a^{x}\ln a$</td>
+</tr>
+<tr>
+<td>增长率 $\dfrac{f'}{f}$</td>
+<td>$\dfrac{a}{x}$（随 $x$ 递减）</td>
+<td>$\ln a$（恒定）</td>
+</tr>
+</tbody>
+</table>
+<p>右下格正是"恒定增长率"过程的出处：$y(t) = y_0 e^{gt}$ 的增长率 $\dfrac{\dot y}{y} = g$，取对数 $\ln y = \ln y_0 + gt$ 对 $t$ 求导同样得 $g$——指数函数是 §七 对数换算的"反面"，经济增长、连续复利贴现（$PV = e^{-rt}\cdot FV$）、资本衰减（$K(t)=K_0 e^{-\delta t}$）都用它写。</p>
 <h2>三、乘积法则与商法则</h2>
 <p><strong>法则陈述。</strong> 设 $u(x)$、$v(x)$ 都可导：</p>
 <p>$$\big(u\,v\big)' = u'v + u\,v' \qquad\text{（乘积法则：轮流求导，求谁谁变）}$$</p>
