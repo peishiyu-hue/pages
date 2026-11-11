@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<name>香港行程 9/12–13</name>
+<Placemark><name>九龍維景酒店（住宿）</name><Point><coordinates>114.16748,22.32344,0</coordinates></Point></Placemark>
+<Placemark><name>榮園麵家（牛腩麵·晚餐）</name><Point><coordinates>114.17057,22.31875,0</coordinates></Point></Placemark>
+<Placemark><name>金華冰廳（菠蘿油）</name><Point><coordinates>114.16975,22.3223,0</coordinates></Point></Placemark>
+<Placemark><name>奇趣餅家（老婆餅）</name><Point><coordinates>114.17063,22.32153,0</coordinates></Point></Placemark>
+<Placemark><name>肥姐小食店（滷味串）</name><Point><coordinates>114.17175,22.31574,0</coordinates></Point></Placemark>
+<Placemark><name>麥當勞 MOKO（早餐）</name><Point><coordinates>114.17229,22.32318,0</coordinates></Point></Placemark>
+<Placemark><name>萬寧 MOKO（買藥）</name><Point><coordinates>114.17229,22.32318,0</coordinates></Point></Placemark>
+<Placemark><name>旺角東站（東鐵線）</name><Point><coordinates>114.17212,22.32226,0</coordinates></Point></Placemark>
+<Placemark><name>紅館 香港體育館（演唱會）</name><Point><coordinates>114.18198,22.30132,0</coordinates></Point></Placemark>
+<Placemark><name>檸檬王（甘草檸檬·上環）</name><Point><coordinates>114.15394,22.28512,0</coordinates></Point></Placemark>
+<Placemark><name>太古廣場（金鐘·叮叮車）</name><Point><coordinates>114.16529,22.278,0</coordinates></Point></Placemark>
+<Placemark><name>灣仔碼頭（天星小輪）</name><Point><coordinates>114.17623,22.28336,0</coordinates></Point></Placemark>
+<Placemark><name>尖沙咀天星碼頭</name><Point><coordinates>114.16799,22.29354,0</coordinates></Point></Placemark>
+<Placemark><name>海港城（尖沙咀）</name><Point><coordinates>114.16842,22.297,0</coordinates></Point></Placemark>
+<Placemark><name>金馬倫道（燒鵝午餐）</name><Point><coordinates>114.17475,22.2996,0</coordinates></Point></Placemark>
+<Placemark><name>香港西九龍站（返程·匯豐）</name><Point><coordinates>114.16531,22.30201,0</coordinates></Point></Placemark>
+</Document></kml>
