@@ -2274,6 +2274,16 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <p>性质 3：独立时 $p_{ij} = p_i^X p_j^Y$，于是</p>
 <p>$$E(XY) = \sum_i\sum_j x_i y_j\, p_i^X p_j^Y = \left(\sum_i x_i p_i^X\right)\left(\sum_j y_j p_j^Y\right) = E(X)E(Y)$$</p>
 <p>小例子：$Y = 2X + 3$，$E(X)=5$，则 $E(Y) = 2\times5 + 3 = 13$。</p>
+<p><strong>补：独立的概念——三种等价说法。</strong></p>
+<p>性质 3 用到"独立"，这里把它钉死。两个随机变量独立的直觉是：<strong>知道 X 取了什么值，对 Y 的分布没有任何影响</strong>。翻译成条件概率：</p>
+<p>$$P(Y = y \mid X = x) = P(Y = y) \qquad \text{对所有 } x, y \text{ 成立}$$</p>
+<p>即条件分布 = 边缘分布。而条件概率有个恒等式（乘法公式，这是"推导"的那半边）：</p>
+<p>$$P(X = x,\ Y = y) = P(X = x)\, P(Y = y \mid X = x)$$</p>
+<p>把独立的条件代入右边，就得到独立最常用的<strong>定义式</strong>：</p>
+<p>$$p_{ij} = p_i^X \cdot p_j^Y \qquad \text{对所有取值组合成立}$$</p>
+<p>所以"联合概率 = 边缘概率相乘"既是独立的<strong>定义</strong>，也能从"条件分布不受影响"的直觉经乘法公式<strong>推出来</strong>——两个方向都通（独立 ⇔ 联合 = 边缘相乘）。教材直接拿乘积式当定义用，因为它是纯概率式子、好操作。注意量词"对所有取值组合"不能丢：只对某一对 $(x, y)$ 成立不算独立。</p>
+<p>三种等价说法串起来：<strong>知道 X 不影响对 Y 的判断 ⇔ 条件分布等于边缘分布 ⇔ 联合概率等于边缘概率相乘</strong>。</p>
+<p><strong>独立与数字特征的关系</strong>（判断题用）：独立 ⇒ $E(XY) = E(X)E(Y)$（上面的性质 3）⇒ $\mathrm{Cov}(X,Y) = 0$（见第四节）。两个箭头都不可逆：$E(XY) = E(X)E(Y)$ 只说"不相关"，而协方差为零只排除了线性关联（第四节性质 4 的 $Y = X^2$ 反例）——都推不回独立。</p>
 <p><strong>样本对应物</strong>：样本均值 $\bar X = \frac1n\sum X_t$。大数定律说 $n$ 大时 $\bar X \approx E(X)$——这就是"用样本估计总体"的合法性来源。</p>
 <h2 id="l6s3">三、方差：波动的度量</h2>
 <p><strong>定义</strong>：</p>
@@ -2375,7 +2385,7 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <ol>
 <li>$\mathrm{Var}(aX) = a^2\mathrm{Var}(X)$，不是 $a\mathrm{Var}(X)$；</li>
 <li>$E(X+Y) = E(X)+E(Y)$ 无条件成立，但 $E(XY) = E(X)E(Y)$ 需要独立/不相关；</li>
-<li>协方差为零不等于独立；</li>
+<li>独立的定义是 $p_{ij} = p_i^X p_j^Y$ 对<strong>所有</strong>取值组合成立；协方差为零不等于独立（可能有非线性关联）；</li>
 <li>样本方差、样本协方差都由类比原则（$E \to \frac1n\sum$、$\mu \to \bar X$）从总体定义翻译而来；无偏版除以 $n-1$（残差版除以 $n-k$，$k$ 为估计的参数个数）；</li>
 <li>$\sum x_t = 0$、$\sum x_t Y_t = \sum x_t y_t$ 是<strong>恒等式</strong>，不需要任何统计假设；</li>
 <li>残差 $e_t$ 与扰动项 $u_t$ 是两个东西（第 1 讲已辨析）：$\sum X_t e_t = 0$ 是 OLS 的代数恒等式（构造保证），$E(Xu) = 0$ 是外生性<strong>假设</strong>（可能不成立）——前者证不出后者。</li>
