@@ -155,6 +155,10 @@ div.booktoc .grp { color: #888; font-size: .85em; }
 <li><strong>残差与拟合值不相关</strong>：$\sum \hat Y_t e_t = \sum(\hat\alpha + \hat\beta X_t)e_t = \hat\alpha\sum e_t + \hat\beta\sum X_t e_t = 0$（由 1、2 推出）；由此还可得 $Y$ 的观测值与拟合值有相同的均值（答案书习题 3.3）。</li>
 </ol>
 <p>这四条是后面 $R^2$ 分解的合法性来源，也是判断题的常客（如"残差之和一定为零吗？"——对 OLS 且含截距项的模型，一定）。</p>
+<p><strong>为什么 $\sum X_t e_t = 0$ 就直接叫"残差与 $X$ 不相关"？</strong> 先把定义钉死："不相关"的定义是<strong>协方差为零</strong>，样本世界里就是样本协方差 $\frac1n\sum(X_t-\bar X)(e_t-\bar e) = 0$——注意两边都是<strong>离差</strong>，要先减各自的均值。而用性质 1 知 $\bar e = 0$，于是</p>
+<p>$$\frac1n\sum(X_t-\bar X)(e_t-\bar e) = \frac1n\sum(X_t-\bar X)e_t = \frac1n\left[\sum X_t e_t - \bar X\sum e_t\right] = \frac1n[0 - 0] = 0$$</p>
+<p>一阶条件的两条恰好把展开式的两项都清零，所以残差与 $X$ 的样本协方差<strong>恒等于零</strong>（样本相关系数 $\hat r$ 当然也是零）。这是精确的代数恒等式，不是"近似为零"、更不是统计假设：<strong>只要回归含截距项，不管数据长什么样，OLS 拟合出的残差必然与 $X$ 不相关</strong>。直觉：OLS 是把 $Y$ 投影到 $\{1, X\}$ 张成的平面上，凡是和 $X$ 有线性关联的成分都已被 $\hat\alpha + \hat\beta X$ 吸干净，剩下的 $e$ 自然与 $X$ 线性无关。</p>
+<p>两个边界：<strong>其一</strong>，必须有截距——没有截距时 $\sum e_t = 0$ 不成立，展开式里的 $\bar X\sum e_t$ 项不再是零，单凭 $\sum X_t e_t = 0$ 推不出不相关；<strong>其二</strong>，别与 $E(Xu) = 0$ 混淆——残差 $e_t$ 与 $X$ 不相关是 OLS 的构造保证（恒等式），扰动项 $u$ 与 $X$ 不相关是对总体的<strong>假设</strong>（可能不成立），前者证不出后者。</p>
 <h2 id="l0s4">四、经典假设与 OLS 估计量的性质</h2>
 <h3>4.1 经典假设（2014-E3 的默写对象）</h3>
 <p>对模型 $Y_t = \alpha + \beta X_t + u_t$，教材（书页 45）列出五条统计假设：</p>
@@ -2337,6 +2341,15 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <p><strong>性质 4：</strong> <strong>独立 ⇒ 协方差为零；协方差为零 ⇏ 独立</strong>（可能有非线性关联），判断题常考。</p>
 <p>证明（前半）：独立时 $E(XY) = E(X)E(Y)$（第二节性质 3），代入计算式得 $\mathrm{Cov} = 0$。</p>
 <p>反例（后半）：$X$ 服从对称分布（如标准正态），$Y = X^2$。则 $E(X)=0$，$E(XY) = E(X^3) = 0$（奇函数对称），故 $\mathrm{Cov}(X,Y) = 0 - 0 = 0$；但 $Y$ 完全由 $X$ 决定，显然不独立——协方差只测度<strong>线性</strong>关联，抓不住 $Y=X^2$ 这种纯非线性关系。</p>
+<p><strong>补：独立与不相关——一对容易混的概念。</strong></p>
+<p>两者<strong>不等价</strong>：独立更强，不相关更弱。一句话记住：<strong>独立 ⇒ 不相关，不相关 ⇏ 独立</strong>。</p>
+<ul>
+<li><strong>不相关</strong>（定义：$\mathrm{Cov}(X,Y) = 0$，等价于 $E(XY) = E(X)E(Y)$）只测<strong>线性</strong>关联——两个变量有没有"同步涨落"的直线趋势。</li>
+<li><strong>独立</strong>（定义：$p_{ij} = p_i^X p_j^Y$ 对所有取值组合成立，见第二节）是说知道 $X$ 对判断 $Y$ <strong>毫无信息</strong>——不只是线性上，而是任何形式上的关联都没有。</li>
+</ul>
+<p>方向为什么是这样：独立时什么关联都没有，线性关联自然也没有（证明即上面的链条：独立 ⇒ $E(XY) = E(X)E(Y)$ ⇒ $\mathrm{Cov} = 0$）；反过来，协方差只抓线性趋势，非线性关联从它眼前溜过去（性质 4 的 $Y = X^2$ 反例）。一个比喻：独立是"两个人毫无关系"；不相关只是"两个人不走同一条直线"——他们可能绕着圈走，直线测不出来。所以"不相关"要读准字面：<strong>没有线性关系</strong>，不是"没有关系"。</p>
+<p><strong>唯一等价的特例</strong>（考试爱考）：当 $(X, Y)$ 服从<strong>联合正态</strong>分布时，不相关 ⇔ 独立，两个概念恰好重合。这是正态分布特有的性质，不要推广到一般分布。</p>
+<p><strong>落到计量的外生性</strong>：三档由强到弱依次是——$X$ 与 $u$ <strong>独立</strong> ⊂ <strong>条件期望为零</strong> $E(u \mid X) = 0$ ⊂ <strong>不相关</strong> $\mathrm{Cov}(X, u) = 0$。OLS 无偏性证明真正需要的是中间那一档 $E(u \mid X) = 0$；只假设不相关（$\mathrm{Cov}=0$）不够证无偏，假设独立则是杀鸡用牛刀。</p>
 <p><strong>样本对应物：样本协方差长什么样、为什么长这样。</strong></p>
 <p>和样本方差同一套翻译规则（类比原则）：定义式 $\mathrm{Cov}(X,Y) = E[(X-\mu_X)(Y-\mu_Y)]$ 里，最外层的 $E$ 换成 $\frac1n\sum$，$\mu_X$、$\mu_Y$ 分别换成 $\bar X$、$\bar Y$，得到</p>
 <p>$$\widehat{\mathrm{Cov}}(X,Y) = \frac{1}{n}\sum_{t=1}^n (X_t - \bar X)(Y_t - \bar Y)$$</p>
@@ -2385,7 +2398,7 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <ol>
 <li>$\mathrm{Var}(aX) = a^2\mathrm{Var}(X)$，不是 $a\mathrm{Var}(X)$；</li>
 <li>$E(X+Y) = E(X)+E(Y)$ 无条件成立，但 $E(XY) = E(X)E(Y)$ 需要独立/不相关；</li>
-<li>独立的定义是 $p_{ij} = p_i^X p_j^Y$ 对<strong>所有</strong>取值组合成立；协方差为零不等于独立（可能有非线性关联）；</li>
+<li>独立的定义是 $p_{ij} = p_i^X p_j^Y$ 对<strong>所有</strong>取值组合成立；协方差为零不等于独立（可能有非线性关联），但<strong>联合正态下两者等价</strong>；</li>
 <li>样本方差、样本协方差都由类比原则（$E \to \frac1n\sum$、$\mu \to \bar X$）从总体定义翻译而来；无偏版除以 $n-1$（残差版除以 $n-k$，$k$ 为估计的参数个数）；</li>
 <li>$\sum x_t = 0$、$\sum x_t Y_t = \sum x_t y_t$ 是<strong>恒等式</strong>，不需要任何统计假设；</li>
 <li>残差 $e_t$ 与扰动项 $u_t$ 是两个东西（第 1 讲已辨析）：$\sum X_t e_t = 0$ 是 OLS 的代数恒等式（构造保证），$E(Xu) = 0$ 是外生性<strong>假设</strong>（可能不成立）——前者证不出后者。</li>
