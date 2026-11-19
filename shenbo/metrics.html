@@ -2257,23 +2257,22 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <li><strong>总体世界</strong>：随机变量 $X$ 有期望 $E(X)$、方差 $\mathrm{Var}(X)$，是<strong>理论常数</strong>（看不见、要估计）。</li>
 <li><strong>样本世界</strong>：$n$ 个观测值 $X_1,\dots,X_n$ 有样本均值 $\bar X$、样本方差 $s_X^2$，是<strong>算出来的数</strong>（看得见；换一个样本就变，所以也是随机变量）。</li>
 </ul>
-<p>符号约定：总体参数用希腊字母（$\mu$、$\sigma^2$），样本量用英文字母（$\bar X$、$s^2$），估计量在参数上加帽子（$\hat\beta$）。<strong>样本量是总体参数的估计值</strong>——整个计量做的事就是用样本世界逼近总体世界。</p>
+<p>符号约定：总体参数用希腊字母（$\mu$、$\sigma^2$），样本量用英文字母（$\bar X$、$s^2$），估计量在参数上加帽子（$\hat\beta$）。<strong>样本统计量是总体参数的估计值</strong>——整个计量做的事就是用样本世界逼近总体世界。</p>
 <h2 id="l6s2">二、期望：加权平均的思想</h2>
 <p><strong>定义</strong>（离散情形）：随机变量 $X$ 取值 $x_1, x_2, \dots$ 的概率为 $p_1, p_2, \dots$，则</p>
 <p>$$E(X) = \sum_i x_i p_i$$</p>
 <p>就是"取值按概率加权平均"。掷骰子：$E(X) = 1\times\frac16 + 2\times\frac16 + \cdots + 6\times\frac16 = 3.5$。</p>
-<p><strong>运算性质（用得最多的是前两条，合称"线性性"）：</strong></p>
-<ol>
-<li>$E(aX + b) = aE(X) + b$（常数提出、平移平移）；</li>
-<li>$E(X + Y) = E(X) + E(Y)$（<strong>无条件成立</strong>，不需要独立）；</li>
-<li>$E(XY) = E(X)E(Y)$ ——<strong>仅当 $X$、$Y$ 独立（或不相关）时成立</strong>，这是最容易踩的坑。</li>
-</ol>
-<p><strong>性质证明（都由定义一步展开）：</strong></p>
-<ol>
-<li>$E(aX + b) = \sum_i (ax_i + b)p_i = a\sum_i x_i p_i + b\sum_i p_i = aE(X) + b$（用了 $\sum_i p_i = 1$）；</li>
-<li>$E(X+Y) = \sum_i\sum_j (x_i + y_j)p_{ij} = \sum_i x_i \sum_j p_{ij} + \sum_j y_j \sum_i p_{ij} = \sum_i x_i p_i^X + \sum_j y_j p_j^Y = E(X) + E(Y)$（对联合分布求和，先对另一变量加总得到边缘分布，<strong>全程没用到独立</strong>）；</li>
-<li>独立时 $p_{ij} = p_i^X p_j^Y$，于是 $E(XY) = \sum_i\sum_j x_i y_j p_i^X p_j^Y = \left(\sum_i x_i p_i^X\right)\left(\sum_j y_j p_j^Y\right) = E(X)E(Y)$。</li>
-</ol>
+<p><strong>运算性质</strong>（用得最多的是前两条，合称"线性性"）：</p>
+<p><strong>性质 1：</strong> $E(aX + b) = aE(X) + b$（常数提出、平移平移）。</p>
+<p><strong>性质 2：</strong> $E(X + Y) = E(X) + E(Y)$（<strong>无条件成立</strong>，不需要独立）。</p>
+<p><strong>性质 3：</strong> $E(XY) = E(X)E(Y)$ ——<strong>仅当 $X$、$Y$ 独立（或不相关）时成立</strong>，这是最容易踩的坑。</p>
+<p><strong>证明</strong>（都由定义一步展开）：</p>
+<p>性质 1：$E(aX + b) = \sum_i (ax_i + b)p_i = a\sum_i x_i p_i + b\sum_i p_i = aE(X) + b$（用了 $\sum_i p_i = 1$）。</p>
+<p>性质 2：对联合分布求和，先对另一变量加总得到边缘分布：</p>
+<p>$$E(X+Y) = \sum_i\sum_j (x_i + y_j)p_{ij} = \sum_i x_i \sum_j p_{ij} + \sum_j y_j \sum_i p_{ij} = \sum_i x_i p_i^X + \sum_j y_j p_j^Y = E(X) + E(Y)$$</p>
+<p>全程没用到独立。</p>
+<p>性质 3：独立时 $p_{ij} = p_i^X p_j^Y$，于是</p>
+<p>$$E(XY) = \sum_i\sum_j x_i y_j\, p_i^X p_j^Y = \left(\sum_i x_i p_i^X\right)\left(\sum_j y_j p_j^Y\right) = E(X)E(Y)$$</p>
 <p>小例子：$Y = 2X + 3$，$E(X)=5$，则 $E(Y) = 2\times5 + 3 = 13$。</p>
 <p><strong>样本对应物</strong>：样本均值 $\bar X = \frac1n\sum X_t$。大数定律说 $n$ 大时 $\bar X \approx E(X)$——这就是"用样本估计总体"的合法性来源。</p>
 <h2 id="l6s3">三、方差：波动的度量</h2>
@@ -2282,52 +2281,64 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <p>离均值多远、平方、再取平均。平方的作用：正负偏差不抵消、大偏差重罚（和 OLS 用残差<strong>平方</strong>和同一个思想）。</p>
 <p><strong>计算式（必背，做题都用它不用定义式）：</strong></p>
 <p>$$\mathrm{Var}(X) = E(X^2) - [E(X)]^2$$</p>
-<p><strong>计算式证明</strong>（展开定义式，记 $\mu = E(X)$）：</p>
+<p><strong>证明</strong>（展开定义式，记 $\mu = E(X)$）：</p>
 <p>$$\mathrm{Var}(X) = E\left[(X-\mu)^2\right] = E\left[X^2 - 2\mu X + \mu^2\right] = E(X^2) - 2\mu E(X) + \mu^2 = E(X^2) - \mu^2$$</p>
 <p>（第二到第三步用了期望的线性性；$\mu$ 是常数。）</p>
 <p>小例子：掷骰子，$E(X)=3.5$，$E(X^2) = (1+4+9+16+25+36)/6 = 91/6 \approx 15.17$，故 $\mathrm{Var}(X) = 15.17 - 12.25 \approx 2.92$。</p>
-<p><strong>运算性质（附证明）：</strong></p>
-<ol>
-<li>$\mathrm{Var}(aX + b) = a^2\mathrm{Var}(X)$（<strong>常数出来要平方</strong>；平移 $b$ 不影响波动）。
-   证明：$aX + b$ 的均值是 $a\mu + b$，故
-   $$\mathrm{Var}(aX+b) = E\left[\left((aX+b) - (a\mu+b)\right)^2\right] = E\left[a^2(X-\mu)^2\right] = a^2 E\left[(X-\mu)^2\right] = a^2\mathrm{Var}(X)$$
-   （$b$ 在括号里直接消掉——这就是"平移不影响波动"的原因。）</li>
-<li>一般情形：$\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y) + 2\mathrm{Cov}(X,Y)$（不独立时多一个协方差尾巴）。
-   证明：记 $\mu_X$、$\mu_Y$ 为两均值，则
-   $$\begin{aligned}\mathrm{Var}(X+Y) &= E\left[\left((X+Y) - (\mu_X+\mu_Y)\right)^2\right] = E\left[\left((X-\mu_X) + (Y-\mu_Y)\right)^2\right] \\ &= E\left[(X-\mu_X)^2\right] + E\left[(Y-\mu_Y)^2\right] + 2E\left[(X-\mu_X)(Y-\mu_Y)\right] = \mathrm{Var}(X) + \mathrm{Var}(Y) + 2\mathrm{Cov}(X,Y)\end{aligned}$$</li>
-<li>独立（或不相关）时 $\mathrm{Cov}=0$，尾巴消失：$\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)$（性质 2 的直接推论）。</li>
-<li>$\mathrm{Var}(X - Y) = \mathrm{Var}(X) + \mathrm{Var}(Y) - 2\mathrm{Cov}(X,Y)$。
-   证明：把 $-Y$ 看成一个新变量，用性质 2：$\mathrm{Var}(X + (-Y)) = \mathrm{Var}(X) + \mathrm{Var}(-Y) + 2\mathrm{Cov}(X, -Y)$；由性质 1 得 $\mathrm{Var}(-Y) = (-1)^2\mathrm{Var}(Y) = \mathrm{Var}(Y)$，由协方差双线性（见下节）得 $\mathrm{Cov}(X,-Y) = -\mathrm{Cov}(X,Y)$，代入即得。<strong>注意减号下 Var 前面仍是加号</strong>——这是最常错的一条。</li>
-</ol>
-<p><strong>样本对应物</strong>：样本方差 $s_X^2 = \frac{1}{n-1}\sum (X_t - \bar X)^2$。除以 $n-1$ 而非 $n$ 是为了无偏（自由度损失一个：$\bar X$ 本身是用同一份数据算的）——第 2 讲 $\hat\sigma^2 = \sum e_t^2/(n-2)$ 除以 $n-2$ 是同一个道理，损失两个是因为 $\hat\alpha$、$\hat\beta$ 用了两个估计量。</p>
+<p><strong>运算性质</strong>：</p>
+<p><strong>性质 1：</strong> $\mathrm{Var}(aX + b) = a^2\mathrm{Var}(X)$（<strong>常数出来要平方</strong>；平移 $b$ 不影响波动）。</p>
+<p>证明：$aX + b$ 的均值是 $a\mu + b$，故</p>
+<p>$$\mathrm{Var}(aX+b) = E\left[\left((aX+b) - (a\mu+b)\right)^2\right] = E\left[a^2(X-\mu)^2\right] = a^2 E\left[(X-\mu)^2\right] = a^2\mathrm{Var}(X)$$</p>
+<p>（$b$ 在括号里直接消掉——这就是"平移不影响波动"的原因。）</p>
+<p><strong>性质 2（一般情形）：</strong> $\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y) + 2\mathrm{Cov}(X,Y)$（不独立时多一个协方差尾巴）。</p>
+<p>证明：记 $\mu_X$、$\mu_Y$ 为两均值，则</p>
+<p>$$\begin{aligned}\mathrm{Var}(X+Y) &= E\left[\left((X+Y) - (\mu_X+\mu_Y)\right)^2\right] = E\left[\left((X-\mu_X) + (Y-\mu_Y)\right)^2\right] \\ &= E\left[(X-\mu_X)^2\right] + E\left[(Y-\mu_Y)^2\right] + 2E\left[(X-\mu_X)(Y-\mu_Y)\right] = \mathrm{Var}(X) + \mathrm{Var}(Y) + 2\mathrm{Cov}(X,Y)\end{aligned}$$</p>
+<p><strong>性质 3：</strong> 独立（或不相关）时 $\mathrm{Cov}=0$，尾巴消失：$\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)$（性质 2 的直接推论）。</p>
+<p><strong>性质 4：</strong> $\mathrm{Var}(X - Y) = \mathrm{Var}(X) + \mathrm{Var}(Y) - 2\mathrm{Cov}(X,Y)$。</p>
+<p>证明：把 $-Y$ 看成一个新变量，用性质 2：$\mathrm{Var}(X + (-Y)) = \mathrm{Var}(X) + \mathrm{Var}(-Y) + 2\mathrm{Cov}(X, -Y)$；由性质 1 得 $\mathrm{Var}(-Y) = (-1)^2\mathrm{Var}(Y) = \mathrm{Var}(Y)$，由协方差双线性（见下节）得 $\mathrm{Cov}(X,-Y) = -\mathrm{Cov}(X,Y)$，代入即得。<strong>注意减号下 Var 前面仍是加号</strong>——这是最常错的一条。</p>
+<p><strong>样本对应物：样本方差长什么样、为什么长这样。</strong></p>
+<p>样本方差的公式是</p>
+<p>$$s_X^2 = \frac{1}{n}\sum_{t=1}^n (X_t - \bar X)^2 \qquad \text{（无偏版除以 } n-1 \text{，见下）}$$</p>
+<p>这个公式不是背下来的，是从总体定义"翻译"过来的，翻译规则叫<strong>类比原则（矩估计）</strong>：总体矩里每出现一次期望 $E(\cdot)$，就换成"对样本取平均 $\frac1n\sum$"；里面的未知常数 $\mu$ 用它的估计 $\bar X$ 代替。套到定义式 $\mathrm{Var}(X) = E[(X-\mu)^2]$ 上，正好就是上面的公式。</p>
+<p>一个更直观的说法：把手里这 $n$ 个观测看成一个"经验分布"——每个观测点出现的概率都是 $\frac1n$，对这个分布<strong>按定义</strong>算方差，自然就是 $\frac1n\sum(X_t-\bar X)^2$。</p>
+<p><strong>为什么必须除以 $n$？</strong> 方差量的是"<strong>平均的</strong>平方偏差"，不是偏差的总和。不除以 $n$，样本越多算出来的数越大，随 $n$ 膨胀，就不像同一个总体参数的估计了；$\frac1n$ 就是每个观测点的权重（期望本来就是加权平均）。</p>
+<p><strong>样本版计算式</strong>（和总体计算式逐项同构，做题常用）：</p>
+<p>$$\frac{1}{n}\sum_{t=1}^n (X_t - \bar X)^2 = \frac{1}{n}\sum_{t=1}^n X_t^2 - \bar X^2$$</p>
+<p>即"平方的平均 − 平均的平方"，正好对应 $\mathrm{Var}(X) = E(X^2) - [E(X)]^2$。（证明：第六节的平方和恒等式 $\sum x_t^2 = \sum X_t^2 - n\bar X^2$ 两边同除以 $n$。）</p>
+<p><strong>为什么无偏版除以 $n-1$ 而不是 $n$？</strong> 因为 $\bar X$ 本身是用同一份数据估出来的，$n$ 个离差 $(X_t - \bar X)$ 实际上只有 $n-1$ 个是自由的（它们加起来必须等于 0），除以 $n$ 会系统性偏小，除以 $n-1$ 才能无偏。第 2 讲 $\hat\sigma^2 = \sum e_t^2/(n-2)$ 除以 $n-2$ 是同一个道理：$\hat\alpha$、$\hat\beta$ 两个估计量各消耗一个自由度。</p>
 <h2 id="l6s4">四、协方差与相关系数：两个变量怎么"联动"</h2>
 <p><strong>定义</strong>：</p>
 <p>$$\mathrm{Cov}(X, Y) = E\left[(X - E(X))(Y - E(Y))\right]$$</p>
 <p>$X$ 高于自己均值时 $Y$ 是否也倾向于高于自己的均值：同向为正、反向为负、无关为零。</p>
 <p><strong>计算式：</strong></p>
 <p>$$\mathrm{Cov}(X,Y) = E(XY) - E(X)E(Y)$$</p>
-<p><strong>计算式证明</strong>（展开定义式，记 $\mu_X = E(X)$、$\mu_Y = E(Y)$）：</p>
+<p><strong>证明</strong>（展开定义式，记 $\mu_X = E(X)$、$\mu_Y = E(Y)$）：</p>
 <p>$$\begin{aligned}\mathrm{Cov}(X,Y) &= E\left[XY - \mu_Y X - \mu_X Y + \mu_X\mu_Y\right] = E(XY) - \mu_Y E(X) - \mu_X E(Y) + \mu_X\mu_Y \\ &= E(XY) - \mu_X\mu_Y - \mu_X\mu_Y + \mu_X\mu_Y = E(XY) - E(X)E(Y)\end{aligned}$$</p>
 <p>（用了期望的线性性；$\mu_X$、$\mu_Y$ 是常数。）</p>
-<p><strong>性质（附证明）：</strong></p>
-<ol>
-<li>$\mathrm{Cov}(X, X) = \mathrm{Var}(X)$（方差是自己的协方差）。
-   证明：把定义里的 $Y$ 换成 $X$：$\mathrm{Cov}(X,X) = E\left[(X-\mu_X)(X-\mu_X)\right] = E\left[(X-\mu_X)^2\right] = \mathrm{Var}(X)$。</li>
-<li>对称：$\mathrm{Cov}(X,Y) = \mathrm{Cov}(Y,X)$。
-   证明：定义里两个括号乘法可交换，显然。</li>
-<li>双线性：$\mathrm{Cov}(aX + b,\ cY + d) = ac\,\mathrm{Cov}(X,Y)$（常数倍提出，平移无关）。
-   证明：$aX+b$ 的均值是 $a\mu_X+b$，$cY+d$ 的均值是 $c\mu_Y+d$，代入定义：
-   $$\mathrm{Cov}(aX+b,\ cY+d) = E\left[a(X-\mu_X)\cdot c(Y-\mu_Y)\right] = ac\,E\left[(X-\mu_X)(Y-\mu_Y)\right] = ac\,\mathrm{Cov}(X,Y)$$
-   （平移项 $b$、$d$ 在括号里消掉——与方差那里同一道理。）</li>
-<li><strong>独立 ⇒ 协方差为零；协方差为零 ⇏ 独立</strong>（可能有非线性关联），判断题常考。
-   证明（前半）：独立时 $E(XY) = E(X)E(Y)$（上节性质 3），代入计算式得 $\mathrm{Cov} = 0$。
-   反例（后半）：$X$ 服从对称分布（如标准正态），$Y = X^2$。则 $E(X)=0$，$E(XY) = E(X^3) = 0$（奇函数对称），故 $\mathrm{Cov}(X,Y) = 0 - 0 = 0$；但 $Y$ 完全由 $X$ 决定，显然不独立——协方差只测度<strong>线性</strong>关联，抓不住 $Y=X^2$ 这种纯非线性关系。</li>
-</ol>
+<p><strong>运算性质</strong>：</p>
+<p><strong>性质 1：</strong> $\mathrm{Cov}(X, X) = \mathrm{Var}(X)$（方差是自己的协方差）。</p>
+<p>证明：把定义里的 $Y$ 换成 $X$：$\mathrm{Cov}(X,X) = E\left[(X-\mu_X)(X-\mu_X)\right] = E\left[(X-\mu_X)^2\right] = \mathrm{Var}(X)$。</p>
+<p><strong>性质 2（对称）：</strong> $\mathrm{Cov}(X,Y) = \mathrm{Cov}(Y,X)$。</p>
+<p>证明：定义里两个括号乘法可交换，显然。</p>
+<p><strong>性质 3（双线性）：</strong> $\mathrm{Cov}(aX + b,\ cY + d) = ac\,\mathrm{Cov}(X,Y)$（常数倍提出，平移无关）。</p>
+<p>证明：$aX+b$ 的均值是 $a\mu_X+b$，$cY+d$ 的均值是 $c\mu_Y+d$，代入定义：</p>
+<p>$$\mathrm{Cov}(aX+b,\ cY+d) = E\left[a(X-\mu_X)\cdot c(Y-\mu_Y)\right] = ac\,E\left[(X-\mu_X)(Y-\mu_Y)\right] = ac\,\mathrm{Cov}(X,Y)$$</p>
+<p>（平移项 $b$、$d$ 在括号里消掉——与方差那里同一道理。）</p>
+<p><strong>性质 4：</strong> <strong>独立 ⇒ 协方差为零；协方差为零 ⇏ 独立</strong>（可能有非线性关联），判断题常考。</p>
+<p>证明（前半）：独立时 $E(XY) = E(X)E(Y)$（第二节性质 3），代入计算式得 $\mathrm{Cov} = 0$。</p>
+<p>反例（后半）：$X$ 服从对称分布（如标准正态），$Y = X^2$。则 $E(X)=0$，$E(XY) = E(X^3) = 0$（奇函数对称），故 $\mathrm{Cov}(X,Y) = 0 - 0 = 0$；但 $Y$ 完全由 $X$ 决定，显然不独立——协方差只测度<strong>线性</strong>关联，抓不住 $Y=X^2$ 这种纯非线性关系。</p>
+<p><strong>样本对应物：样本协方差长什么样、为什么长这样。</strong></p>
+<p>和样本方差同一套翻译规则（类比原则）：定义式 $\mathrm{Cov}(X,Y) = E[(X-\mu_X)(Y-\mu_Y)]$ 里，最外层的 $E$ 换成 $\frac1n\sum$，$\mu_X$、$\mu_Y$ 分别换成 $\bar X$、$\bar Y$，得到</p>
+<p>$$\widehat{\mathrm{Cov}}(X,Y) = \frac{1}{n}\sum_{t=1}^n (X_t - \bar X)(Y_t - \bar Y)$$</p>
+<p>（无偏版除以 $n-1$。）$\frac1n$ 的必要性与方差那里完全相同：协方差是"平均的"交叉偏差，不除以 $n$ 会随样本量膨胀。</p>
+<p><strong>样本版计算式</strong>（与总体计算式逐项同构）：</p>
+<p>$$\frac{1}{n}\sum_{t=1}^n (X_t - \bar X)(Y_t - \bar Y) = \frac{1}{n}\sum_{t=1}^n X_t Y_t - \bar X \bar Y$$</p>
+<p>即"乘积的平均 − 平均的乘积"，正好对应 $\mathrm{Cov}(X,Y) = E(XY) - E(X)E(Y)$。（证明：第六节的交叉积恒等式 $\sum x_t y_t = \sum X_t Y_t - n\bar X\bar Y$ 两边同除以 $n$。）</p>
 <p><strong>相关系数</strong>：协方差除以两个标准差，把量纲洗掉：</p>
 <p>$$r_{XY} = \frac{\mathrm{Cov}(X,Y)}{\sigma_X \sigma_Y}, \qquad -1 \le r \le 1$$</p>
-<p><strong>样本对应物（附推导）</strong>：把总体公式里的每个矩换成样本矩——$\mathrm{Cov}$ 换 $\frac1n\sum x_t y_t$，$\sigma_X$、$\sigma_Y$ 换 $\sqrt{\frac1n\sum x_t^2}$、$\sqrt{\frac1n\sum y_t^2}$：</p>
+<p><strong>样本相关系数（附推导）</strong>：把总体公式里的每个矩换成样本矩——$\mathrm{Cov}$ 换 $\frac1n\sum x_t y_t$，$\sigma_X$、$\sigma_Y$ 换 $\sqrt{\frac1n\sum x_t^2}$、$\sqrt{\frac1n\sum y_t^2}$：</p>
 <p>$$\hat r = \frac{\widehat{\mathrm{Cov}}(X,Y)}{\hat\sigma_X \hat\sigma_Y} = \frac{\dfrac1n\sum x_t y_t}{\sqrt{\dfrac1n\sum x_t^2}\cdot\sqrt{\dfrac1n\sum y_t^2}} = \frac{\dfrac1n\sum x_t y_t}{\dfrac1n\sqrt{\sum x_t^2 \sum y_t^2}} = \frac{\sum x_t y_t}{\sqrt{\sum x_t^2 \sum y_t^2}}$$</p>
-<p>分子分母的 $\frac1n$ 恰好约掉（用 $n-1$ 也一样约掉），所以样本相关系数最终只由三个离差平方/交叉和构成（$x_t, y_t$ 为离差，见第六节）。<strong>这个推导的意义</strong>：$\hat r$ 没有量纲、与 $n$ 无关，纯由"标准化之后的联动程度"决定。</p>
+<p>分子分母的 $\frac1n$ 恰好约掉（用 $n-1$ 也一样约掉——这就是 $\hat r$、$\hat\beta$ 里不必纠结 $n$ 还是 $n-1$ 的原因），所以样本相关系数最终只由三个离差平方/交叉和构成（$x_t, y_t$ 为离差，见第六节）。<strong>这个推导的意义</strong>：$\hat r$ 没有量纲、与 $n$ 无关，纯由"标准化之后的联动程度"决定。</p>
 <h2 id="l6s5">五、求和号 $\Sigma$：六条运算法则</h2>
 <p>$\sum_{t=1}^n$ 只是"加一遍"的缩写，所有法则都从加法交换律、结合律来，但用熟能省大量草稿：</p>
 <ol>
@@ -2365,7 +2376,7 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <li>$\mathrm{Var}(aX) = a^2\mathrm{Var}(X)$，不是 $a\mathrm{Var}(X)$；</li>
 <li>$E(X+Y) = E(X)+E(Y)$ 无条件成立，但 $E(XY) = E(X)E(Y)$ 需要独立/不相关；</li>
 <li>协方差为零不等于独立；</li>
-<li>样本方差除以 $n-1$（残差版除以 $n-k$，$k$ 为估计的参数个数）；</li>
+<li>样本方差、样本协方差都由类比原则（$E \to \frac1n\sum$、$\mu \to \bar X$）从总体定义翻译而来；无偏版除以 $n-1$（残差版除以 $n-k$，$k$ 为估计的参数个数）；</li>
 <li>$\sum x_t = 0$、$\sum x_t Y_t = \sum x_t y_t$ 是<strong>恒等式</strong>，不需要任何统计假设；</li>
 <li>残差 $e_t$ 与扰动项 $u_t$ 是两个东西（第 1 讲已辨析）：$\sum X_t e_t = 0$ 是 OLS 的代数恒等式（构造保证），$E(Xu) = 0$ 是外生性<strong>假设</strong>（可能不成立）——前者证不出后者。</li>
 </ol>
