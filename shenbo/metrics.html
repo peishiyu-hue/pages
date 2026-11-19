@@ -185,7 +185,7 @@ div.booktoc .grp { color: #888; font-size: .85em; }
 <p>同理可证 $E(\hat\alpha) = \alpha$。<strong>踩分点</strong>：无偏性证明只用了假设 (1) 和 (4)，没有用同方差和无自相关——这是判断题的陷阱。</p>
 <h3>4.4 方差与影响因素</h3>
 <p>$$\mathrm{Var}(\hat\beta) = \mathrm{Var}\left(\frac{\sum x_t u_t}{\sum x_t^2}\right) = \frac{\sum x_t^2\,\mathrm{Var}(u_t)}{\left(\sum x_t^2\right)^2} = \boxed{\frac{\sigma^2}{\sum x_t^2}}$$</p>
-<p>（第二步用了无自相关——交叉项全为零，以及同方差——各项方差同为 $\sigma^2$。）截距的方差为 $\mathrm{Var}(\hat\alpha) = \dfrac{\sigma^2 \sum X_t^2}{n\sum x_t^2}$（教材式 3.17、3.18）。</p>
+<p>（第二步同时用了三条假设，各管一段：<strong>$X$ 非随机</strong>（假设 4）——$x_t$、$\sum x_t^2$ 是常数，才能按 $\mathrm{Var}(aZ) = a^2\mathrm{Var}(Z)$ 提出方差号；<strong>无自相关</strong>（假设 2）——$\sum_t x_t u_t$ 是 $n$ 个不同随机变量相加，展开后有 $n(n-1)$ 个交叉项 $\mathrm{Cov}(u_i, u_j)$，靠 $E(u_i u_j)=0$ 全部清零，和的方差才等于方差的和；<strong>同方差</strong>（假设 3）——各项方差同为 $\sigma^2$，才能提取公因子。）截距的方差为 $\mathrm{Var}(\hat\alpha) = \dfrac{\sigma^2 \sum X_t^2}{n\sum x_t^2}$（教材式 3.17、3.18）。</p>
 <p>从 $\mathrm{Var}(\hat\beta) = \sigma^2 / \sum x_t^2$ 读出两个影响因素（选择题可考）：<strong>$\sigma^2$ 越大</strong>（扰动越剧烈），估计越不准；<strong>$\sum x_t^2$ 越大</strong>（$X$ 的取值越分散、或样本量越大），估计越准——所以设计数据时让解释变量尽量拉开差距是有利的。</p>
 <h3>4.5 高斯—马尔可夫定理与一致性</h3>
 <p><strong>高斯—马尔可夫定理</strong>：对于经典线性回归模型（满足假设 1—4），OLS 估计量是<strong>最佳线性无偏估计量</strong>（BLUE）——在所有线性、无偏的估计量中，OLS 的方差最小（教材第三章第二节有完整证明）。这是 OLS 统治地位的全部理论依据：线性性、无偏性已证，"最佳"（方差最小）是对任意线性无偏估计量比较出来的。</p>
