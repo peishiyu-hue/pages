@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>计量经济学（申博串讲）</title>
+<title>计量经济学</title>
 <script>
 MathJax = {tex: {inlineMath: [['$','$']], displayMath: [['$$','$$']]}};
 </script>
@@ -67,7 +67,7 @@ div.booktoc .grp { color: #888; font-size: .85em; }
 </style>
 </head>
 <body>
-<nav class="topbar"><a href="#lec0">第01讲 回归的地基 从相关到OLS</a><a href="#lec1">第02讲 统计推断 从估计到检验</a><a href="#lec2">第03讲 第四章习题精算 多元回归A级核心</a><a href="#lec3">第04讲 经典假设的破坏 共线性异方差自相关</a><a href="#lec4">第05讲 内生性与联立方程模型</a><a href="#lec5">第06讲 时间序列面板与定性因变量</a><a href="#lec6">补遗01 数学与统计预备知识</a></nav><div class="booktoc" id="top"><h2>计量经济学（申博串讲）</h2><ol><li><a href="#lec0">第01讲 回归的地基 从相关到OLS　回归的地基 从相关到OLS</a></li><li><a href="#lec1">第02讲 统计推断 从估计到检验　统计推断 从估计到检验</a></li><li><a href="#lec2">第03讲 第四章习题精算 多元回归A级核心　第四章习题精算 多元回归A级核心</a></li><li><a href="#lec3">第04讲 经典假设的破坏 共线性异方差自相关　经典假设的破坏 共线性异方差自相关</a></li><li><a href="#lec4">第05讲 内生性与联立方程模型　内生性与联立方程模型</a></li><li><a href="#lec5">第06讲 时间序列面板与定性因变量　时间序列面板与定性因变量</a></li><li><a href="#lec6">补遗01 数学与统计预备知识　数学与统计预备知识</a></li></ol></div><section class="lec" id="lec0">
+<nav class="topbar"><a href="#lec0">第01讲 回归的地基 从相关到OLS</a><a href="#lec1">第02讲 统计推断 从估计到检验</a><a href="#lec2">第03讲 第四章习题精算 多元回归A级核心</a><a href="#lec3">第04讲 经典假设的破坏 共线性异方差自相关</a><a href="#lec4">第05讲 内生性与联立方程模型</a><a href="#lec5">第06讲 时间序列面板与定性因变量</a><a href="#lec6">补遗01 数学与统计预备知识</a></nav><div class="booktoc" id="top"><h2>计量经济学</h2><ol><li><a href="#lec0">第01讲 回归的地基 从相关到OLS　回归的地基 从相关到OLS</a></li><li><a href="#lec1">第02讲 统计推断 从估计到检验　统计推断 从估计到检验</a></li><li><a href="#lec2">第03讲 第四章习题精算 多元回归A级核心　第四章习题精算 多元回归A级核心</a></li><li><a href="#lec3">第04讲 经典假设的破坏 共线性异方差自相关　经典假设的破坏 共线性异方差自相关</a></li><li><a href="#lec4">第05讲 内生性与联立方程模型　内生性与联立方程模型</a></li><li><a href="#lec5">第06讲 时间序列面板与定性因变量　时间序列面板与定性因变量</a></li><li><a href="#lec6">补遗01 数学与统计预备知识　数学与统计预备知识</a></li></ol></div><section class="lec" id="lec0">
 <h1>计量串讲 · 第 1 讲：回归的地基——从相关关系到 OLS</h1>
 <blockquote>
 <p>本讲对应教材：潘省初《计量经济学》（第六版）第一章（绪论）、第三章第一至三节（双变量线性回归模型的估计、最小二乘估计量的性质、拟合优度）。
@@ -76,7 +76,7 @@ div.booktoc .grp { color: #888; font-size: .85em; }
 图在本目录 <code>figs/</code> 下，正文引用处已标注。</p>
 </blockquote>
 <hr id="l0stoc" />
-<div class="doctoc"><b>本讲目录</b><ol><li><a href="#l0s1">一、从哪儿来：计量经济学在干什么</a></li><li><a href="#l0s2">二、模型设定与扰动项：为什么 $Y = \alpha + \beta X$ 必须加 $u$</a></li><li><a href="#l0s3">三、OLS 全程推导：从最小二乘原理到估计公式</a></li><li><a href="#l0s4">四、经典假设与 OLS 估计量的性质</a></li><li><a href="#l0s5">五、拟合优度 $R^2$</a></li><li><a href="#l0s6">六、完整小演算：教材例 3.1 从原始数据算到 $R^2$</a></li><li><a href="#l0s7">七、自测</a></li><li><a href="#l0s8">八、自测详解</a></li><li><a href="#l0s9">下一讲预告</a></li></ol></div>
+<div class="doctoc"><b>本讲目录</b><ol><li><a href="#l0s1">一、从哪儿来：计量经济学在干什么</a></li><li><a href="#l0s2">二、模型设定与扰动项：为什么 $Y = \alpha + \beta X$ 必须加 $u$</a></li><li><a href="#l0s3">三、OLS 全程推导：从最小二乘原理到估计公式</a></li><li><a href="#l0s4">四、经典假设与 OLS 估计量的性质</a></li><li><a href="#l0s5">五、拟合优度 $R^2$</a></li><li><a href="#l0s6">六、完整小演算：教材例 3.1 从原始数据算到 $R^2$</a></li><li><a href="#l0s7">七、自测</a></li><li><a href="#l0s8">八、自测详解</a></li><li><a href="#l0s9">附录：阅读问答</a></li><li><a href="#l0s10">下一讲预告</a></li></ol></div>
 <h2 id="l0s1">一、从哪儿来：计量经济学在干什么</h2>
 <p>先回答一个最朴素的问题：这门课到底在干什么？教材第一章用一句话概括——<strong>计量经济学是一个有关经济关系的经验估计的经济学分支</strong>：依据经济理论，使用数学和统计推断工具，用观测数据对经济活动进行实证研究，测度和检验经济变量间的经验关系。它的三要素是<strong>经济理论、经济数据、统计方法</strong>，缺一个都不行——教材引计量经济学创始人之一弗里希的话："没有计量的理论"和"没有理论的计量"都是不够的。</p>
 <p>教材把一次完整的计量经济研究归纳为<strong>六个步骤</strong>（第一章第二节，全书的方法论总纲，务必能默写）：</p>
@@ -311,7 +311,22 @@ div.booktoc .grp { color: #888; font-size: .85em; }
 <p>残差依次为 $-0.3,\ 0.4,\ 0.1,\ -0.2$（验：和为 0 ✓）。$RSS = 0.09+0.16+0.01+0.04 = 0.30$；$TSS = 5.0625+0.0625+0.5625+3.0625 = 8.75$。</p>
 <p>$$R^2 = 1 - \frac{0.30}{8.75} \approx 0.966$$</p>
 <p><strong>踩分点</strong>：考场上每一步中间数都写出来（离差、$\sum xy$、$\sum x^2$ 分列），既防算错又让阅卷人看到过程；养成用 $\sum e_t = 0$ 自检的习惯。</p>
-<h2 id="l0s9">下一讲预告</h2>
+<h2 id="l0s9">附录：阅读问答</h2>
+<p><strong>Q1：4.2 线性性里"为什么 $X$ 非随机时 $w_t$ 是常数"？整套推导里到底哪些是常数、哪些是随机变量？</strong></p>
+<p>（合并两问整理：$w_t$ 的读法 + 常数与随机变量的完整角色划分。）</p>
+<p><strong>先给判断标准：换一批样本（重新抽一次数据），它的值会不会变。</strong> 会变的是随机变量，不会变的是常数。这条标准能独立判断每一个量。</p>
+<p><strong>$w_t$ 为什么是常数——不是"推"出来的，是把"X 非随机"套进 $w_t$ 的构成里读出来的。</strong> 先看 $w_t$ 由什么做成：</p>
+<p>$$w_t = \frac{x_t}{\sum x_t^2}, \qquad x_t = X_t - \bar X$$</p>
+<p>$w_t$ 从头到尾只含 $X$，不含 $Y$、不含 $u$——它是 $X$ 的"纯函数"。再看假设 4"X 非随机"是什么意思：想象反复抽样这个思想实验——每次重新抽样本时，$X$ 的取值保持不动（比如做实验时 $X$ 是实验者设定的剂量），只有扰动项 $u$ 重新抽一次，$Y$ 跟着变。也就是各次抽样里 $X_1, \dots, X_n$ 是同一组固定数字。合起来：$X_t$ 全是固定数字 $\Rightarrow$ $\bar X$ 固定 $\Rightarrow$ 每个 $x_t$ 固定 $\Rightarrow$ 分母 $\sum x_t^2$ 固定 $\Rightarrow$ 每个 $w_t$ 都是固定数字。换一批样本，$u$ 和 $Y$ 都变了，$w_t$ 一动不动——这就是"$w_t$ 是常数"。</p>
+<p><strong>完整角色划分（两类角色，各归其位）：</strong></p>
+<ul>
+<li><strong>常数（可直接提出期望号/方差号）</strong>：① 真值参数 $\alpha$、$\beta$、$\sigma^2$——客观存在的固定数，只是未知；$\mathrm{Var}(\beta)=0$、$E(\beta)=\beta$ 随手可用，4.4 里 $\beta$ 被"清掉"就是这个原因。② $X$ 家族的一切（假设 4 下）：$X_t$、$\bar X$、$x_t$、$\sum x_t^2$、$w_t$——4.2 提 $w_t$、4.4 提 $1/\sum x_t^2$ 的合法性来源。③ 样本量 $n$、下标 $t$ 等记号。</li>
+<li><strong>随机变量（换样本就变）</strong>：① <strong>扰动项 $u_t$——唯一的随机源</strong>，整套经典假设都设在它身上。② $Y_t$——"常数 $+\ u_t$"，随机性全部继承自 $u_t$，所以 $\mathrm{Var}(Y_t)=\mathrm{Var}(u_t)=\sigma^2$。③ <strong>估计量 $\hat\alpha$、$\hat\beta$</strong>——$\hat\beta=\sum w_t Y_t$ 是数据的函数，换样本就得另一个数；正因为它随机，才谈得上期望 $E(\hat\beta)=\beta$ 和方差 $\mathrm{Var}(\hat\beta)$，"无偏""有效"都是对随机变量的分布说的。④ 由数据算出的一切：$e_t$、$\hat Y_t$、$R^2$、$t$、$F$（第 02 讲的检验就建立在"这些量的分布已知"上）。</li>
+</ul>
+<p><strong>最需要刻进脑子的一对区分：$\beta$ vs $\hat\beta$。</strong> $\beta$ 是固定的真值（常数），$\hat\beta$ 是用样本算出的估计（随机变量）。无偏性 $E(\hat\beta)=\beta$ 的意思是：随机变量 $\hat\beta$ 的分布中心正好对准固定的真值——单次估计可能偏，平均而言不偏。</p>
+<p><strong>这套角色划分为什么重要</strong>：$\hat\beta=\sum w_t Y_t$ 中 $w_t$ 是常数，$\hat\beta$ 才是"随机变量的线性组合"（线性估计量）；证无偏性时 $E(w_t Y_t)=w_t E(Y_t)$ 这步"提出期望号"只有 $w_t$ 是常数才合法（期望的线性性只对常数成立）。一句话总览：<strong>随机性从 $u$ 进来，经过 $Y$ 传导到 $\hat\beta$；$X$ 家族和真值参数是舞台和靶心，自始至终不动。</strong></p>
+<p><strong>一个现代的读法（多说一句）</strong>：现在计量更常把"X 非随机"理解为"一切分析都以 $X$ 的取值为条件"（conditional on $X$）——把 $X$ 当作给定的事实来讨论 $u$ 和 $Y$ 的随机性，结论的形式完全一样。</p>
+<h2 id="l0s10">下一讲预告</h2>
 <p><strong>第 2 讲：统计推断——t 检验、置信区间、F 联合检验。</strong> 本讲证明了 $\hat\beta$ 无偏、方差已知结构；下一讲回答"估计出来的系数靠不靠谱"：$\sigma^2$ 的无偏估计 $\hat\sigma^2 = \sum e_t^2/(n-2)$、$\hat\beta$ 的抽样分布、单个系数的 t 检验与置信区间、多个系数的联合 F 检验，落到 2025-E1（香烟需求弹性：弹性估计、显著性、是否异于 $-1$、由调整 $R^2$ 反推 $R^2$）这道计算大题。</p>
 <div class="lecend"><a href="#top">↑ 回到目录</a></div>
 </section><hr class="lecsep"><section class="lec" id="lec1">
