@@ -2488,7 +2488,7 @@ $$Y_i=\begin{cases}1,&\text{若 }Y_i^*>0\\ 0,&\text{其他}\end{cases} \tag{10.8
 <p>t 分布是完全同款的记号：$t_\alpha(n)$ = 自由度 $n$ 的 t 曲线上、右尾面积为 $\alpha$ 的那个刻度。例：$t_{0.025}(40) = 2.021$ 读作"自由度 40 的 t 分布，右尾 2.5% 处的临界值"。与 $\Phi$ 的关系顺带记住：$\Phi(z_\alpha) = 1 - \alpha$（左侧面积 = 1 − 右尾面积）。</p>
 <h3>9.4 t 分布 $t(n)$</h3>
 <ul>
-<li><strong>来源</strong>：标准化的分母里 $\sigma$ 未知、用估计量 $\hat\sigma$ 顶替，多引入了一层随机性，正态就变成了 t：$t = \dfrac{Z}{\sqrt{\chi^2_n / n}} \sim t(n)$（$Z$ 与 $\chi^2$ 独立）。</li>
+<li><strong>来源</strong>：标准化的分母里 $\sigma$ 未知、用估计量 $\hat\sigma$ 顶替，多引入了一层随机性，正态就变成了 t：$t = \dfrac{Z}{\sqrt{\chi^2_n / n}} \sim t(n)$（$Z$ 与 $\chi^2$ 独立）。<strong>先认字母</strong>：$Z$ 不是一个新变量，而是<strong>标准正态 $N(0,1)$ 的专用字母</strong>（9.1 标准化的产物 $Z = (X-\mu)/\sigma$；$X$、$Y$ 是任意随机变量的通用字母，$Z$ 专指标准正态——统计学约定，省得每次写 $N(0,1)$）。同类约定一并认全：$t$ = t 分布、$F$ = F 分布、$\chi^2$ = 卡方，字母一出场就代表那个分布。<strong>再看这个式子为什么长这样</strong>：分子 $Z$ 对应"$\hat\beta - \beta$ 用真 $\sigma$ 标准化"的标准正态；分母里的 $\chi^2_n$ 来自 $\hat\sigma^2$ 中那 $n$ 个扰动平方和。分母从常数 $\sigma$ 换成随机变量 $\hat\sigma$，比值就从正态变成尾巴更厚的 t。</li>
 <li><strong>形状</strong>：与标准正态同为对称钟形，但<strong>更矮、尾巴更厚</strong>（小样本下极端值更常见）；自由度 $n$ 越大越接近 $N(0,1)$，$n \to \infty$ 时就是标准正态。</li>
 <li><strong>自由度的含义</strong>：= 观测数 − 估计的参数个数。双变量回归估计了 $\hat\alpha$、$\hat\beta$ 两个，故自由度 $n - 2$；$k$ 个解释变量（含截距共 $k+1$ 个参数）时为 $n - k - 1$。</li>
 </ul>
